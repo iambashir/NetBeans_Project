@@ -1,4 +1,4 @@
-package bashir1259855;
+package classproject;
 
 import java.util.Arrays;
 import java.util.Scanner;

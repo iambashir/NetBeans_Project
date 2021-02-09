@@ -1,6 +1,6 @@
 
 
-package bashir1259855;
+package classproject;
 
 import java.util.Scanner;
 
