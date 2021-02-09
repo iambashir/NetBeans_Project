@@ -4,7 +4,7 @@ import java.util.*;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TreeSetPractice {
+public class P31_TreeSetPractice {
 
 public static void main(String[] args) {
 

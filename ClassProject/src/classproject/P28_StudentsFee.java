@@ -1,6 +1,6 @@
 package classproject;
 
-public class StudentsFee {
+public class P28_StudentsFee {
 public static void main(String[] args) {
     int lab = 2000;
     int semester = 25200;

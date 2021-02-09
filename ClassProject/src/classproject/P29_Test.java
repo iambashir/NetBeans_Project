@@ -1,5 +1,5 @@
 package classproject;
 
-public class Test {
+public class P29_Test {
 
 }

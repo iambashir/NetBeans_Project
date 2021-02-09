@@ -10,7 +10,7 @@
 package classproject;
 import java.util.*;
         
-public class Trainee {
+public class P30_Trainee {
     
     
 //  for loop
