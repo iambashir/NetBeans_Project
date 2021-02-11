@@ -1,9 +1,8 @@
-package classproject;
+package bashir1259855;
 
 import java.util.Scanner;
 
-public class P06_Max_Min {
-
+public class Q3_HighestLowestNumber {
 public static void main(String[] args) {
     Scanner scan = new Scanner(System.in);
     System.out.println("Enter your Array size: ");
