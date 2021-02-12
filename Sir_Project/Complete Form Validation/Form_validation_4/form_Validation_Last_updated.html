@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Form Validation </title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+
+</head>
+
+<!-- Represented By Bashir Hossain -->
+
+<body style="background-color: #cfcfcd;"> <br><br>
+    <div class="container"
+        style="background-color: #f0f0ef; border-radius: 5px;
+         width: 370px; box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000030;"><br>
+        
+        <form name="demo" action="#" method="get" onsubmit="check(); return false">
+            <div class="form" style="padding: 15px;">
+
+                <legend style="text-align: center;"><h3> Registration Form </h3></legend>
+                       
+                <b> Name : </b> <input  type="text" name="name" id="name" class="form-control">
+                <span class="error_form" id="name_error_message"></span>
+
+                <b> Address : </b> <textarea name="address" id="address" class="form-control"></textarea>
+
+                <b> E-mail : </b> <input name="email" id="email" class="form-control">
+
+                <b> Course : </b><br>
+                <input name="subject" id="subject" value="Oracle" type="radio"> Oracle
+                <input name="subject" id="subject" value="J2EE" type="radio"> J2EE
+                <input name="subject" id="subject" value="NT" type="radio"> NT <br><br>
+
+                <b> Course : </b>
+                <select name="area">
+                    <option selected disabled value="">--- Select ---</option>
+                    <option value="Kakrile">Kakrile</option>
+                    <option value="Motijheel">Motijheel</option>
+                    <option value="Banani">Banani</option>
+                    <option value="Panthapath">Panthapath</option>
+                </select><br><br>
+
+                <b>Education : </b>
+                <input name="course" value="SSC" type="checkbox"> SSC 
+                <input name="course" value="HSC" type="checkbox"> HSC 
+                <input name="course" value="BSC" type="checkbox"> BSC 
+                <input name="course" value="MSC" type="checkbox"> MSC  <br><br>
+
+
+                <p style="text-align: center;">
+                    <input value="Submit" type="submit" class="btn btn-primary">&nbsp;
+                    <input type="reset" value="Reset" class="btn btn-info"></p>
+
+                <div id='output'></div>
+            </div>
+        </form> <br>
+    </div>
+
+
+    <script type="text/javascript">
+        // Origin End
+
+// Validation Start
+const format = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+const mailFormat = /[ `!#$%^&*()+\=\[\]{};':"\\|,<>\/?~]/;
+const pattern = /^[a-zA-Z0-9]*$/;
+const fullNamePattern = /^[ a-zA-Z]*$/;
+const isnum = /^\d+$/;
+
+$(function(){
+$("#name_error_message").hide();
+$("#branch_name_error_message").hide();
+$("#branch_location_error_message").hide();
+
+var name_error = false;
+var branch_name_error = false;
+var branch_location_error = false;
+
+$("#name").focusout(function(){check_name();});
+$("#branch_name").focusout(function(){check_branch_name();}); 
+$("#branch_location").focusout(function(){check_branch_location();});
+
+
+// //Cheking  Branch Code
+function check_name(){
+var name = $("#name").val();
+if (pattern.test(name) && name !== '' && name.length <= 8 && name.length >= 2) {
+$("#name_error_message").hide();
+$("#name").css("border","1px solid #34F458");
+} else {
+$("#name_error_message").html("Enter a valid branch code");
+$("#name_error_message").show();
+$("#name_error_message").css("color","red");
+$("#name").css("border","1px solid #F90A0A");
+error_name = true;
+}
+}
+
+// //cheking Branch name
+// function check_branch_name(){
+// var branch_name = $("#branch_name").val();
+// if (fullNamePattern.test(branch_name) && branch_name !== '' && branch_name.length <= 16 && branch_name.length >= 2) {
+// $("#branch_name_error_message").hide();
+// $("#branch_name").css("border","1px solid #34F458");
+// } else {
+// $("#branch_name_error_message").html("Enter a valid branch name");
+// $("#branch_name_error_message").show();
+// $("#branch_name_error_message").css("color","red");
+// $("#branch_name").css("border","1px solid #F90A0A");
+// error_branch_name = true;
+// }
+// }
+
+// //cheking Branch name
+// function check_branch_location(){
+// var branch_location = $("#branch_location").val();
+// if (fullNamePattern.test(branch_location) && branch_location !== '' && branch_location.length <= 16 && branch_location.length >= 2) {
+// $("#branch_location_error_message").hide();
+// $("#branch_location").css("border","1px solid #34F458");
+// } else {
+// $("#branch_location_error_message").html("Enter a valid branch name");
+// $("#branch_location_error_message").show();
+// $("#branch_location_error_message").css("color","red");
+// $("#branch_location").css("border","1px solid #F90A0A");
+// error_branch_location = true;
+// }
+// }
+
+
+});
+</script>
+
+<!-- Origin Code -->
+<script type="text/javascript">
+$("form").on("submit", function(event){
+event.preventDefault();
+var formValues= $(this).serialize();
+$.post("{{ route('branch.store') }}", formValues, function(data){
+if (data.success == true) {
+ShowSuccessMsg('Success', data.message);
+$("form").trigger("reset");
+} else {
+ShowErrorMsg('Error', data.message);
+}
+});
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <script>
+        const format = /[`!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/;
+        const mailFormat = /[ `!#$%^&*()+\=\[\]{};':"\\|,<>\/?~]/;
+
+        function check() {
+            var flag = true;
+            //cheking student name
+
+            var studentName = document.forms['demo'].elements[0].value;
+            if (studentName == "" || studentName.length > 20) {
+                alert("your name is empty or should not be more than 20 charactes!!!");
+                document.getElementById("name").focus();
+                flag = false; return false;
+            }
+            if (format.test(studentName)) {
+                alert("your name should not contain any special characters..");
+                document.getElementById("name").focus();
+                flag = false; return false;
+            }
+            //checking student address
+            var studentAddress = document.forms['demo'].elements[1].value;
+            if (studentAddress == "") {
+                alert("please fill up your address.");
+                document.getElementById("address").focus();
+                flag = false; return false;
+            }
+            //checking student email
+            var studentEmail = document.forms['demo'].elements[2].value;
+            if (mailFormat.test(studentEmail)) {
+                alert("your email contains some unnecessary symbols or spaces, please check again.");
+                document.getElementById("email").focus();
+                flag = false; return flase;
+            } else {
+                var atTheRaite = studentEmail.indexOf('@');
+                if (atTheRaite > 0) {
+                    var dot = studentEmail.lastIndexOf('.');
+                    if (((dot - atTheRaite) <= 2) || (studentEmail.length - (dot + 1)) < 2) {
+                        alert("please enter a valid email");
+                        document.getElementById("email").focus();
+                        flag = false; return false;
+                    }
+                } else {
+                    alert("please enter a valid email");
+                    document.getElementById("email").focus();
+                    flag = false; return false;
+                }
+            }
+            //checking student course
+            var studenCourse = document.forms['demo'].subject.value;
+            if (studenCourse == "") {
+                alert("please select your course");
+                flag = false; return false;
+            }
+            //checking student area
+            var studentArea = document.forms['demo'].area.value;
+            if (studentArea == "") {
+                alert("please select area");
+                flag = false; return false;
+            }
+            //checking student education    
+            var dLength = document.forms[0].course.length;
+            var studentDegree = "";
+            if (!document.forms['demo'].course[0].checked && 
+            !document.forms['demo'].course[1].checked && 
+            !document.forms['demo'].course[2].checked && !document.forms['demo'].course[3].checked) {
+                
+                alert("please select your educaiton");
+                flag = false; return false;
+            } else {
+                for (var i = 0; i < dLength; i++) {
+                    if (document.forms['demo'].course[i].checked) {
+                        studentDegree += document.forms['demo'].course[i].value + " ";
+                    }
+                }
+            }
+
+
+            if (flag) {
+                //*******for showing value in a new window********
+                var newWindow = window.open("", "", "");
+                newWindow.document.write("<div  style='text-align:center;'><h2>Student's Form Values</h2><p id='value'></p></div>");
+                newWindow.document.getElementById("value").innerHTML = "Student Name is: " + studentName + "<br/> Student Address is: "
+                    + studentAddress + "<br/> Student Email is: " + studentEmail + "<br/> Student Course is: "
+                    + studenCourse + "<br/> Student Area is: " + studentArea + "<br/> Student Degree is: " + studentDegree;
+
+                //*******for showing value in browser body in same window**********
+                // document.("Student Name is: "+studentName+"<br/>");
+                // document.write("Student Address is: "+studentAddress+"<br/>");
+                // document.write("Student Email is: "+studentEmail+"<br/>");
+                // document.write("Student Course is: "+studenCouse+"<br/>");
+                // document.write("Student Area is: "+studentArea+"<br/>");
+                // document.write("Student Degrees are: "+studentDegree+"<br/>");
+
+
+                //*******for showing value in console***********
+                // console.log(studentName);
+                // console.log(studentAddress);
+                // console.log(studentEmail);
+                // console.log(studenCouse);
+                // console.log(studentArea);
+                // console.log(studentDegree);
+            }
+        } -->
+    </script>
+    <script src="jsRestriction.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.3/dist/jquery.validate.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+    <script src="{{ asset('app-assets/js/jquery.fileupload.js') }}"></script>
+    <script
+    src="https://code.jquery.com/jquery-3.5.1.js"
+    integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc="
+    crossorigin="anonymous">
+</script>
+</body>
+
+</html>

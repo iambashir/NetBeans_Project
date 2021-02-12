@@ -1,0 +1,12 @@
+1. Super Admin/Admin will give access yes/no - employee_table
+
+firebase id -> user+employee
+
+
+2. new table to store next firebase_ids
+
+3. if switch off -> boot event switch on off + report
+
+4. sql backup option auto/manual
+
+
