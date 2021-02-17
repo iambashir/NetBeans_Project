@@ -1,6 +1,6 @@
 package classproject;
 //import java.lang.Tread;
-public class RaceConditionDemo {
+public class P34a3_RaceConditionDemo {
 int counter = 0;
   public  void incrementCounter(){
     try {
@@ -15,7 +15,7 @@ int counter = 0;
     return counter;
   }
   public static void main(String[] args) {
-    RaceConditionDemo rc = new RaceConditionDemo();
+    P34a3_RaceConditionDemo rc = new P34a3_RaceConditionDemo();
     for(int i = 0; i < 10; i++){
       new Thread(new Runnable() {			
         @Override
