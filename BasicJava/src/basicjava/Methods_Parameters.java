@@ -1,24 +1,24 @@
 
 // Java Method Parameters Practice - 01
 
-//package basicjava;
-//
-//public class Methods_Parameters{
-//
-//static void myMethod(){
-//    for (int i = 0; i < 5; i=i+2) {   
-// 
-//    System.out.println("Age: " + i);
-// }
-//    
-//}
-//    public static void main(String[] args) {
-//        myMethod();
-//        myMethod();
-//        myMethod();
-//    }
-//}
-//    
+package basicjava;
+
+public class Methods_Parameters{
+
+static void myMethod(){
+    for (int i = 0; i < 5; i=i+2) {   
+ 
+    System.out.println("Age: " + i);
+ }
+    
+}
+    public static void main(String[] args) {
+        myMethod();
+        myMethod();
+        myMethod();
+    }
+}
+   
     
 
 // Java Method Parameters Practice - 02
@@ -42,18 +42,18 @@
     
     // Java Method Parameters Practice - 03
 
-package basicjava;
-public class Methods_Parameters{
-
-    static int myMethod(int x, int y , int k){
-        return x + y + k ;
-        
-    }
-
-    public static void main(String[] args) {
-      int z = myMethod(5,8, 2);  
-        System.out.println(z);     
-        
-    }
-
-}
+//package basicjava;
+//public class Methods_Parameters{
+//
+//    static int myMethod(int x, int y , int k){
+//        return x + y + k ;
+//        
+//    }
+//
+//    public static void main(String[] args) {
+//      int z = myMethod(5,8, 2);  
+//        System.out.println(z);     
+//        
+//    }
+//
+//}
