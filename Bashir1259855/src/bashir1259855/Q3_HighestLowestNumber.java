@@ -4,15 +4,21 @@ import java.util.Scanner;
 
 public class Q3_HighestLowestNumber {
 public static void main(String[] args) {
+    
+    
     Scanner scan = new Scanner(System.in);
     System.out.println("Enter your Array size: ");
     int n = scan.nextInt();
     int[] arr = new int[n];
+    
+    
     for (int i = 0; i < n; i++) {
         System.out.println("Enter " + i + " position's value: ");
         arr[i] = scan.nextInt();
     }
 
+    
+    
     //calling methods
     System.out.println("Highest value is: " + findMax(arr));
     System.out.println("Lowest value is: " + findMin(arr));
