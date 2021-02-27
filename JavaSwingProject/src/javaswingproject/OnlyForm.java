@@ -13,7 +13,7 @@ public class OnlyForm extends javax.swing.JFrame {
 
         jLabel2 = new javax.swing.JLabel();
         my_address = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        submissionButton = new javax.swing.JButton();
         jTextField2 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
         my_name = new javax.swing.JTextField();
@@ -38,12 +38,18 @@ public class OnlyForm extends javax.swing.JFrame {
             }
         });
 
+<<<<<<< HEAD
         jButton2.setBackground(new java.awt.Color(0, 102, 102));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton2.setText("Save");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
+=======
+        submissionButton.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        submissionButton.setText("Save");
+        submissionButton.addActionListener(new java.awt.event.ActionListener() {
+>>>>>>> 00e96d3b26b04223750836a2453da195302d1e70
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                submissionButtonActionPerformed(evt);
             }
         });
 
@@ -86,6 +92,11 @@ public class OnlyForm extends javax.swing.JFrame {
         jScrollPane1.setViewportView(textArea);
 
         int_id.setBackground(new java.awt.Color(255, 204, 204));
+        int_id.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                int_idActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -109,7 +120,7 @@ public class OnlyForm extends javax.swing.JFrame {
                 .addContainerGap(150, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(submissionButton)
                 .addGap(293, 293, 293))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -140,7 +151,7 @@ public class OnlyForm extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2)
+                .addComponent(submissionButton)
                 .addContainerGap(99, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
@@ -164,29 +175,28 @@ public class OnlyForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_my_nameActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
- 
+    private void submissionButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submissionButtonActionPerformed
 
         
-        
+
         // Added my value
         int id = Integer.parseInt(int_id.getText());
         String name = my_name.getText();
         String address = my_address.getText();
         String email = my_email.getText();
-        
-        textArea.setText("ID is  : \t" + id + "\nName is : \t"  + name  +  
-                         "\nAddress is : \t" +address+ "\nEmail is : \t" +email  );
-        
-        
 
-
+        textArea.setText("ID is  \t:  " + id + "\nName is \t:  " + name
+                + "\nAddress is \t:  " + address + "\nEmail is \t:  " + email);
+        
+        
 
 // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_submissionButtonActionPerformed
 
-    
-    
+    private void int_idActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_int_idActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_int_idActionPerformed
+
 //  try{  
 //Class.forName("com.mysql.jdbc.Driver");  
 //Connection con=DriverManager.getConnection(  
@@ -199,11 +209,6 @@ public class OnlyForm extends javax.swing.JFrame {
 //con.close();  
 //}catch(Exception e){ System.out.println(e);}  
 //    
-    
-    
-    
-    
-    
     /**
      * @param args the command line arguments
      */
@@ -241,7 +246,6 @@ public class OnlyForm extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField int_id;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -253,6 +257,7 @@ public class OnlyForm extends javax.swing.JFrame {
     private javax.swing.JTextField my_address;
     private javax.swing.JTextField my_email;
     private javax.swing.JTextField my_name;
+    private javax.swing.JButton submissionButton;
     private javax.swing.JTextArea textArea;
     // End of variables declaration//GEN-END:variables
 }
