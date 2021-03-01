@@ -6,7 +6,7 @@ public class Q2_MultiDimentionalArraySorting {
 public static void main(String[] args) {
     int[][] a = {{1, 99, 91, 11, 44},
                 {0, 10, 9, 9, 11},
-                {3, 23, 32, 5, 20},
+                {3, 23, 21, 5, 20},
                 {13, 4, 45, 66, 33},
                 {11, 0, 1, 20, 56}
                 };

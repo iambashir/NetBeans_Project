@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Q4_PrimeNumber {
  public static void main(String args[]){  
      Scanner input = new Scanner(System.in);
-     System.out.println("Enter ur number : " );
+     System.out.print("Enter Your number : " );
     int n = input.nextInt();
      
   int i,m=0,flag=0;      
