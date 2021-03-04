@@ -29,11 +29,9 @@ public SignIn() {
 
         userName = new javax.swing.JLabel();
         userPassword = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        userNameField = new javax.swing.JTextArea();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        UserPasswordField = new javax.swing.JTextArea();
         register = new javax.swing.JButton();
+        PasswordField = new javax.swing.JPasswordField();
+        UserName = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -43,18 +41,16 @@ public SignIn() {
         userPassword.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         userPassword.setText("Password :");
 
-        userNameField.setColumns(20);
-        userNameField.setRows(5);
-        jScrollPane1.setViewportView(userNameField);
-
-        UserPasswordField.setColumns(20);
-        UserPasswordField.setRows(5);
-        jScrollPane2.setViewportView(UserPasswordField);
-
         register.setBackground(new java.awt.Color(153, 204, 255));
         register.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         register.setForeground(new java.awt.Color(0, 102, 102));
         register.setText("Register");
+
+        PasswordField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PasswordFieldActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -67,32 +63,38 @@ public SignIn() {
                     .addComponent(userName, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE))
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2))
+                    .addComponent(PasswordField)
+                    .addComponent(UserName))
                 .addGap(75, 75, 75))
             .addGroup(layout.createSequentialGroup()
-                .addGap(106, 106, 106)
+                .addGap(130, 130, 130)
                 .addComponent(register, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(146, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(48, 48, 48)
+                .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(userName, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(UserName, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(userPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(45, 45, 45)
+                    .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(44, 44, 44)
                 .addComponent(register, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(72, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void PasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_PasswordFieldActionPerformed
 
 /**
  * @param args the command line arguments
@@ -130,12 +132,10 @@ public static void main(String args[]) {
 }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextArea UserPasswordField;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JPasswordField PasswordField;
+    private javax.swing.JTextField UserName;
     private javax.swing.JButton register;
     private javax.swing.JLabel userName;
-    private javax.swing.JTextArea userNameField;
     private javax.swing.JLabel userPassword;
     // End of variables declaration//GEN-END:variables
 }
