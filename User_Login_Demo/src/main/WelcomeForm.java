@@ -7,14 +7,11 @@ package main;
  */
 public class WelcomeForm extends javax.swing.JFrame {
 
-    
-     // Creates new form WelcomeForm
-     
+// Creating Welcome form
     public WelcomeForm() {
         initComponents();
     }
 
-   
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
