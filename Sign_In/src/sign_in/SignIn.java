@@ -5,11 +5,16 @@
  */
 package sign_in;
 
+import com.mysql.jdbc.PreparedStatement;
+import com.mysql.jdbc.ResultSet;
+import java.sql.SQLException;
+
 /**
  *
  * @author Bashir Hossain
  */
 public class SignIn extends javax.swing.JFrame {
+private DatabaseConnection con;
 
 /**
  * Creates new form SignIn
@@ -45,6 +50,11 @@ public SignIn() {
         register.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         register.setForeground(new java.awt.Color(0, 102, 102));
         register.setText("Register");
+        register.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerActionPerformed(evt);
+            }
+        });
 
         PasswordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,6 +105,29 @@ public SignIn() {
     private void PasswordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PasswordFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_PasswordFieldActionPerformed
+
+    private void registerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerActionPerformed
+        try {
+      ResultSet rs = null;
+      PreparedStatement ps = null;
+      if(!con.connection().isClosed()){
+          System.out.println("conencted");
+      }
+      ps = (PreparedStatement) con.connection().prepareStatement("select * from bashir.user_login");
+//      ps.setString(1, userName.getText());
+//      ps.setString(2, userPassword.getText());
+
+      rs = (ResultSet) ps.executeQuery();
+
+      if (rs.next()) {
+          System.out.println(rs.getString(1));
+        
+      }
+
+    } catch (SQLException | NumberFormatException e) {
+        e.getMessage();
+    }
+    }//GEN-LAST:event_registerActionPerformed
 
 /**
  * @param args the command line arguments
