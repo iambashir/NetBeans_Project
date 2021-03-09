@@ -1,0 +1,56 @@
+-- MySQL Administrator dump 1.4
+--
+-- ------------------------------------------------------
+-- Server version	5.1.73-community
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+
+
+--
+-- Create schema bashir
+--
+
+CREATE DATABASE IF NOT EXISTS bashir;
+USE bashir;
+
+--
+-- Definition of table `student_data`
+--
+
+DROP TABLE IF EXISTS `student_data`;
+CREATE TABLE `student_data` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `Name` varchar(45) NOT NULL,
+  `Email` varchar(45) NOT NULL,
+  `Address` varchar(45) NOT NULL,
+  `Mobile` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=12346 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `student_data`
+--
+
+/*!40000 ALTER TABLE `student_data` DISABLE KEYS */;
+INSERT INTO `student_data` (`id`,`Name`,`Email`,`Address`,`Mobile`) VALUES 
+ (12345,'Bashir hossain','bashir@gmail.com','Rasulpur','01748957005');
+/*!40000 ALTER TABLE `student_data` ENABLE KEYS */;
+
+
+
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

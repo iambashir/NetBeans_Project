@@ -3,14 +3,14 @@ package dao;
 import java.sql.*;
 
 public class DatabaseConnector {
-    public static Connection getConnection(){
-        try {
-            Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bashirs_project1", "root", "1234");
-            return con;
-        } catch (Exception e) {
-            System.err.println("Connection Error"+ e);
-            return null;
+   public static Connection getConnection(){
+      try {
+         Class.forName("com.mysql.jdbc.Driver");
+         Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bashir_training_management", "root", "1234");
+         return con;
+        }catch (Exception e) {
+         System.err.println("Connection Error" + e);
+         return null;
         }
     }
 }
