@@ -19,7 +19,7 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author MTR
+ * @author Bashir Hossain
  */
 public class Student extends javax.swing.JFrame {
   MySqlConnection con = new MySqlConnection();
