@@ -1,0 +1,23 @@
+File f = new File("f:\\" + folder);
+boolean value = f.mkdir;
+if(value == true){
+JOptionPane.showMessageDialogue(rootpane,"File created !")
+}else{
+("File is not created !");
+}
+
+f = new File("f:\\" + folder +"\\" + file+ "." + extension);
+f.createNewFile();
+
+FileWriter w = new FileWriter("f:\\"+ folder + "\\"+file+"."+extension);
+w.write(text);
+
+//for read
+BufferedReader r = new BufferedReader(new FileReader("f:\\" + folder + "\\" + file +"."+extension));
+String s;
+While((s = r.readLine()) != null){
+txtArea.setText(s);
+r.close();
+}
+DefaultTableModel tm = (DefaultTableModel)showTable.getModwl();
+tm.addRow(new Object[]{name,country, age, gender})
