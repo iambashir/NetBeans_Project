@@ -7,7 +7,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.User;
-import dao.DbConnerction;
+import dao.DbConnection;
 
 public class User_Service {
 
@@ -17,7 +17,7 @@ public class User_Service {
     public int addUser(User u) {
         try {
 
-            con = DbConnerction.getConnection();
+            con = DbConnection.getConnection();
             smt = con.createStatement();
             String query = "Insert into user (Name,Age,User_name,Password)Values('" + u.getName() + "','" + u.getAge() + "','" + u.getUsername() + "','" + u.getPassword() + "')";
             return smt.executeUpdate(query);
@@ -31,7 +31,7 @@ public class User_Service {
     public int loginUser(User u) {
         try {
             //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-            con = DbConnerction.getConnection();
+            con = DbConnection.getConnection();
             smt = con.createStatement();
             String sql = "Select * from user where User_name = '" + u.getUsername() + "'";
             ResultSet rs = smt.executeQuery(sql);

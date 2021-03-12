@@ -29,7 +29,7 @@ public class LoginForm extends javax.swing.JFrame {
         UserNameField = new javax.swing.JTextField();
         PasswordField = new javax.swing.JTextField();
         LoginButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        resetButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login Form");
@@ -64,13 +64,13 @@ public class LoginForm extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(0, 51, 51));
-        jButton1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Reset");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        resetButton.setBackground(new java.awt.Color(0, 51, 51));
+        resetButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        resetButton.setForeground(new java.awt.Color(255, 255, 255));
+        resetButton.setText("Reset");
+        resetButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                resetButtonActionPerformed(evt);
             }
         });
 
@@ -91,7 +91,7 @@ public class LoginForm extends javax.swing.JFrame {
                             .addGroup(LabelFieldsetLayout.createSequentialGroup()
                                 .addComponent(LoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(resetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(LabelFieldsetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(UserNameField, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
                                 .addComponent(PasswordField)))))
@@ -112,8 +112,8 @@ public class LoginForm extends javax.swing.JFrame {
                     .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(62, 62, 62)
                 .addGroup(LabelFieldsetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(LoginButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(resetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(LoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(85, 85, 85))
         );
 
@@ -148,12 +148,12 @@ public class LoginForm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_LoginButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void resetButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButtonActionPerformed
         // TODO add your handling code here:
         UserNameField.setText("");
         PasswordField.setText("");
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_resetButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -196,8 +196,8 @@ public class LoginForm extends javax.swing.JFrame {
     private javax.swing.JButton LoginButton;
     private javax.swing.JTextField PasswordField;
     private javax.swing.JTextField UserNameField;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel password;
+    private javax.swing.JButton resetButton;
     // End of variables declaration//GEN-END:variables
 }
