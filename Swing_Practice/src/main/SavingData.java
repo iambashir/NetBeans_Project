@@ -1,5 +1,6 @@
 package main;
 
+import java.awt.Color;
 import java.sql.*;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
@@ -12,6 +13,8 @@ public class SavingData extends javax.swing.JFrame {
 
     public SavingData() {
         initComponents();
+//========================Frame colour change=========================================//
+        getContentPane().setBackground(java.awt.Color.orange);
     }
 
     @SuppressWarnings("unchecked")
@@ -25,9 +28,13 @@ public class SavingData extends javax.swing.JFrame {
         saveButton = new javax.swing.JButton();
         resetField = new javax.swing.JButton();
         exitButton = new javax.swing.JButton();
+        loginButton = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(204, 204, 204));
+        setTitle("Login Window");
+        setBackground(new java.awt.Color(0, 153, 153));
 
         nameLB.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         nameLB.setForeground(new java.awt.Color(0, 102, 102));
@@ -80,6 +87,23 @@ public class SavingData extends javax.swing.JFrame {
             }
         });
 
+        loginButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        loginButton.setForeground(new java.awt.Color(0, 102, 102));
+        loginButton.setText("Login");
+        loginButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginButtonActionPerformed(evt);
+            }
+        });
+
+        jButton2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(0, 102, 102));
+        jButton2.setText("jButton2");
+
+        jButton3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(0, 102, 102));
+        jButton3.setText("jButton3");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -100,13 +124,24 @@ public class SavingData extends javax.swing.JFrame {
                             .addComponent(rollField)
                             .addComponent(nameField, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(107, 107, 107)
-                        .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
-                        .addComponent(resetField, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(42, 42, 42)
-                        .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(127, Short.MAX_VALUE))
+                        .addGap(56, 56, 56)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(37, 37, 37)
+                                .addComponent(resetField, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, 0)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(29, 29, 29)
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -124,7 +159,12 @@ public class SavingData extends javax.swing.JFrame {
                     .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(resetField, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addGap(47, 47, 47)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
 
         pack();
@@ -133,7 +173,7 @@ public class SavingData extends javax.swing.JFrame {
 
     
     
-                         //My Code
+    //===============================Inserting Data=====================================//                    
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
     try{
     //======================Same code for every connection==============================//
@@ -147,7 +187,7 @@ public class SavingData extends javax.swing.JFrame {
     prst.setString(2, nameField.getText()); // this is for number 2 field
 
     prst.executeUpdate();
-    JOptionPane.showMessageDialog(null, "Data saved successfully"); //after submission popup massage window
+    JOptionPane.showMessageDialog(null, "Saved successfully"); //after submission popup massage window
     con.close(); //after completing task close the popup window
     } 
     catch(Exception e)
@@ -184,6 +224,12 @@ public class SavingData extends javax.swing.JFrame {
             System.exit(0);
         }  
     }//GEN-LAST:event_exitButtonActionPerformed
+
+    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+         //====================Moving one jframe to another jfram===================//
+        this.setVisible(false);
+        new LoginForm().setVisible(true);
+    }//GEN-LAST:event_loginButtonActionPerformed
 
     //===================Swing default code Start===========================//
     /**
@@ -223,6 +269,9 @@ public class SavingData extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton exitButton;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton loginButton;
     private javax.swing.JTextField nameField;
     private javax.swing.JLabel nameLB;
     private javax.swing.JButton resetField;

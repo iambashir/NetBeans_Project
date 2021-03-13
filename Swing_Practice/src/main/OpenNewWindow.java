@@ -66,6 +66,7 @@ public class OpenNewWindow extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     
@@ -78,8 +79,7 @@ public class OpenNewWindow extends javax.swing.JFrame {
     }//GEN-LAST:event_DashboardButtonActionPerformed
 
     private void homeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButtonActionPerformed
-        // TODO add your handling code here:
-        //open New window
+    //====================Moving one jframe to another jfram===================//
         this.setVisible(false);
         new SavingData().setVisible(true);
     }//GEN-LAST:event_homeButtonActionPerformed

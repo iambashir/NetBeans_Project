@@ -1,0 +1,98 @@
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.JOptionPane;
+//==================================================================================================================== 
+
+private void jbtnTotalCost1ActionPerformed(java.awt.event.ActionEvent evt) {                                               
+
+        SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd");
+        Date Date_of_Birth = null;
+        Date Current_Date  = null;
+        try{
+            Date_of_Birth = format.parse(format.format(jDateChooser1.getDate()));
+            Current_Date = format.parse(format.format(jDateChooser2.getDate()));
+            
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+        }
+        long Checkdiff = Current_Date.getTime() - Date_of_Birth.getTime();
+        int No_of_Days = (int)(Checkdiff /1000 / 60 /60 /24);
+        
+        
+        
+                jlblDays.setText(Integer.toString(No_of_Days));
+
+                int Age = Integer.parseInt(jlblDays.getText());
+                jlblAge.setText(Integer.toString((Age/365)));    
+                int months = Integer.parseInt(jlblAge.getText());
+                jlblMonths.setText(Integer.toString(months * 12));
+
+                int Weeks = Integer.parseInt(jlblDays.getText());
+                jlblWeeks.setText(Integer.toString(Weeks / 7));
+
+                int Hours = Integer.parseInt(jlblDays.getText());
+                jlblHours.setText(Integer.toString(Hours * 24));
+
+                int Minutes = Integer.parseInt(jlblHours.getText());
+                jlblMinutes.setText(Integer.toString(Minutes * 60));
+
+                int Seconds = Integer.parseInt(jlblMinutes.getText());
+                jlblSeconds.setText(Integer.toString(Seconds * 60));    
+        
+        
+        //=======================================================================
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.addRow(new Object[]{
+            
+            jtxtFirstname.getText(),
+            jtxtSurname.getText(),
+            jDateChooser1.getDate(),
+            jDateChooser2.getDate(),
+            jlblDays.getText(),
+            jlblAge.getText(),
+            jlblMonths.getText(),
+            jlblWeeks.getText(),
+            jlblHours.getText(),            
+            jlblMinutes.getText(),
+            jlblSeconds.getText(),
+            
+            
+          
+        });
+    }   
+//====================================================================================================================   
+private void jbtnResetActionPerformed(java.awt.event.ActionEvent evt) {                                          
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        model.setRowCount(0);
+        
+        jtxtFirstname.setText(null);
+        jtxtSurname.setText(null);
+        jDateChooser1.setDate(null);
+        jDateChooser2.setDate(null);
+        jlblAge.setText(null);
+        jlblHours.setText(null);
+        jlblDays.setText(null);
+        jlblMinutes.setText(null);
+        jlblSeconds.setText(null);
+        jlblWeeks.setText(null);
+        jlblMonths.setText(null); 
+    
+       
+    }  
+
+//====================================================================================================================                                       
+private JFrame frame;
+    private void jbtnExitActionPerformed(java.awt.event.ActionEvent evt) {                                         
+        frame = new JFrame("Exit");
+        if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to exit","Hotel Management System",
+            JOptionPane.YES_NO_OPTION) == JOptionPane.YES_NO_OPTION ){
+        System.exit(0);
+        }
+    }                    
+                                        
+
+    
