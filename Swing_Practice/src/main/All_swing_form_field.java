@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package all_swing_field;
+package main;
 
 /**
  *
@@ -42,7 +42,6 @@ public All_swing_form_field() {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         addressField = new javax.swing.JTextField();
-        countryField = new javax.swing.JComboBox();
         developmentBar = new javax.swing.JProgressBar();
         jCheckBox1 = new javax.swing.JCheckBox();
         jCheckBox2 = new javax.swing.JCheckBox();
@@ -75,13 +74,6 @@ public All_swing_form_field() {
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
-
-        countryField.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        countryField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                countryFieldActionPerformed(evt);
-            }
-        });
 
         jCheckBox1.setText("English");
 
@@ -119,7 +111,6 @@ public All_swing_form_field() {
                             .addComponent(userField, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(addressField)
                             .addComponent(developmentBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(countryField, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jRadioButton1)
@@ -156,11 +147,9 @@ public All_swing_form_field() {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(address)
                     .addComponent(addressField, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(country)
-                    .addComponent(countryField, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                .addGap(37, 37, 37)
+                .addComponent(country)
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sex)
                     .addComponent(jRadioButton1)
@@ -228,7 +217,6 @@ public static void main(String args[]) {
     private javax.swing.JLabel address;
     private javax.swing.JTextField addressField;
     private javax.swing.JLabel country;
-    private javax.swing.JComboBox countryField;
     private javax.swing.JLabel development;
     private javax.swing.JProgressBar developmentBar;
     private javax.swing.JButton jButton1;

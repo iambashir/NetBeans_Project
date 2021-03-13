@@ -267,6 +267,9 @@ public class StudentRegistrationForm extends javax.swing.JFrame {
             Logger.getLogger(StudentRegistrationForm.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    
+    
     private void insertButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_insertButtonMouseClicked
         // TODO add your handling code here:
         String sname = nameField.getText();
