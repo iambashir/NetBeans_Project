@@ -5,6 +5,8 @@
  */
 package all_swing_field;
 
+import java.awt.event.ActionEvent;
+
 /**
  *
  * @author Bashir Hossain
@@ -31,7 +33,6 @@ public All_swing_form_field() {
         Name = new javax.swing.JLabel();
         Password = new javax.swing.JLabel();
         address = new javax.swing.JLabel();
-        country = new javax.swing.JLabel();
         sex = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
@@ -42,7 +43,6 @@ public All_swing_form_field() {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         addressField = new javax.swing.JTextField();
-        countryField = new javax.swing.JComboBox();
         developmentBar = new javax.swing.JProgressBar();
         jCheckBox1 = new javax.swing.JCheckBox();
         jCheckBox2 = new javax.swing.JCheckBox();
@@ -60,8 +60,6 @@ public All_swing_form_field() {
 
         address.setText("Address :");
 
-        country.setText("Country :");
-
         sex.setText("Sex :");
 
         jLabel9.setText("Language : ");
@@ -76,10 +74,9 @@ public All_swing_form_field() {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        countryField.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        countryField.addActionListener(new java.awt.event.ActionListener() {
+        addressField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                countryFieldActionPerformed(evt);
+                addressFieldActionPerformed(evt);
             }
         });
 
@@ -108,7 +105,6 @@ public All_swing_form_field() {
                                 .addComponent(Name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jLabel9)
                             .addComponent(sex)
-                            .addComponent(country)
                             .addComponent(address)
                             .addComponent(Password)
                             .addComponent(development, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -119,7 +115,6 @@ public All_swing_form_field() {
                             .addComponent(userField, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(addressField)
                             .addComponent(developmentBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(countryField, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jRadioButton1)
@@ -156,11 +151,7 @@ public All_swing_form_field() {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(address)
                     .addComponent(addressField, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(country)
-                    .addComponent(countryField, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                .addGap(94, 94, 94)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sex)
                     .addComponent(jRadioButton1)
@@ -184,6 +175,10 @@ public All_swing_form_field() {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void addressFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addressFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_addressFieldActionPerformed
 
 /**
  * @param args the command line arguments
@@ -227,8 +222,6 @@ public static void main(String args[]) {
     private javax.swing.JPasswordField PasswordField;
     private javax.swing.JLabel address;
     private javax.swing.JTextField addressField;
-    private javax.swing.JLabel country;
-    private javax.swing.JComboBox countryField;
     private javax.swing.JLabel development;
     private javax.swing.JProgressBar developmentBar;
     private javax.swing.JButton jButton1;

@@ -300,7 +300,7 @@ public class StudentRegistrationForm extends javax.swing.JFrame {
     }//GEN-LAST:event_insertButtonMouseClicked
 
     
-    //=====================Show data by clicking database table============================//
+   //=====================Show data by clicking database table============================//
     private void StudentTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_StudentTableMouseClicked
         DefaultTableModel dr = (DefaultTableModel) StudentTable.getModel();
         int sindex = StudentTable.getSelectedRow();
