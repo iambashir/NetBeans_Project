@@ -69,7 +69,7 @@ public class Student extends javax.swing.JFrame {
         btnsend = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtarea = new javax.swing.JTextArea();
-        btnget = new javax.swing.JButton();
+        showButton = new javax.swing.JButton();
         txtinputid = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         jtabledata = new javax.swing.JTable();
@@ -125,13 +125,13 @@ public class Student extends javax.swing.JFrame {
         txtarea.setRows(5);
         jScrollPane1.setViewportView(txtarea);
 
-        btnget.setBackground(new java.awt.Color(0, 102, 102));
-        btnget.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        btnget.setForeground(new java.awt.Color(255, 255, 255));
-        btnget.setText("Show Data");
-        btnget.addActionListener(new java.awt.event.ActionListener() {
+        showButton.setBackground(new java.awt.Color(0, 102, 102));
+        showButton.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        showButton.setForeground(new java.awt.Color(255, 255, 255));
+        showButton.setText("Show Data");
+        showButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btngetActionPerformed(evt);
+                showButtonActionPerformed(evt);
             }
         });
 
@@ -250,7 +250,7 @@ public class Student extends javax.swing.JFrame {
                                 .addGap(26, 26, 26)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(delete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnget, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(showButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -297,7 +297,7 @@ public class Student extends javax.swing.JFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(btnsend, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
-                                    .addComponent(btnget, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(showButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(refresh, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -373,11 +373,12 @@ public class Student extends javax.swing.JFrame {
     }
   }//GEN-LAST:event_btnsendActionPerformed
 
-  private void btngetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngetActionPerformed
+  private void showButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showButtonActionPerformed
     try {
       ResultSet rs = null;
       PreparedStatement ps = null;
       ps = (PreparedStatement) con.connection().prepareStatement("select * from bashir.student_data where id = ?");
+      
       ps.setInt(1, Integer.parseInt(txtinputid.getText()));
 
       rs = (ResultSet) ps.executeQuery();
@@ -395,7 +396,7 @@ public class Student extends javax.swing.JFrame {
 
     } catch (SQLException | NumberFormatException e) {
     }
-  }//GEN-LAST:event_btngetActionPerformed
+  }//GEN-LAST:event_showButtonActionPerformed
 
   
   
@@ -490,7 +491,6 @@ public class Student extends javax.swing.JFrame {
   }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnget;
     private javax.swing.JButton btnsend;
     private javax.swing.JButton delete;
     private javax.swing.JTextField deleteById;
@@ -506,6 +506,7 @@ public class Student extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable jtabledata;
     private javax.swing.JButton refresh;
+    private javax.swing.JButton showButton;
     private javax.swing.JLabel student_information;
     private javax.swing.JTextField txtaddress;
     private javax.swing.JTextArea txtarea;

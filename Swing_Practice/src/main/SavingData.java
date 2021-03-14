@@ -12,12 +12,18 @@ import net.proteanit.sql.DbUtils;
 */
 public class SavingData extends javax.swing.JFrame {
 
+    //========= RESET METHOD CRATED TO CALL FROM ANYWHERE ==========//
+    public void reset(){
+    rollField.setText("");
+    nameField.setText("");
+    }
+
     public SavingData() {
     initComponents();
     //======================== JFRAME COLOUR CHANGE =========================================//
     getContentPane().setBackground(java.awt.Color.orange);
     //============= CALLING DATABASE TABLE TO ADJUSTING FORM TABLE ========================//
-    DisplayTable();
+    DisplayTable();//Calling The table
     }
     
     
@@ -59,7 +65,9 @@ public class SavingData extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         dbTable = new javax.swing.JTable();
         refreshButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        showDataButton = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        textArea = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login Window");
@@ -89,7 +97,7 @@ public class SavingData extends javax.swing.JFrame {
             }
         });
 
-        saveButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        saveButton.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         saveButton.setForeground(new java.awt.Color(0, 102, 102));
         saveButton.setText("Save");
         saveButton.addActionListener(new java.awt.event.ActionListener() {
@@ -98,7 +106,7 @@ public class SavingData extends javax.swing.JFrame {
             }
         });
 
-        resetField.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        resetField.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         resetField.setForeground(new java.awt.Color(0, 102, 102));
         resetField.setText("Reset");
         resetField.addActionListener(new java.awt.event.ActionListener() {
@@ -107,7 +115,7 @@ public class SavingData extends javax.swing.JFrame {
             }
         });
 
-        exitButton.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        exitButton.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         exitButton.setForeground(new java.awt.Color(0, 102, 102));
         exitButton.setText("Exit");
         exitButton.addActionListener(new java.awt.event.ActionListener() {
@@ -116,7 +124,7 @@ public class SavingData extends javax.swing.JFrame {
             }
         });
 
-        loginButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        loginButton.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         loginButton.setForeground(new java.awt.Color(0, 102, 102));
         loginButton.setText("Login");
         loginButton.addActionListener(new java.awt.event.ActionListener() {
@@ -125,7 +133,7 @@ public class SavingData extends javax.swing.JFrame {
             }
         });
 
-        searchButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        searchButton.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         searchButton.setForeground(new java.awt.Color(0, 102, 102));
         searchButton.setText("Search");
         searchButton.addActionListener(new java.awt.event.ActionListener() {
@@ -134,7 +142,7 @@ public class SavingData extends javax.swing.JFrame {
             }
         });
 
-        updateButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        updateButton.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         updateButton.setForeground(new java.awt.Color(0, 102, 102));
         updateButton.setText("Update");
         updateButton.addActionListener(new java.awt.event.ActionListener() {
@@ -143,6 +151,8 @@ public class SavingData extends javax.swing.JFrame {
             }
         });
 
+        deleteButton.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        deleteButton.setForeground(new java.awt.Color(0, 102, 102));
         deleteButton.setText("Delete");
         deleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -163,79 +173,96 @@ public class SavingData extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(dbTable);
 
+        refreshButton.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        refreshButton.setForeground(new java.awt.Color(0, 102, 102));
         refreshButton.setText("Refresh");
+        refreshButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                refreshButtonActionPerformed(evt);
+            }
+        });
 
-        jButton1.setText("jButton1");
+        showDataButton.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
+        showDataButton.setForeground(new java.awt.Color(0, 102, 102));
+        showDataButton.setText("Show Data");
+        showDataButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showDataButtonActionPerformed(evt);
+            }
+        });
+
+        textArea.setColumns(20);
+        textArea.setRows(5);
+        jScrollPane2.setViewportView(textArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(68, 68, 68)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(rollLB, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
+                        .addGap(55, 55, 55)
+                        .addComponent(rollField, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(nameLB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(38, 38, 38)
+                        .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(97, 97, 97)
-                                .addComponent(rollLB)
-                                .addGap(45, 45, 45))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(nameLB, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(rollField)
-                            .addComponent(nameField, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(107, 107, 107)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(deleteButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(saveButton, javax.swing.GroupLayout.DEFAULT_SIZE, 108, Short.MAX_VALUE)
-                            .addComponent(loginButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(37, 37, 37)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(resetField, javax.swing.GroupLayout.DEFAULT_SIZE, 98, Short.MAX_VALUE)
-                            .addComponent(searchButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(refreshButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(47, 47, 47)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(exitButton, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                            .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(resetField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(searchButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(refreshButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(60, 60, 60)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(updateButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(21, 21, 21))
+                            .addComponent(exitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(showDataButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(132, 132, 132)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(rollField, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(rollLB))
-                        .addGap(52, 52, 52)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(nameLB, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(66, 66, 66)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(resetField, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(47, 47, 47)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(updateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(deleteButton, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
-                    .addComponent(refreshButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(45, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(rollLB)
+                            .addComponent(rollField, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(19, 19, 19)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nameLB, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(resetField, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(updateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(refreshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(showDataButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
@@ -244,7 +271,7 @@ public class SavingData extends javax.swing.JFrame {
 
     
     
-    //=============================== INSERTING DATA =====================================//                    
+    //=============================== INSERTING/SAVING/ADDING DATA =====================================//                    
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
     
     try{
@@ -260,6 +287,12 @@ public class SavingData extends javax.swing.JFrame {
 
     prst.executeUpdate();
     JOptionPane.showMessageDialog(null, "Saved successfully"); //after submission popup massage window
+    
+    
+    
+    DisplayTable(); //Afetr saving refresh the table by calling this Method
+    
+    
     con.close(); //after completing task close the popup window
     } 
     catch(Exception e)
@@ -285,6 +318,8 @@ public class SavingData extends javax.swing.JFrame {
     private void resetFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetFieldActionPerformed
     rollField.setText("");
     nameField.setText("");
+    
+    // OR WRITE reset();
     }//GEN-LAST:event_resetFieldActionPerformed
 
     
@@ -352,6 +387,9 @@ public class SavingData extends javax.swing.JFrame {
     
     prst.executeUpdate();
     JOptionPane.showMessageDialog(null, "Record Updated successfully");
+    
+    
+    DisplayTable();//Refresh Table
    
     con.close(); 
     }catch(Exception e)
@@ -378,12 +416,59 @@ public class SavingData extends javax.swing.JFrame {
     rollField.setText("");
     nameField.setText("");
     
+    DisplayTable();//Refresh Table
+    
     con.close(); 
     }catch(Exception e)
     {
     JOptionPane.showMessageDialog(null, e);
     }
     }//GEN-LAST:event_deleteButtonActionPerformed
+    
+
+    //================ REFRESHING TABLE BY CALLING TABLE FUNCTION ===========// 
+    private void refreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshButtonActionPerformed
+     DisplayTable();//Refresh Table 
+    }//GEN-LAST:event_refreshButtonActionPerformed
+
+    
+    
+    //===================== SHOW TEXT ============================//
+    private void showDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showDataButtonActionPerformed
+    
+    try{
+        
+    com.mysql.jdbc.ResultSet rs = null;
+    com.mysql.jdbc.PreparedStatement prst = null;
+    
+    Class.forName("com.mysql.jdbc.Driver");  
+    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bashir_swing_practice", "root", "1234");
+    String sql = "select * from saving_data where roll_no = ?)"; // "?" is for table row number and saving_data is database table name
+    
+    //PreparedStatement prst = con.prepareStatement(sql);
+    
+    prst.setInt(1, Integer.parseInt(rollField.getText()));
+
+    prst.executeQuery();
+    
+    if (rs.next()) {
+        int roll_no = rs.getInt(1);
+        String name = rs.getString(2);
+        
+        textArea.setText("Roll No \t: " + roll_no + "\nName \t: " + name);
+      }
+    
+    
+    JOptionPane.showMessageDialog(null, "Saved successfully"); //after submission popup massage window
+    
+
+    con.close(); //after completing task close the popup window
+    } 
+    catch(Exception e)
+    {
+    JOptionPane.showMessageDialog(null, e);
+    }
+    }//GEN-LAST:event_showDataButtonActionPerformed
 
     
     
@@ -427,8 +512,8 @@ public class SavingData extends javax.swing.JFrame {
     private javax.swing.JTable dbTable;
     private javax.swing.JButton deleteButton;
     private javax.swing.JButton exitButton;
-    private javax.swing.JButton jButton1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton loginButton;
     private javax.swing.JTextField nameField;
     private javax.swing.JLabel nameLB;
@@ -438,6 +523,8 @@ public class SavingData extends javax.swing.JFrame {
     private javax.swing.JLabel rollLB;
     private javax.swing.JButton saveButton;
     private javax.swing.JButton searchButton;
+    private javax.swing.JButton showDataButton;
+    private javax.swing.JTextArea textArea;
     private javax.swing.JButton updateButton;
     // End of variables declaration//GEN-END:variables
 }
