@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package all_swing_field;
+package main;
 
 import java.awt.event.ActionEvent;
 
@@ -74,12 +74,15 @@ public All_swing_form_field() {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
+<<<<<<< HEAD:Swing_Practice/src/all_swing_field/All_swing_form_field.java
         addressField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addressFieldActionPerformed(evt);
             }
         });
 
+=======
+>>>>>>> 42ee6de0ecce0fda864dc6df7efd1fd5a514c165:Swing_Practice/src/main/All_swing_form_field.java
         jCheckBox1.setText("English");
 
         jCheckBox2.setText("None English");
@@ -151,7 +154,13 @@ public All_swing_form_field() {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(address)
                     .addComponent(addressField, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+<<<<<<< HEAD:Swing_Practice/src/all_swing_field/All_swing_form_field.java
                 .addGap(94, 94, 94)
+=======
+                .addGap(37, 37, 37)
+                .addComponent(country)
+                .addGap(41, 41, 41)
+>>>>>>> 42ee6de0ecce0fda864dc6df7efd1fd5a514c165:Swing_Practice/src/main/All_swing_form_field.java
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sex)
                     .addComponent(jRadioButton1)
@@ -222,6 +231,10 @@ public static void main(String args[]) {
     private javax.swing.JPasswordField PasswordField;
     private javax.swing.JLabel address;
     private javax.swing.JTextField addressField;
+<<<<<<< HEAD:Swing_Practice/src/all_swing_field/All_swing_form_field.java
+=======
+    private javax.swing.JLabel country;
+>>>>>>> 42ee6de0ecce0fda864dc6df7efd1fd5a514c165:Swing_Practice/src/main/All_swing_form_field.java
     private javax.swing.JLabel development;
     private javax.swing.JProgressBar developmentBar;
     private javax.swing.JButton jButton1;

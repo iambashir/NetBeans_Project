@@ -7,6 +7,9 @@ package com.login;
 
 import com.model.User;
 import com.service.UserService;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -140,17 +143,21 @@ public class RegistrationForm extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Please put Username > 2");
             userlogin.requestFocus();
         } else {
-            String password = passlogin.getText();
-            User u = new User();
-            u.setUsername(username);
-            u.setPassword(password);
-            int status = new UserService().addUser(u);
-            if (status > 0) {
-                JOptionPane.showMessageDialog(rootPane, "User saved successfully");
-                userlogin.setText("");
-                passlogin.setText("");
-            } else {
-                JOptionPane.showMessageDialog(rootPane, "User couldn't saved!");
+            try {
+                String password = passlogin.getText();
+                User u = new User();
+                u.setUsername(username);
+                u.setPassword(password);
+                int status = new UserService().addUser(u);
+                if (status > 0) {
+                    JOptionPane.showMessageDialog(rootPane, "User saved successfully");
+                    userlogin.setText("");
+                    passlogin.setText("");
+                } else {
+                    JOptionPane.showMessageDialog(rootPane, "User couldn't saved!");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(RegistrationForm.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_registrationActionPerformed

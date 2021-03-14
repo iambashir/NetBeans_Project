@@ -95,7 +95,13 @@
                   <Component id="address" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="addressField" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
               </Group>
+<<<<<<< HEAD:Swing_Practice/build/classes/all_swing_field/All_swing_form_field.form
               <EmptySpace min="-2" pref="94" max="-2" attributes="0"/>
+=======
+              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+              <Component id="country" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+>>>>>>> 42ee6de0ecce0fda864dc6df7efd1fd5a514c165:Swing_Practice/src/main/All_swing_form_field.form
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="sex" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jRadioButton1" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -188,9 +194,12 @@
       </SubComponents>
     </Container>
     <Component class="javax.swing.JTextField" name="addressField">
+<<<<<<< HEAD:Swing_Practice/build/classes/all_swing_field/All_swing_form_field.form
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addressFieldActionPerformed"/>
       </Events>
+=======
+>>>>>>> 42ee6de0ecce0fda864dc6df7efd1fd5a514c165:Swing_Practice/src/main/All_swing_form_field.form
     </Component>
     <Component class="javax.swing.JProgressBar" name="developmentBar">
     </Component>
