@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
 import dao.DatabaseConnection;
+import java.awt.print.PrinterException;
 
 /**
 *
@@ -208,7 +209,7 @@ public class SavingData extends javax.swing.JFrame {
         });
 
         textArea.setColumns(20);
-        textArea.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        textArea.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         textArea.setRows(5);
         jScrollPane2.setViewportView(textArea);
 
@@ -242,6 +243,11 @@ public class SavingData extends javax.swing.JFrame {
         printButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         printButton.setForeground(new java.awt.Color(0, 102, 102));
         printButton.setText("Print");
+        printButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printButtonActionPerformed(evt);
+            }
+        });
 
         jButton2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(0, 102, 102));
@@ -582,6 +588,20 @@ public class SavingData extends javax.swing.JFrame {
     private void salaryFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salaryFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_salaryFieldActionPerformed
+
+    private void printButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printButtonActionPerformed
+
+ 
+        try {
+            boolean print = textArea.print();
+            if (!print) {
+                JOptionPane.showMessageDialog(null, "Unable To Print !!..");
+            }
+        } catch (PrinterException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+
+    }//GEN-LAST:event_printButtonActionPerformed
 
     
     
