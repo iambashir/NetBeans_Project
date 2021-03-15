@@ -21,7 +21,7 @@ public class SavingData extends javax.swing.JFrame {
     public SavingData() {
     initComponents();
     //======================== JFRAME COLOUR CHANGE =========================================//
-    getContentPane().setBackground(java.awt.Color.orange);
+    getContentPane().setBackground(java.awt.Color.gray);
     //============= CALLING DATABASE TABLE TO ADJUSTING FORM TABLE ========================//
     DisplayTable();//Calling The table
     }
@@ -68,13 +68,18 @@ public class SavingData extends javax.swing.JFrame {
         showDataButton = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         textArea = new javax.swing.JTextArea();
+        databaseTableLabel = new javax.swing.JLabel();
+        textAreaLabel = new javax.swing.JLabel();
+        profileLabel = new javax.swing.JLabel();
+        printButton = new javax.swing.JButton();
+        profilePhoto = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login Window");
         setBackground(new java.awt.Color(0, 153, 153));
 
         nameLB.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        nameLB.setForeground(new java.awt.Color(0, 102, 102));
+        nameLB.setForeground(new java.awt.Color(0, 51, 51));
         nameLB.setText("Name :");
 
         rollField.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -86,7 +91,7 @@ public class SavingData extends javax.swing.JFrame {
         });
 
         rollLB.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        rollLB.setForeground(new java.awt.Color(0, 102, 102));
+        rollLB.setForeground(new java.awt.Color(0, 51, 51));
         rollLB.setText("Roll No: ");
 
         nameField.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -192,8 +197,24 @@ public class SavingData extends javax.swing.JFrame {
         });
 
         textArea.setColumns(20);
+        textArea.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         textArea.setRows(5);
         jScrollPane2.setViewportView(textArea);
+
+        databaseTableLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        databaseTableLabel.setForeground(new java.awt.Color(0, 51, 51));
+        databaseTableLabel.setText("Database Table");
+
+        textAreaLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        textAreaLabel.setForeground(new java.awt.Color(0, 51, 51));
+        textAreaLabel.setText("Student Details Information");
+
+        profileLabel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        profileLabel.setText("Profile Picture: ");
+
+        printButton.setText("Print");
+
+        profilePhoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Bashir_Passport_size.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -225,28 +246,56 @@ public class SavingData extends javax.swing.JFrame {
                             .addComponent(updateButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(exitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(showDataButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(textAreaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(printButton, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(49, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(profileLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(profilePhoto)
+                                .addGap(55, 55, 55))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(164, 164, 164)
+                        .addComponent(databaseTableLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(34, 34, 34)
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(rollLB)
-                            .addComponent(rollField, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(19, 19, 19)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(rollField, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(profileLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(nameLB, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(26, 26, 26)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(printButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(textAreaLabel, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(profilePhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(databaseTableLabel)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -261,8 +310,9 @@ public class SavingData extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(refreshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(showDataButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(20, Short.MAX_VALUE))
+                            .addComponent(showDataButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(77, 77, 77))
         );
 
         pack();
@@ -288,16 +338,14 @@ public class SavingData extends javax.swing.JFrame {
     prst.executeUpdate();
     JOptionPane.showMessageDialog(null, "Saved successfully"); //after submission popup massage window
     
-    
-    
+
     DisplayTable(); //Afetr saving refresh the table by calling this Method
-    
     
     con.close(); //after completing task close the popup window
     } 
     catch(Exception e)
     {
-    JOptionPane.showMessageDialog(null, e);
+    JOptionPane.showMessageDialog(null, "Invalid Input Value");
     }
     }//GEN-LAST:event_saveButtonActionPerformed
 
@@ -318,6 +366,7 @@ public class SavingData extends javax.swing.JFrame {
     private void resetFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetFieldActionPerformed
     rollField.setText("");
     nameField.setText("");
+    textArea.setText("");
     
     // OR WRITE reset();
     }//GEN-LAST:event_resetFieldActionPerformed
@@ -399,7 +448,7 @@ public class SavingData extends javax.swing.JFrame {
     }//GEN-LAST:event_updateButtonActionPerformed
 
     
-    //============================ UPDATE DATA ==============================//
+    //============================ DELETE DATA ==============================//
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
      
     try{
@@ -437,36 +486,31 @@ public class SavingData extends javax.swing.JFrame {
     private void showDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showDataButtonActionPerformed
     
     try{
-        
-    com.mysql.jdbc.ResultSet rs = null;
-    com.mysql.jdbc.PreparedStatement prst = null;
-    
     Class.forName("com.mysql.jdbc.Driver");  
     Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bashir_swing_practice", "root", "1234");
-    String sql = "select * from saving_data where roll_no = ?)"; // "?" is for table row number and saving_data is database table name
+    String sql = "select * from saving_data where roll_no = ?";
     
-    //PreparedStatement prst = con.prepareStatement(sql);
-    
+    PreparedStatement prst = con.prepareStatement(sql);
     prst.setInt(1, Integer.parseInt(rollField.getText()));
-
-    prst.executeQuery();
     
-    if (rs.next()) {
-        int roll_no = rs.getInt(1);
+    ResultSet rs = prst.executeQuery();
+    if(rs.next()){
+   
+        int roll = rs.getInt(1);
         String name = rs.getString(2);
-        
-        textArea.setText("Roll No \t: " + roll_no + "\nName \t: " + name);
-      }
+       
+        textArea.setText("Roll No \t:  " + roll + "\nName \t:  " + name );
     
-    
-    JOptionPane.showMessageDialog(null, "Saved successfully"); //after submission popup massage window
-    
-
+    }
+    else
+    {
+     JOptionPane.showMessageDialog(null, "Record Not found");
+    }
     con.close(); //after completing task close the popup window
     } 
     catch(Exception e)
     {
-    JOptionPane.showMessageDialog(null, e);
+    JOptionPane.showMessageDialog(null, "Record Not found");
     }
     }//GEN-LAST:event_showDataButtonActionPerformed
 
@@ -509,6 +553,7 @@ public class SavingData extends javax.swing.JFrame {
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel databaseTableLabel;
     private javax.swing.JTable dbTable;
     private javax.swing.JButton deleteButton;
     private javax.swing.JButton exitButton;
@@ -517,6 +562,9 @@ public class SavingData extends javax.swing.JFrame {
     private javax.swing.JButton loginButton;
     private javax.swing.JTextField nameField;
     private javax.swing.JLabel nameLB;
+    private javax.swing.JButton printButton;
+    private javax.swing.JLabel profileLabel;
+    private javax.swing.JLabel profilePhoto;
     private javax.swing.JButton refreshButton;
     private javax.swing.JButton resetField;
     private javax.swing.JTextField rollField;
@@ -525,6 +573,7 @@ public class SavingData extends javax.swing.JFrame {
     private javax.swing.JButton searchButton;
     private javax.swing.JButton showDataButton;
     private javax.swing.JTextArea textArea;
+    private javax.swing.JLabel textAreaLabel;
     private javax.swing.JButton updateButton;
     // End of variables declaration//GEN-END:variables
 }
