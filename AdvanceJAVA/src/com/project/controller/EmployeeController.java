@@ -113,7 +113,13 @@ public class EmployeeController extends javax.swing.JFrame {
 
         jLabel4.setText("Salary");
 
-        jLabel5.setText("Code");
+        editEmpCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editEmpCodeActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText("Id :");
 
         empTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -259,13 +265,17 @@ public class EmployeeController extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(rootPane, "Employee Code already exists !");
         }
     }//GEN-LAST:event_btnSaveActionPerformed
-
+      
+    //RESET FIELDS
     public void ResetInputs() {
         empCode.setText("");
         empName.setText("");
         empSalary.setText("");
         empAddress.setText("");
     }
+    
+    
+    
     private void btnDeletActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeletActionPerformed
         // TODO add your handling code here:
         int confirmation = JOptionPane.showConfirmDialog(rootPane, "Do you want to delete?", "Delete Employee", JOptionPane.YES_NO_OPTION);
@@ -332,6 +342,10 @@ public class EmployeeController extends javax.swing.JFrame {
         lblSalary.setText(String.valueOf(e.getSalary()));
         lblAddress.setText(e.getAddress());
     }//GEN-LAST:event_btnEditActionPerformed
+
+    private void editEmpCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editEmpCodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editEmpCodeActionPerformed
 
     /**
      * @param args the command line arguments

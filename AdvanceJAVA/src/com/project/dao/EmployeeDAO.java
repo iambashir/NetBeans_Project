@@ -20,6 +20,8 @@ public class EmployeeDAO implements ICommonDAO<Employee> {
             con = DBConnection.getConnection();
             stmt = con.createStatement();
             int status = stmt.executeUpdate(sql);
+            
+            
             con.close();
             return status;
         } catch (Exception e) {

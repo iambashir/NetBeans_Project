@@ -1,5 +1,5 @@
-
 package main;
+
 import dao.DatabaseConnection;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,25 +11,32 @@ import javax.swing.JOptionPane;
  * @author Bashir Hossain
  */
 public class swing_form_field extends javax.swing.JFrame {
-    
+
     Connection con;
     Statement prst;
 
-/**
- * Creates new form swing_form_field
- */
-public swing_form_field() {
-    initComponents();
-}
+    /**
+     * Creates new form swing_form_field
+     */
+    public swing_form_field() {
+        initComponents();
+    }
 
-
-@SuppressWarnings("unchecked")
+    @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
         buttonGroup2 = new javax.swing.ButtonGroup();
         buttonGroup3 = new javax.swing.ButtonGroup();
+        buttonGroup4 = new javax.swing.ButtonGroup();
+
+        jDatePicker1 = new org.jdatepicker.JDatePicker();
+        dateComponentFormatter3 = new org.jdatepicker.DateComponentFormatter();
+        jDatePanel1 = new org.jdatepicker.JDatePanel();
+        dateLabelFormatter1 = new org.jdatepicker.DateLabelFormatter();
+        dateLabelFormatter2 = new org.jdatepicker.DateLabelFormatter();
+        jDatePicker2 = new org.jdatepicker.JDatePicker();
         userId = new javax.swing.JLabel();
         Name = new javax.swing.JLabel();
         Password = new javax.swing.JLabel();
@@ -43,18 +50,25 @@ public swing_form_field() {
         development = new javax.swing.JLabel();
         nameField = new javax.swing.JTextField();
         addressField = new javax.swing.JTextField();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        englishCheckBox = new javax.swing.JCheckBox();
+        arabicCheckBox = new javax.swing.JCheckBox();
+        maleRadioButton = new javax.swing.JRadioButton();
+        femaleRadioButton = new javax.swing.JRadioButton();
+        otherRadioButton = new javax.swing.JRadioButton();
         resetButton = new javax.swing.JButton();
         countryComboBox = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
         SalaryField = new javax.swing.JTextField();
-        dateField = new javax.swing.JTextField();
+        TextField = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        rollField = new javax.swing.JTextField();
+        banglaCheckBox = new javax.swing.JCheckBox();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jDatePicker3 = new org.jdatepicker.JDatePicker();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(204, 204, 204));
 
         userId.setText("User ID : ");
 
@@ -79,19 +93,23 @@ public swing_form_field() {
 
         development.setText("Sarary :");
 
-        jCheckBox1.setText("English");
+        englishCheckBox.setText("English");
 
-        jCheckBox2.setText("None English");
+        arabicCheckBox.setText("Arabic");
 
-        jRadioButton1.setText("Male");
+        buttonGroup1.add(maleRadioButton);
+        maleRadioButton.setText("Male");
 
-        jRadioButton2.setText("Female");
+        buttonGroup1.add(femaleRadioButton);
+        femaleRadioButton.setText("Female");
 
-        jRadioButton3.setText("Other");
+        buttonGroup1.add(otherRadioButton);
+        otherRadioButton.setText("Other");
+        otherRadioButton.setContentAreaFilled(false);
 
         resetButton.setText("Clear");
 
-        countryComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        countryComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Uganda", "Bangladesh", "Nepal", "Afganistan" }));
         countryComboBox.addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentAdded(java.awt.event.ContainerEvent evt) {
                 countryComboBoxComponentAdded(evt);
@@ -105,77 +123,98 @@ public swing_form_field() {
 
         jLabel1.setText("Date : ");
 
+        jLabel2.setText("Roll No :");
+
+        banglaCheckBox.setText("Bangla");
+
+        jButton1.setText("Show Data");
+
+        jButton2.setText("Reset");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(87, 87, 87)
-                .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31)
-                .addComponent(resetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(userId, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
-                        .addComponent(Name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(jLabel9)
-                    .addComponent(sex)
-                    .addComponent(country)
-                    .addComponent(address)
-                    .addComponent(Password)
-                    .addComponent(development, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(nameField, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(PasswordField, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(userField, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(addressField)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(userId, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+                                .addComponent(Name, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(jLabel9)
+                            .addComponent(sex)
+                            .addComponent(country)
+                            .addComponent(address)
+                            .addComponent(Password)
+                            .addComponent(development, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(rollField, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(addressField, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
+                                        .addGap(3, 3, 3)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jRadioButton1)
-                                            .addComponent(jCheckBox1))
-                                        .addGap(18, 18, 18)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jCheckBox2)
-                                            .addComponent(jRadioButton2))
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jRadioButton3))
-                                    .addComponent(SalaryField, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 131, Short.MAX_VALUE)))
-                        .addGap(27, 27, 27))
+                                            .addComponent(maleRadioButton)
+                                            .addComponent(banglaCheckBox))
+                                        .addGap(28, 28, 28)
+                                        .addComponent(femaleRadioButton)
+                                        .addGap(41, 41, 41)
+                                        .addComponent(otherRadioButton))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addGap(82, 82, 82)
+                                            .addComponent(englishCheckBox)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(arabicCheckBox))
+                                        .addComponent(SalaryField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
+                                        .addComponent(jDatePicker3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(nameField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(PasswordField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(userField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(countryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addComponent(TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(countryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(dateField, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(saveButton, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(resetButton, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(userId, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(userField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Password)
-                    .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(25, 25, 25)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(address)
-                    .addComponent(addressField, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(userId, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(userField, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(23, 23, 23)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Password)
+                            .addComponent(PasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(25, 25, 25)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(Name, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(address)
+                            .addComponent(addressField, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addComponent(TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(country)
@@ -183,27 +222,36 @@ public swing_form_field() {
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sex)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton3))
+                    .addComponent(maleRadioButton)
+                    .addComponent(femaleRadioButton)
+                    .addComponent(otherRadioButton))
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(jCheckBox1)
-                    .addComponent(jCheckBox2))
+                    .addComponent(englishCheckBox)
+                    .addComponent(arabicCheckBox)
+                    .addComponent(banglaCheckBox))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(development, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SalaryField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
-                    .addComponent(dateField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+                    .addComponent(jDatePicker3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(rollField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 118, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(resetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(17, 17, 17))
         );
 
         pack();
@@ -218,97 +266,159 @@ public swing_form_field() {
         // TODO add your handling code here:
     }//GEN-LAST:event_countryComboBoxComponentAdded
 
-    
-    
+
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-    try{
-    //==========Same code for every connection==========//
-    con = DatabaseConnection.getConnection();
-    prst = con.createStatement();
-    
-       
-    //========= ADD/INSERT/SAVE DATA ==============//
-    String sql = "insert into full_form values (?, ?, ?, ? )"; 
-    PreparedStatement prst = con.prepareStatement(sql);
-    
-    prst.setInt(1, Integer.parseInt(userField.getText())); 
-    prst.setInt(2, Integer.parseInt(PasswordField.getText())); 
-    prst.setString(3, nameField.getText()); 
-    prst.setString(4, addressField.getText()); 
-    
-    prst.executeUpdate();
-    JOptionPane.showMessageDialog(null, "Saved successfully"); //after submission popup massage window
-    
-    con.close(); //after completing task close the popup window
-    } 
-    catch(Exception e)
-    {
-    JOptionPane.showMessageDialog(null, "Invalid Input Value");
-    }
+        try {
+            //==========Same code for every connection==========//
+            con = DatabaseConnection.getConnection();
+            prst = con.createStatement();
+
+            //========= ADD/INSERT/SAVE DATA ==============//
+            String sql = "insert into full_form values (?, ?, ?, ?, ?, ?, ?, ?, ?, ? )";
+            PreparedStatement prst = con.prepareStatement(sql);
+
+            
+            
+            
+            //********************** User Name/Text Field : String ******************************//
+            prst.setInt(1, Integer.parseInt(userField.getText()));
+            
+            //********************** Password/Pasword Field : String ******************************//
+            prst.setInt(2, Integer.parseInt(PasswordField.getText()));
+            
+            //********************** Name/Text Field : String ******************************//
+            prst.setString(3, nameField.getText());
+            
+            //********************** Address/Text Field : String ******************************//
+            prst.setString(4, addressField.getText());
+            
+            //********************** Country/Combo Box : String ******************************//
+            String country;
+            country = countryComboBox.getSelectedItem().toString();
+            prst.setString(5, country);
+            
+            //********************** Sex/Radio button : String ******************************//
+            String sex = null;
+            if (maleRadioButton.isSelected()) {
+                sex = maleRadioButton.getText();
+            }
+            if (femaleRadioButton.isSelected()) {
+                sex = femaleRadioButton.getText();
+            }
+            if (otherRadioButton.isSelected()) {
+                sex = otherRadioButton.getText();
+            }
+            prst.setString(6, sex);
+            
+            //********************** Language/Checkbox : String ******************************//
+            String language = null;
+            if (banglaCheckBox.isSelected() || englishCheckBox.isSelected() || arabicCheckBox.isSelected()) {
+                language = banglaCheckBox.getText() + ",  " + englishCheckBox.getText() + ",  " + arabicCheckBox.getText();
+            }
+            prst.setString(7, language);
+            
+            //********************** Salary/Text Field : Double  ******************************//
+            prst.setDouble(8, Double.parseDouble(SalaryField.getText()));
+            
+            //********************** Name/Date Field : Date ******************************//
+            java.util.Date date = new java.util.Date();	
+            java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+            prst.setDate(9, sqlDate);
+            
+            //********************** User Name/Text Field : String ******************************//
+            prst.setInt(10, Integer.parseInt(rollField.getText()));
+
+            
+            
+            
+            
+            prst.executeUpdate();
+            JOptionPane.showMessageDialog(null, "Saved successfully"); //after submission popup massage window
+            con.close(); //after completing task close the popup window
+           } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Invalid Input Value");
+        }
     }//GEN-LAST:event_saveButtonActionPerformed
 
-/**
- * @param args the command line arguments
- */
-public static void main(String args[]) {
-    /* Set the Nimbus look and feel */
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
      * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-     */
-    try {
-        for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-            if ("Nimbus".equals(info.getName())) {
-                javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                break;
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
             }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(swing_form_field.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(swing_form_field.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(swing_form_field.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(swing_form_field.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-    } catch (ClassNotFoundException ex) {
-        java.util.logging.Logger.getLogger(swing_form_field.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (InstantiationException ex) {
-        java.util.logging.Logger.getLogger(swing_form_field.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (IllegalAccessException ex) {
-        java.util.logging.Logger.getLogger(swing_form_field.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-        java.util.logging.Logger.getLogger(swing_form_field.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-    }
         //</editor-fold>
         //</editor-fold>
 
-    /* Create and display the form */
-    java.awt.EventQueue.invokeLater(new Runnable() {
-    public void run() {
-        new swing_form_field().setVisible(true);
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new swing_form_field().setVisible(true);
+            }
+        });
     }
-    });
-}
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Name;
     private javax.swing.JLabel Password;
     private javax.swing.JPasswordField PasswordField;
     private javax.swing.JTextField SalaryField;
+    private javax.swing.JTextField TextField;
     private javax.swing.JLabel address;
     private javax.swing.JTextField addressField;
+    private javax.swing.JCheckBox arabicCheckBox;
+    private javax.swing.JCheckBox banglaCheckBox;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
     private javax.swing.ButtonGroup buttonGroup3;
+    private javax.swing.ButtonGroup buttonGroup4;
     private javax.swing.JLabel country;
     private javax.swing.JComboBox<String> countryComboBox;
-    private javax.swing.JTextField dateField;
+
+    private org.jdatepicker.DateComponentFormatter dateComponentFormatter3;
+    private org.jdatepicker.DateLabelFormatter dateLabelFormatter1;
+    private org.jdatepicker.DateLabelFormatter dateLabelFormatter2;
     private javax.swing.JLabel development;
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JCheckBox englishCheckBox;
+    private javax.swing.JRadioButton femaleRadioButton;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private org.jdatepicker.JDatePanel jDatePanel1;
+    private org.jdatepicker.JDatePicker jDatePicker1;
+    private org.jdatepicker.JDatePicker jDatePicker2;
+    private org.jdatepicker.JDatePicker jDatePicker3;
+
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton maleRadioButton;
     private javax.swing.JTextField nameField;
+    private javax.swing.JRadioButton otherRadioButton;
     private javax.swing.JButton resetButton;
+    private javax.swing.JTextField rollField;
     private javax.swing.JButton saveButton;
     private javax.swing.JLabel sex;
     private javax.swing.JTextField userField;
     private javax.swing.JLabel userId;
+
     // End of variables declaration//GEN-END:variables
 }
