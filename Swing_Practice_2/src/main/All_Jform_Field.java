@@ -27,7 +27,6 @@ public class All_Jform_Field extends javax.swing.JFrame {
     private void initComponents() {
 
         rollField = new javax.swing.JTextField();
-        datePicker = new org.jdatepicker.JDatePicker();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -63,7 +62,6 @@ public class All_Jform_Field extends javax.swing.JFrame {
                 .addGap(53, 53, 53)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton1)
-                    .addComponent(datePicker, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(rollField)
                     .addComponent(idField))
                 .addGap(163, 163, 163))
@@ -80,10 +78,8 @@ public class All_Jform_Field extends javax.swing.JFrame {
                     .addComponent(rollField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(datePicker, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(68, 68, 68)
+                .addComponent(jLabel2)
+                .addGap(70, 70, 70)
                 .addComponent(jButton1)
                 .addContainerGap(97, Short.MAX_VALUE))
         );
@@ -169,7 +165,6 @@ public class All_Jform_Field extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private org.jdatepicker.JDatePicker datePicker;
     private javax.swing.JTextField idField;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;

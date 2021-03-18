@@ -27,7 +27,7 @@ public class DAO {
        con = DbConnection.getConnection();
         
          try {
-             String sql = "insert into employee (code, name, salary, address) values ('" + user.getCode() + "','" + user.getName() + "','" + user.getSalary() + "','" + user.getAddress() + "')";
+             String sql = "insert into testpros (code, name, salary, address) values ('" + user.getCode() + "','" + user.getName() + "','" + user.getSalary() + "','" + user.getAddress() + "')";
              st = con.createStatement();
              int status = st.executeUpdate(sql);
              if (status == 1) {

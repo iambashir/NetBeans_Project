@@ -10,28 +10,6 @@
     </Component>
     <Component class="javax.swing.ButtonGroup" name="buttonGroup4">
     </Component>
-    <Component class="org.netbeans.modules.form.InvalidComponent" name="dateComponentFormatter1">
-    </Component>
-    <Component class="org.netbeans.modules.form.InvalidComponent" name="dateComponentFormatter2">
-    </Component>
-    <Component class="org.netbeans.modules.form.InvalidComponent" name="utilCalendarModel1">
-    </Component>
-    <Component class="org.netbeans.modules.form.InvalidComponent" name="jDatePickerUtil1">
-    </Component>
-    <Component class="org.netbeans.modules.form.InvalidComponent" name="jDatePickerUtil2">
-    </Component>
-    <Component class="org.jdatepicker.JDatePicker" name="jDatePicker1">
-    </Component>
-    <Component class="org.jdatepicker.DateComponentFormatter" name="dateComponentFormatter3">
-    </Component>
-    <Component class="org.jdatepicker.JDatePanel" name="jDatePanel1">
-    </Component>
-    <Component class="org.jdatepicker.DateLabelFormatter" name="dateLabelFormatter1">
-    </Component>
-    <Component class="org.jdatepicker.DateLabelFormatter" name="dateLabelFormatter2">
-    </Component>
-    <Component class="org.jdatepicker.JDatePicker" name="jDatePicker2">
-    </Component>
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
@@ -93,16 +71,13 @@
                                       <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
                                       <Component id="otherRadioButton" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
-                                          <Component id="englishCheckBox" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="arabicCheckBox" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="SalaryField" alignment="0" pref="278" max="32767" attributes="0"/>
-                                      <Component id="jDatePicker3" alignment="0" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace min="-2" pref="82" max="-2" attributes="0"/>
+                                      <Component id="englishCheckBox" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="arabicCheckBox" min="-2" max="-2" attributes="0"/>
                                   </Group>
+                                  <Component id="SalaryField" alignment="0" min="-2" pref="278" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="nameField" alignment="1" min="-2" pref="354" max="-2" attributes="0"/>
                                       <Component id="PasswordField" alignment="1" min="-2" pref="354" max="-2" attributes="0"/>
@@ -187,11 +162,8 @@
                   <Component id="SalaryField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <Component id="jDatePicker3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="rollField" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -360,8 +332,6 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Reset"/>
       </Properties>
-    </Component>
-    <Component class="org.jdatepicker.JDatePicker" name="jDatePicker3">
     </Component>
   </SubComponents>
 </Form>

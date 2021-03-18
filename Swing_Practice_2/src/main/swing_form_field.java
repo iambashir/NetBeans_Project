@@ -30,13 +30,6 @@ public class swing_form_field extends javax.swing.JFrame {
         buttonGroup2 = new javax.swing.ButtonGroup();
         buttonGroup3 = new javax.swing.ButtonGroup();
         buttonGroup4 = new javax.swing.ButtonGroup();
-
-        jDatePicker1 = new org.jdatepicker.JDatePicker();
-        dateComponentFormatter3 = new org.jdatepicker.DateComponentFormatter();
-        jDatePanel1 = new org.jdatepicker.JDatePanel();
-        dateLabelFormatter1 = new org.jdatepicker.DateLabelFormatter();
-        dateLabelFormatter2 = new org.jdatepicker.DateLabelFormatter();
-        jDatePicker2 = new org.jdatepicker.JDatePicker();
         userId = new javax.swing.JLabel();
         Name = new javax.swing.JLabel();
         Password = new javax.swing.JLabel();
@@ -56,16 +49,15 @@ public class swing_form_field extends javax.swing.JFrame {
         femaleRadioButton = new javax.swing.JRadioButton();
         otherRadioButton = new javax.swing.JRadioButton();
         resetButton = new javax.swing.JButton();
-        countryComboBox = new javax.swing.JComboBox<>();
+        countryComboBox = new javax.swing.JComboBox<String>();
         jLabel1 = new javax.swing.JLabel();
         SalaryField = new javax.swing.JTextField();
-        TextField = new javax.swing.JTextField();
+        textArea = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         rollField = new javax.swing.JTextField();
         banglaCheckBox = new javax.swing.JCheckBox();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jDatePicker3 = new org.jdatepicker.JDatePicker();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 204, 204));
@@ -109,7 +101,7 @@ public class swing_form_field extends javax.swing.JFrame {
 
         resetButton.setText("Clear");
 
-        countryComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Uganda", "Bangladesh", "Nepal", "Afganistan" }));
+        countryComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Uganda", "Bangladesh", "Nepal", "Afganistan" }));
         countryComboBox.addContainerListener(new java.awt.event.ContainerAdapter() {
             public void componentAdded(java.awt.event.ContainerEvent evt) {
                 countryComboBoxComponentAdded(evt);
@@ -128,6 +120,11 @@ public class swing_form_field extends javax.swing.JFrame {
         banglaCheckBox.setText("Bangla");
 
         jButton1.setText("Show Data");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Reset");
 
@@ -166,21 +163,19 @@ public class swing_form_field extends javax.swing.JFrame {
                                         .addComponent(femaleRadioButton)
                                         .addGap(41, 41, 41)
                                         .addComponent(otherRadioButton))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addGap(82, 82, 82)
-                                            .addComponent(englishCheckBox)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(arabicCheckBox))
-                                        .addComponent(SalaryField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 278, Short.MAX_VALUE)
-                                        .addComponent(jDatePicker3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(82, 82, 82)
+                                        .addComponent(englishCheckBox)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(arabicCheckBox))
+                                    .addComponent(SalaryField, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(nameField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(PasswordField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(userField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addComponent(countryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
-                                .addComponent(TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(textArea, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(saveButton, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
@@ -214,7 +209,7 @@ public class swing_form_field extends javax.swing.JFrame {
                             .addComponent(addressField, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(21, 21, 21)
-                        .addComponent(TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(textArea, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(country)
@@ -236,10 +231,8 @@ public class swing_form_field extends javax.swing.JFrame {
                     .addComponent(development, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(SalaryField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(jDatePicker3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(rollField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -382,7 +375,6 @@ public class swing_form_field extends javax.swing.JFrame {
     private javax.swing.JLabel Password;
     private javax.swing.JPasswordField PasswordField;
     private javax.swing.JTextField SalaryField;
-    private javax.swing.JTextField TextField;
     private javax.swing.JLabel address;
     private javax.swing.JTextField addressField;
     private javax.swing.JCheckBox arabicCheckBox;
@@ -393,20 +385,11 @@ public class swing_form_field extends javax.swing.JFrame {
     private javax.swing.ButtonGroup buttonGroup4;
     private javax.swing.JLabel country;
     private javax.swing.JComboBox<String> countryComboBox;
-
-    private org.jdatepicker.DateComponentFormatter dateComponentFormatter3;
-    private org.jdatepicker.DateLabelFormatter dateLabelFormatter1;
-    private org.jdatepicker.DateLabelFormatter dateLabelFormatter2;
     private javax.swing.JLabel development;
     private javax.swing.JCheckBox englishCheckBox;
     private javax.swing.JRadioButton femaleRadioButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private org.jdatepicker.JDatePanel jDatePanel1;
-    private org.jdatepicker.JDatePicker jDatePicker1;
-    private org.jdatepicker.JDatePicker jDatePicker2;
-    private org.jdatepicker.JDatePicker jDatePicker3;
-
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel9;
@@ -417,8 +400,8 @@ public class swing_form_field extends javax.swing.JFrame {
     private javax.swing.JTextField rollField;
     private javax.swing.JButton saveButton;
     private javax.swing.JLabel sex;
+    private javax.swing.JTextField textArea;
     private javax.swing.JTextField userField;
     private javax.swing.JLabel userId;
-
     // End of variables declaration//GEN-END:variables
 }

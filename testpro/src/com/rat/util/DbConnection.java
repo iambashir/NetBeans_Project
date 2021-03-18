@@ -8,7 +8,7 @@ import java.sql.DriverManager;
 public class DbConnection {
 
     private static final String DRIVER_CLASS = "com.mysql.jdbc.Driver";
-    private static final String DB_URL = "jdbc:mysql://localhost:3306/employees";
+    private static final String DB_URL = "jdbc:mysql://localhost:3306/testpro";
     private static final String DB_USERNAME = "root";
     private static final String DB_PASSWORD = "1234";
 
