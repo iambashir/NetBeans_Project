@@ -255,6 +255,7 @@ public class EmployeeController extends javax.swing.JFrame {
         e.setSalary(Double.parseDouble(salary));
         e.setAddress(address);
 
+       
         //PASS DATA TO SERVICE
         if (empService.save(e) == 1) {
             JOptionPane.showMessageDialog(rootPane, "Employee Saved Successfully !");

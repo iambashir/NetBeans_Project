@@ -128,13 +128,20 @@ public class EmployeeForm extends javax.swing.JFrame {
             address = txtaddress.getText();
             salary = Double.parseDouble(txtsalary.getText());
             
+            
+            
             User u = new User();
             
             u.setName(name);
             u.setCode(code);
             u.setAddress(address);
             u.setSalary(salary);
+            
+            
+            //creating  a employee services object
             EmployeeService empsrvc = new EmployeeService();
+            
+            // send user model data to employeeService by creating addemployee method
            empsrvc.addEmployee(u);
             
             

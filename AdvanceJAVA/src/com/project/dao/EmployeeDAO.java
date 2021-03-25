@@ -6,28 +6,37 @@ import com.project.util.DBConnection;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
 
 public class EmployeeDAO implements ICommonDAO<Employee> {
 
-    Connection con = null;
-    Statement stmt = null;
-    ResultSet rs = null;
+   Connection con = null;
+   Statement stmt = null;
+   ResultSet rs = null;
+   PreparedStatement ps = null;
+   
 
     @Override
     public int save(Employee t) {
-        try {
-            String sql = "insert into employee(code, name, salary, address) values ('" + t.getEmployeeCode() + "','" + t.getEmployeeName() + "', '" + t.getSalary() + "', '" + t.getAddress() + "')";
-            con = DBConnection.getConnection();
-            stmt = con.createStatement();
-            int status = stmt.executeUpdate(sql);
-            
-            
-            con.close();
-            return status;
-        } catch (Exception e) {
-            return 0;
-        }
+    int flag = -1;
+    try {
+        con = DBConnection.getConnection();
+        ps = (PreparedStatement) con.prepareStatement("insert into  employee (code, name, salary, address) values (?, ?, ?, ?)");
+        ps.setString(1, t.getEmployeeCode());
+        ps.setString(2, t.getEmployeeName());
+        ps.setDouble(3, t.getSalary());
+        ps.setString(4, t.getAddress());
+
+        flag = ps.executeUpdate();
+        con.close();
+        ps.close();
+    } catch (Exception e) {
     }
+    return flag;
+    }
+    
+    
+    
 
     @Override
     public Employee getByCode(String code) {
