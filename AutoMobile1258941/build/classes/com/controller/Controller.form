@@ -38,12 +38,12 @@
                               </Group>
                               <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="txtname" pref="243" max="32767" attributes="0"/>
-                                  <Component id="txtmodel" max="32767" attributes="0"/>
-                                  <Component id="txtcc" max="32767" attributes="0"/>
-                                  <Component id="txtengine" max="32767" attributes="0"/>
-                                  <Component id="txtcode" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="txtgear" alignment="1" max="32767" attributes="0"/>
+                                  <Component id="nameField" pref="243" max="32767" attributes="0"/>
+                                  <Component id="modelField" max="32767" attributes="0"/>
+                                  <Component id="ccField" max="32767" attributes="0"/>
+                                  <Component id="engineField" max="32767" attributes="0"/>
+                                  <Component id="codeField" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="gearField" alignment="1" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Component id="jLabel6" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -55,23 +55,23 @@
                               <EmptySpace max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="btnedit" min="-2" max="-2" attributes="0"/>
+                              <Component id="searchButton" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="txtserch" min="-2" pref="163" max="-2" attributes="0"/>
+                              <Component id="serchField" min="-2" pref="163" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
-                              <Component id="btnAllget" min="-2" pref="119" max="-2" attributes="0"/>
+                              <Component id="getAllButton" min="-2" pref="119" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="btnsave" min="-2" max="-2" attributes="0"/>
+                      <Component id="saveButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="btnupdate" min="-2" max="-2" attributes="0"/>
+                      <Component id="updateButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-                      <Component id="btndelet" min="-2" max="-2" attributes="0"/>
+                      <Component id="deleteButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                      <Component id="btnrefresh" min="-2" max="-2" attributes="0"/>
+                      <Component id="refreshButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -84,36 +84,36 @@
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtcode" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnedit" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtserch" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnAllget" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="codeField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="searchButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="serchField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="getAllButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="txtname" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="nameField" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtmodel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="modelField" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtengine" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="engineField" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="txtcc" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ccField" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="txtgear" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="gearField" alignment="1" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel6" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -121,10 +121,10 @@
               </Group>
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="btnsave" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnupdate" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btndelet" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="btnrefresh" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="saveButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="updateButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="deleteButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="refreshButton" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="139" max="32767" attributes="0"/>
           </Group>
@@ -140,7 +140,7 @@
         <Property name="text" type="java.lang.String" value="Code"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtcode">
+    <Component class="javax.swing.JTextField" name="codeField">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
@@ -150,9 +150,9 @@
         <Property name="text" type="java.lang.String" value="Name"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtname">
+    <Component class="javax.swing.JTextField" name="nameField">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtmodel">
+    <Component class="javax.swing.JTextField" name="modelField">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
@@ -170,7 +170,7 @@
         <Property name="text" type="java.lang.String" value="Engine"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtengine">
+    <Component class="javax.swing.JTextField" name="engineField">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
@@ -180,9 +180,9 @@
         <Property name="text" type="java.lang.String" value="CC"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtcc">
+    <Component class="javax.swing.JTextField" name="ccField">
     </Component>
-    <Component class="javax.swing.JButton" name="btnsave">
+    <Component class="javax.swing.JButton" name="saveButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="18" style="1"/>
@@ -190,7 +190,7 @@
         <Property name="text" type="java.lang.String" value="Save"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnsaveActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
@@ -201,9 +201,9 @@
         <Property name="text" type="java.lang.String" value="Gear"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtgear">
+    <Component class="javax.swing.JTextField" name="gearField">
     </Component>
-    <Component class="javax.swing.JButton" name="btnupdate">
+    <Component class="javax.swing.JButton" name="updateButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="18" style="1"/>
@@ -211,10 +211,10 @@
         <Property name="text" type="java.lang.String" value="Update"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnupdateActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnedit">
+    <Component class="javax.swing.JButton" name="searchButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="18" style="1"/>
@@ -222,12 +222,12 @@
         <Property name="text" type="java.lang.String" value="Search"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btneditActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtserch">
+    <Component class="javax.swing.JTextField" name="serchField">
     </Component>
-    <Component class="javax.swing.JButton" name="btndelet">
+    <Component class="javax.swing.JButton" name="deleteButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="18" style="1"/>
@@ -235,10 +235,10 @@
         <Property name="text" type="java.lang.String" value="Delete"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btndeletActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteButtonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="btnrefresh">
+    <Component class="javax.swing.JButton" name="refreshButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="18" style="1"/>
@@ -246,7 +246,7 @@
         <Property name="text" type="java.lang.String" value="Refresh"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnrefreshActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="refreshButtonActionPerformed"/>
       </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -256,7 +256,7 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="txtTable">
+        <Component class="javax.swing.JTable" name="databaseTable">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
               <Table columnCount="6" rowCount="0">
@@ -309,7 +309,7 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="btnAllget">
+    <Component class="javax.swing.JButton" name="getAllButton">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="18" style="1"/>
@@ -317,7 +317,7 @@
         <Property name="text" type="java.lang.String" value="Get All"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAllgetActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="getAllButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

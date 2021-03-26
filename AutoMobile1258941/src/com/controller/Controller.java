@@ -35,26 +35,26 @@ public class Controller extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        txtcode = new javax.swing.JTextField();
+        codeField = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        txtname = new javax.swing.JTextField();
-        txtmodel = new javax.swing.JTextField();
+        nameField = new javax.swing.JTextField();
+        modelField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        txtengine = new javax.swing.JTextField();
+        engineField = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        txtcc = new javax.swing.JTextField();
-        btnsave = new javax.swing.JButton();
+        ccField = new javax.swing.JTextField();
+        saveButton = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        txtgear = new javax.swing.JTextField();
-        btnupdate = new javax.swing.JButton();
-        btnedit = new javax.swing.JButton();
-        txtserch = new javax.swing.JTextField();
-        btndelet = new javax.swing.JButton();
-        btnrefresh = new javax.swing.JButton();
+        gearField = new javax.swing.JTextField();
+        updateButton = new javax.swing.JButton();
+        searchButton = new javax.swing.JButton();
+        serchField = new javax.swing.JTextField();
+        deleteButton = new javax.swing.JButton();
+        refreshButton = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        txtTable = new javax.swing.JTable();
-        btnAllget = new javax.swing.JButton();
+        databaseTable = new javax.swing.JTable();
+        getAllButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,50 +73,50 @@ public class Controller extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setText("CC");
 
-        btnsave.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnsave.setText("Save");
-        btnsave.addActionListener(new java.awt.event.ActionListener() {
+        saveButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        saveButton.setText("Save");
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnsaveActionPerformed(evt);
+                saveButtonActionPerformed(evt);
             }
         });
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setText("Gear");
 
-        btnupdate.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnupdate.setText("Update");
-        btnupdate.addActionListener(new java.awt.event.ActionListener() {
+        updateButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        updateButton.setText("Update");
+        updateButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnupdateActionPerformed(evt);
+                updateButtonActionPerformed(evt);
             }
         });
 
-        btnedit.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnedit.setText("Search");
-        btnedit.addActionListener(new java.awt.event.ActionListener() {
+        searchButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        searchButton.setText("Search");
+        searchButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btneditActionPerformed(evt);
+                searchButtonActionPerformed(evt);
             }
         });
 
-        btndelet.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btndelet.setText("Delete");
-        btndelet.addActionListener(new java.awt.event.ActionListener() {
+        deleteButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        deleteButton.setText("Delete");
+        deleteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btndeletActionPerformed(evt);
+                deleteButtonActionPerformed(evt);
             }
         });
 
-        btnrefresh.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnrefresh.setText("Refresh");
-        btnrefresh.addActionListener(new java.awt.event.ActionListener() {
+        refreshButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        refreshButton.setText("Refresh");
+        refreshButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnrefreshActionPerformed(evt);
+                refreshButtonActionPerformed(evt);
             }
         });
 
-        txtTable.setModel(new javax.swing.table.DefaultTableModel(
+        databaseTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -124,13 +124,13 @@ public class Controller extends javax.swing.JFrame {
                 "code", "name", "model", "engine ", "cc", "gear"
             }
         ));
-        jScrollPane1.setViewportView(txtTable);
+        jScrollPane1.setViewportView(databaseTable);
 
-        btnAllget.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        btnAllget.setText("Get All");
-        btnAllget.addActionListener(new java.awt.event.ActionListener() {
+        getAllButton.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        getAllButton.setText("Get All");
+        getAllButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAllgetActionPerformed(evt);
+                getAllButtonActionPerformed(evt);
             }
         });
 
@@ -152,12 +152,12 @@ public class Controller extends javax.swing.JFrame {
                                     .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
                                 .addGap(87, 87, 87)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtname, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
-                                    .addComponent(txtmodel)
-                                    .addComponent(txtcc)
-                                    .addComponent(txtengine)
-                                    .addComponent(txtcode)
-                                    .addComponent(txtgear, javax.swing.GroupLayout.Alignment.TRAILING)))
+                                    .addComponent(nameField, javax.swing.GroupLayout.DEFAULT_SIZE, 243, Short.MAX_VALUE)
+                                    .addComponent(modelField)
+                                    .addComponent(ccField)
+                                    .addComponent(engineField)
+                                    .addComponent(codeField)
+                                    .addComponent(gearField, javax.swing.GroupLayout.Alignment.TRAILING)))
                             .addComponent(jLabel6))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,20 +165,20 @@ public class Controller extends javax.swing.JFrame {
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnedit)
+                                .addComponent(searchButton)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtserch, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(serchField, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnAllget, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(getAllButton, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(46, 46, 46))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnsave)
+                        .addComponent(saveButton)
                         .addGap(31, 31, 31)
-                        .addComponent(btnupdate)
+                        .addComponent(updateButton)
                         .addGap(31, 31, 31)
-                        .addComponent(btndelet)
+                        .addComponent(deleteButton)
                         .addGap(29, 29, 29)
-                        .addComponent(btnrefresh)
+                        .addComponent(refreshButton)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -187,52 +187,54 @@ public class Controller extends javax.swing.JFrame {
                 .addGap(19, 19, 19)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txtcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnedit)
-                    .addComponent(txtserch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAllget))
+                    .addComponent(codeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(searchButton)
+                    .addComponent(serchField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(getAllButton))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(txtname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(23, 23, 23)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtmodel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(modelField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtengine, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(engineField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel4))
                         .addGap(32, 32, 32)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtcc, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ccField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5))
                         .addGap(27, 27, 27)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtgear, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(gearField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 214, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnsave)
-                    .addComponent(btnupdate)
-                    .addComponent(btndelet)
-                    .addComponent(btnrefresh))
+                    .addComponent(saveButton)
+                    .addComponent(updateButton)
+                    .addComponent(deleteButton)
+                    .addComponent(refreshButton))
                 .addContainerGap(139, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnsaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnsaveActionPerformed
-        String code = txtcode.getText();
-        String name = txtname.getText();
-        String model = txtmodel.getText();
-        String engine = txtengine.getText();
-        double cc  = Double.parseDouble(txtcc.getText());
-        int gear = Integer.parseInt(txtgear.getText());
+    
+    //===========Saving Data ============//
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+        String code = codeField.getText();
+        String name = nameField.getText();
+        String model = modelField.getText();
+        String engine = engineField.getText();
+        double cc  = Double.parseDouble(ccField.getText());
+        int gear = Integer.parseInt(gearField.getText());
         
         Honda hn = new Honda();
         
@@ -245,34 +247,36 @@ public class Controller extends javax.swing.JFrame {
         
         
          int status = traineeService.save(hn);
+         
          if (status == 1) {
             JOptionPane.showMessageDialog(rootPane, "Honda Saved Successfully !");
             
         } else {
             JOptionPane.showMessageDialog(rootPane, "Honda Code already exists !");
         }  
-    }//GEN-LAST:event_btnsaveActionPerformed
+    }//GEN-LAST:event_saveButtonActionPerformed
 
     
-    private void btneditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btneditActionPerformed
-       String search =txtserch.getText();
+    
+    private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
+       String search =serchField.getText();
        Honda m = new HondaSarvice().getByCode(search);
-       txtcode.setText(m.getCode());
-       txtname.setText(m.getName());
-       txtmodel.setText(m.getModel());
-       txtengine.setText(m.getEngine());
-       txtcc.setText(String.valueOf(m.getCc()));
-       txtgear.setText(String.valueOf(m.getGear()));
-    }//GEN-LAST:event_btneditActionPerformed
+       codeField.setText(m.getCode());
+       nameField.setText(m.getName());
+       modelField.setText(m.getModel());
+       engineField.setText(m.getEngine());
+       ccField.setText(String.valueOf(m.getCc()));
+       gearField.setText(String.valueOf(m.getGear()));
+    }//GEN-LAST:event_searchButtonActionPerformed
 
     
-    private void btnupdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnupdateActionPerformed
-     String code = txtcode.getText();
-        String name = txtname.getText();
-        String model = txtmodel.getText();
-        String engine = txtengine.getText();
-        double cc  = Double.parseDouble(txtcc.getText());
-        int gear = Integer.parseInt(txtgear.getText());
+    private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
+     String code = codeField.getText();
+        String name = nameField.getText();
+        String model = modelField.getText();
+        String engine = engineField.getText();
+        double cc  = Double.parseDouble(ccField.getText());
+        int gear = Integer.parseInt(gearField.getText());
         Honda hn = new Honda();
         hn.setCode(code);
         hn.setName(name);
@@ -288,23 +292,23 @@ public class Controller extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(rootPane, "Honda update already exists !");
         }
-    }//GEN-LAST:event_btnupdateActionPerformed
+    }//GEN-LAST:event_updateButtonActionPerformed
 
     
-    private void btnrefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnrefreshActionPerformed
-       txtcode.setText("");
-       txtname.setText("");
-       txtmodel.setText("");
-       txtengine.setText("");
-       txtcc.setText("");
-       txtgear.setText("");
-    }//GEN-LAST:event_btnrefreshActionPerformed
+    private void refreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshButtonActionPerformed
+       codeField.setText("");
+       nameField.setText("");
+       modelField.setText("");
+       engineField.setText("");
+       ccField.setText("");
+       gearField.setText("");
+    }//GEN-LAST:event_refreshButtonActionPerformed
 
     
     
-    private void btndeletActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeletActionPerformed
+    private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
          Honda m = new Honda();
-       String code = txtcode.getText();
+       String code = codeField.getText();
         m.setCode(code);
        int status = traineeService.delete(m);
          if (status == 1) {
@@ -313,20 +317,20 @@ public class Controller extends javax.swing.JFrame {
         } else {
             JOptionPane.showMessageDialog(rootPane, "Honda delete already exists !");
         }
-    }//GEN-LAST:event_btndeletActionPerformed
+    }//GEN-LAST:event_deleteButtonActionPerformed
 
     
-    private void btnAllgetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAllgetActionPerformed
+    private void getAllButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getAllButtonActionPerformed
         
         List<Honda> list = traineeService.getAll();
-        DefaultTableModel dtm = (DefaultTableModel) txtTable.getModel();
+        DefaultTableModel dtm = (DefaultTableModel) databaseTable.getModel();
         dtm.setRowCount(0);
         for (int i = 0; i < list.size(); i++) {
             Honda get = list.get(i);
             dtm.addRow(new Object[] {get.getCode(), get.getName(), get.getModel(), get.getEngine(), get.getCc(), get.getGear()});
             
         }
-    }//GEN-LAST:event_btnAllgetActionPerformed
+    }//GEN-LAST:event_getAllButtonActionPerformed
 
     
     /**
@@ -366,12 +370,13 @@ public class Controller extends javax.swing.JFrame {
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAllget;
-    private javax.swing.JButton btndelet;
-    private javax.swing.JButton btnedit;
-    private javax.swing.JButton btnrefresh;
-    private javax.swing.JButton btnsave;
-    private javax.swing.JButton btnupdate;
+    private javax.swing.JTextField ccField;
+    private javax.swing.JTextField codeField;
+    private javax.swing.JTable databaseTable;
+    private javax.swing.JButton deleteButton;
+    private javax.swing.JTextField engineField;
+    private javax.swing.JTextField gearField;
+    private javax.swing.JButton getAllButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -379,13 +384,12 @@ public class Controller extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable txtTable;
-    private javax.swing.JTextField txtcc;
-    private javax.swing.JTextField txtcode;
-    private javax.swing.JTextField txtengine;
-    private javax.swing.JTextField txtgear;
-    private javax.swing.JTextField txtmodel;
-    private javax.swing.JTextField txtname;
-    private javax.swing.JTextField txtserch;
+    private javax.swing.JTextField modelField;
+    private javax.swing.JTextField nameField;
+    private javax.swing.JButton refreshButton;
+    private javax.swing.JButton saveButton;
+    private javax.swing.JButton searchButton;
+    private javax.swing.JTextField serchField;
+    private javax.swing.JButton updateButton;
     // End of variables declaration//GEN-END:variables
 }
