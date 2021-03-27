@@ -2,10 +2,13 @@
 package com.shop.controller;
 
 import com.shop.util.DBConnection;
+import java.awt.print.PrinterException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
@@ -16,7 +19,7 @@ import net.proteanit.sql.DbUtils;
  */
 public class Dashboard extends javax.swing.JFrame {
 
-     Connection con;
+    Connection con;
     Statement prst;
     
     
@@ -29,6 +32,10 @@ public class Dashboard extends javax.swing.JFrame {
     discountField4.setText("");
     }
     
+     public void reset2(){
+    printArea.setText("");
+   
+    }
     
     private JFrame frame;
 
@@ -99,12 +106,10 @@ public class Dashboard extends javax.swing.JFrame {
         orderPanel = new javax.swing.JPanel();
         jLayeredPane1 = new javax.swing.JLayeredPane();
         jLabel10 = new javax.swing.JLabel();
-        invoiceField4 = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        customerIdField6 = new javax.swing.JTextField();
-        invoiceNoSpinner = new javax.swing.JSpinner();
+        invoiceNo = new javax.swing.JLabel();
+        invoiceDate = new javax.swing.JLabel();
         jLayeredPane2 = new javax.swing.JLayeredPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         salesTable1 = new javax.swing.JTable();
@@ -112,28 +117,26 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         barcodeField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        productField2 = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        branchComboBox1 = new javax.swing.JComboBox<>();
-        totalPriceTextField3 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        quantityField1 = new javax.swing.JTextField();
-        unitTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        barcodeSearch = new javax.swing.JButton();
+        product = new javax.swing.JLabel();
+        unitPrice = new javax.swing.JLabel();
+        discount = new javax.swing.JLabel();
+        totalPrice = new javax.swing.JLabel();
+        branch = new javax.swing.JLabel();
+        quntity = new javax.swing.JTextField();
         jLayeredPane4 = new javax.swing.JLayeredPane();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
         sellButton2 = new javax.swing.JButton();
         recieptButton16 = new javax.swing.JButton();
         calculateButton17 = new javax.swing.JButton();
         saveDetailesButton18 = new javax.swing.JButton();
-        customerNameField8 = new javax.swing.JTextField();
-        customerAddressField9 = new javax.swing.JTextField();
+        billerName = new javax.swing.JTextField();
         PhoneField10 = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
         paymentComboBox2 = new javax.swing.JComboBox<>();
@@ -142,6 +145,7 @@ public class Dashboard extends javax.swing.JFrame {
         exitButton20 = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         printArea = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
         addProductPanel = new javax.swing.JPanel();
         jLayeredPane7 = new javax.swing.JLayeredPane();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -173,8 +177,8 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel26 = new javax.swing.JLabel();
         updateField15 = new javax.swing.JTextField();
         searchButton48 = new javax.swing.JButton();
-        searchField17 = new javax.swing.JTextField();
         jDatePicker1 = new org.jdatepicker.JDatePicker();
+        jButton2 = new javax.swing.JButton();
         jButton49 = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -396,7 +400,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addComponent(paymentButton13)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(settingsButton14)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 108, Short.MAX_VALUE)
                 .addComponent(logoutButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -405,6 +409,8 @@ public class Dashboard extends javax.swing.JFrame {
         jButton21.setBorder(null);
         jButton21.setContentAreaFilled(false);
         jButton21.setIconTextGap(0);
+
+        jLayeredPane6.setBackground(new java.awt.Color(0, 153, 51));
 
         tabPane.setBackground(new java.awt.Color(204, 102, 0));
         tabPane.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -917,14 +923,12 @@ public class Dashboard extends javax.swing.JFrame {
 
         orderPanel.setBackground(new java.awt.Color(204, 204, 204));
 
-        jLayeredPane1.setBackground(new java.awt.Color(153, 153, 153));
+        jLayeredPane1.setBackground(new java.awt.Color(0, 102, 102));
         jLayeredPane1.setBorder(javax.swing.BorderFactory.createTitledBorder("Sales Information"));
         jLayeredPane1.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
         jLabel10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel10.setText("Invoice Date");
-
-        invoiceField4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel11.setText("Invoice No ");
@@ -932,18 +936,18 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel12.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel12.setText("Customer Sells Details :");
 
-        jLabel13.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel13.setText("Customar ID");
+        invoiceNo.setBackground(new java.awt.Color(0, 102, 102));
+        invoiceNo.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
-        customerIdField6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        invoiceDate.setBackground(new java.awt.Color(0, 153, 153));
+        invoiceDate.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
+        invoiceDate.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
 
         jLayeredPane1.setLayer(jLabel10, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(invoiceField4, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jLabel11, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jLabel12, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jLabel13, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(customerIdField6, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(invoiceNoSpinner, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(invoiceNo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(invoiceDate, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
@@ -952,49 +956,39 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(196, 196, 196)
+                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(invoiceNo, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(customerIdField6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(13, 13, 13)
-                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addGap(71, 71, 71)
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(112, 112, 112)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(invoiceNoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(invoiceField4, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29))))
+                        .addGap(42, 42, 42))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createSequentialGroup()
+                        .addComponent(invoiceDate, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(32, 32, 32))))
         );
         jLayeredPane1Layout.setVerticalGroup(
             jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane1Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jLabel12)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jLayeredPane1Layout.createSequentialGroup()
                 .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(jLabel12))
+                    .addGroup(jLayeredPane1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel10))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel11)
-                        .addComponent(jLabel13)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(invoiceField4)
-                    .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(customerIdField6)
-                        .addComponent(invoiceNoSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10)
+                            .addComponent(jLabel11))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jLayeredPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(invoiceNo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(invoiceDate, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE))))
                 .addContainerGap())
         );
 
-        jLayeredPane2.setBackground(new java.awt.Color(153, 153, 153));
+        jLayeredPane2.setBackground(new java.awt.Color(0, 102, 102));
         jLayeredPane2.setBorder(javax.swing.BorderFactory.createTitledBorder("Product Details"));
         jLayeredPane2.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
@@ -1022,28 +1016,30 @@ public class Dashboard extends javax.swing.JFrame {
         jLayeredPane2.setLayout(jLayeredPane2Layout);
         jLayeredPane2Layout.setHorizontalGroup(
             jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jLayeredPane2Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1))
+                .addComponent(jScrollPane1)
+                .addContainerGap())
         );
         jLayeredPane2Layout.setVerticalGroup(
             jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 148, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
-        jLayeredPane3.setBackground(new java.awt.Color(153, 153, 153));
+        jLayeredPane3.setBackground(new java.awt.Color(0, 102, 102));
         jLayeredPane3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Sales Amount", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
         jLayeredPane3.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setText("Barcode :");
 
-        barcodeField1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        barcodeField1.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel2.setText("Product :");
-
-        productField2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel3.setText("Branch :");
@@ -1060,64 +1056,80 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel7.setText("Total Price :");
 
-        branchComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dhaka", "Narayanganj", "Barishal" }));
-        branchComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        barcodeSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/shop/img/search.png"))); // NOI18N
+        barcodeSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                branchComboBox1ActionPerformed(evt);
+                barcodeSearchActionPerformed(evt);
             }
         });
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/shop/img/search.png"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
+        product.setBackground(new java.awt.Color(0, 102, 102));
+        product.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        product.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+        unitPrice.setBackground(new java.awt.Color(0, 102, 102));
+        unitPrice.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        unitPrice.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+        discount.setBackground(new java.awt.Color(0, 102, 102));
+        discount.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        discount.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+        totalPrice.setBackground(new java.awt.Color(0, 102, 102));
+        totalPrice.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        totalPrice.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+        branch.setBackground(new java.awt.Color(0, 102, 102));
+        branch.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        branch.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
+        quntity.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
 
         jLayeredPane3.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane3.setLayer(barcodeField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane3.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane3.setLayer(productField2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane3.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane3.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane3.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane3.setLayer(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane3.setLayer(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane3.setLayer(branchComboBox1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane3.setLayer(totalPriceTextField3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane3.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane3.setLayer(quantityField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane3.setLayer(unitTextField2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane3.setLayer(jTextField3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(barcodeSearch, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(product, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(unitPrice, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(discount, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(totalPrice, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(branch, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(quntity, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane3Layout = new javax.swing.GroupLayout(jLayeredPane3);
         jLayeredPane3.setLayout(jLayeredPane3Layout);
         jLayeredPane3Layout.setHorizontalGroup(
             jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane3Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(jLayeredPane3Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(productField2, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(branchComboBox1, 0, 200, Short.MAX_VALUE))
-                        .addGroup(jLayeredPane3Layout.createSequentialGroup()
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(barcodeField1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(quantityField1, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(unitTextField2)
-                    .addComponent(jTextField3)
-                    .addComponent(totalPriceTextField3))
+                    .addGroup(jLayeredPane3Layout.createSequentialGroup()
+                        .addGap(7, 7, 7)
+                        .addComponent(barcodeSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(barcodeField1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(product, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(unitPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(discount, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(totalPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(branch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(quntity))
                 .addContainerGap())
         );
         jLayeredPane3Layout.setVerticalGroup(
@@ -1125,52 +1137,59 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(jLayeredPane3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 28, Short.MAX_VALUE)
+                    .addComponent(barcodeSearch, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
                     .addComponent(barcodeField1)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(productField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
-                    .addComponent(branchComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(product, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jLayeredPane3Layout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(jLabel4))
+                        .addGap(14, 14, 14)
+                        .addComponent(jLabel3))
                     .addGroup(jLayeredPane3Layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(quantityField1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(unitTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
+                        .addGap(8, 8, 8)
+                        .addComponent(branch, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jLayeredPane3Layout.createSequentialGroup()
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 5, Short.MAX_VALUE))
+                    .addGroup(jLayeredPane3Layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(quntity)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel7)
-                    .addComponent(totalPriceTextField3))
-                .addContainerGap())
+                    .addComponent(unitPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jLayeredPane3Layout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(jLabel6))
+                    .addGroup(jLayeredPane3Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(discount, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(12, 12, 12)
+                .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(totalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane3Layout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addGap(12, 12, 12)))
+                .addGap(15, 15, 15))
         );
 
-        jLayeredPane4.setBackground(new java.awt.Color(153, 153, 153));
+        jLayeredPane4.setBackground(new java.awt.Color(0, 102, 102));
         jLayeredPane4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Customer Details", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
         jLayeredPane4.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
         jLabel8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel8.setText("Name :");
-
-        jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel9.setText("Address :");
+        jLabel8.setText("Biller Name :");
 
         jLabel14.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel14.setText("Phone : ");
 
+        sellButton2.setBackground(new java.awt.Color(204, 204, 204));
         sellButton2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         sellButton2.setText("Sell");
         sellButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -1179,35 +1198,51 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
+        recieptButton16.setBackground(new java.awt.Color(204, 204, 204));
         recieptButton16.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         recieptButton16.setText("Riciept");
+        recieptButton16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                recieptButton16ActionPerformed(evt);
+            }
+        });
 
+        calculateButton17.setBackground(new java.awt.Color(204, 204, 204));
         calculateButton17.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         calculateButton17.setText("Calculate");
+        calculateButton17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calculateButton17ActionPerformed(evt);
+            }
+        });
 
+        saveDetailesButton18.setBackground(new java.awt.Color(204, 204, 204));
         saveDetailesButton18.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        saveDetailesButton18.setText("Save Details");
+        saveDetailesButton18.setText("Refresh");
+        saveDetailesButton18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveDetailesButton18ActionPerformed(evt);
+            }
+        });
 
-        customerNameField8.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        billerName.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
 
-        customerAddressField9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-
-        PhoneField10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        PhoneField10.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
 
         jLabel15.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel15.setText("Payment By : ");
 
+        paymentComboBox2.setBackground(new java.awt.Color(255, 255, 255));
+        paymentComboBox2.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         paymentComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cash", "Card", "Bikash", "Rocket", "Nagad" }));
 
         jLayeredPane4.setLayer(jLabel8, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane4.setLayer(jLabel9, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane4.setLayer(jLabel14, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane4.setLayer(sellButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane4.setLayer(recieptButton16, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane4.setLayer(calculateButton17, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane4.setLayer(saveDetailesButton18, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane4.setLayer(customerNameField8, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane4.setLayer(customerAddressField9, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(billerName, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane4.setLayer(PhoneField10, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane4.setLayer(jLabel15, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane4.setLayer(paymentComboBox2, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -1223,27 +1258,24 @@ public class Dashboard extends javax.swing.JFrame {
                         .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(calculateButton17, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 125, Short.MAX_VALUE)
                             .addComponent(sellButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 50, Short.MAX_VALUE)
                         .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(saveDetailesButton18, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
                             .addComponent(recieptButton16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(16, 16, 16))
                     .addGroup(jLayeredPane4Layout.createSequentialGroup()
+                        .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(paymentComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane4Layout.createSequentialGroup()
+                        .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
                         .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jLayeredPane4Layout.createSequentialGroup()
-                                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGap(18, 18, 18))
-                            .addGroup(jLayeredPane4Layout.createSequentialGroup()
-                                .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel15, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                        .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(customerNameField8)
-                            .addComponent(customerAddressField9)
-                            .addComponent(PhoneField10)
-                            .addComponent(paymentComboBox2, 0, 187, Short.MAX_VALUE))
+                            .addComponent(billerName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(PhoneField10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap())))
         );
         jLayeredPane4Layout.setVerticalGroup(
@@ -1251,68 +1283,90 @@ public class Dashboard extends javax.swing.JFrame {
             .addGroup(jLayeredPane4Layout.createSequentialGroup()
                 .addGap(9, 9, 9)
                 .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(customerNameField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
-                .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel9)
-                    .addComponent(customerAddressField9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(16, 16, 16)
-                .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel14)
-                    .addComponent(PhoneField10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
+                    .addComponent(billerName, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(PhoneField10)
+                    .addGroup(jLayeredPane4Layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(jLabel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
-                    .addComponent(paymentComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(paymentComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(103, 103, 103)
                 .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(saveDetailesButton18, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
                     .addComponent(calculateButton17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(recieptButton16, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
-                    .addComponent(sellButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(sellButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 44, Short.MAX_VALUE)
+                    .addComponent(recieptButton16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
-        jLayeredPane5.setBackground(new java.awt.Color(153, 153, 153));
+        jLayeredPane5.setBackground(new java.awt.Color(0, 102, 102));
         jLayeredPane5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Order and Print details", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
         jLayeredPane5.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
+        printButton19.setBackground(new java.awt.Color(204, 204, 204));
         printButton19.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         printButton19.setText("Print");
+        printButton19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printButton19ActionPerformed(evt);
+            }
+        });
 
+        exitButton20.setBackground(new java.awt.Color(204, 204, 204));
         exitButton20.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         exitButton20.setText("Exit");
+        exitButton20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitButton20ActionPerformed(evt);
+            }
+        });
 
         printArea.setColumns(20);
         printArea.setRows(5);
         jScrollPane3.setViewportView(printArea);
 
+        jButton1.setBackground(new java.awt.Color(204, 204, 204));
+        jButton1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jButton1.setText("Reset");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         jLayeredPane5.setLayer(printButton19, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane5.setLayer(exitButton20, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane5.setLayer(jScrollPane3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane5.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane5Layout = new javax.swing.GroupLayout(jLayeredPane5);
         jLayeredPane5.setLayout(jLayeredPane5Layout);
         jLayeredPane5Layout.setHorizontalGroup(
             jLayeredPane5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane5Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(printButton19, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE)
+                .addComponent(printButton19, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(exitButton20, javax.swing.GroupLayout.DEFAULT_SIZE, 136, Short.MAX_VALUE))
-            .addComponent(jScrollPane3)
+                .addComponent(exitButton20, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
         );
         jLayeredPane5Layout.setVerticalGroup(
             jLayeredPane5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane5Layout.createSequentialGroup()
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jLayeredPane5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(printButton19, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
-                    .addComponent(exitButton20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(exitButton20, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                    .addComponent(printButton19, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -1341,11 +1395,11 @@ public class Dashboard extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(orderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLayeredPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 324, Short.MAX_VALUE)
-                    .addComponent(jLayeredPane4)
-                    .addComponent(jLayeredPane3))
-                .addContainerGap(76, Short.MAX_VALUE))
+                .addGroup(orderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jLayeredPane4, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLayeredPane5)
+                    .addComponent(jLayeredPane3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         tabPane.addTab("ORDER", orderPanel);
@@ -1406,28 +1460,35 @@ public class Dashboard extends javax.swing.JFrame {
         jLayeredPane9.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
         jLabel16.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Barcode :");
 
         barcodeField11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 
         jLabel17.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Product :");
 
         productField12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 
         jLabel18.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setText("Branch :");
 
         jLabel19.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Quantity :");
 
         jLabel20.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel20.setForeground(new java.awt.Color(255, 255, 255));
         jLabel20.setText("Unit Price :");
 
         jLabel21.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("Discount :");
 
         jLabel22.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
         jLabel22.setText("Catagorie :");
 
         branchComboBox3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -1480,7 +1541,7 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel20, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel21, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE))
+                    .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, 85, Short.MAX_VALUE))
                 .addGroup(jLayeredPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jLayeredPane9Layout.createSequentialGroup()
                         .addGap(12, 12, 12)
@@ -1528,7 +1589,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addGroup(jLayeredPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(catagorieComboBox5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel22))
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addContainerGap(66, Short.MAX_VALUE))
         );
 
         jLayeredPane10.setBackground(new java.awt.Color(153, 153, 153));
@@ -1537,9 +1598,11 @@ public class Dashboard extends javax.swing.JFrame {
         jLayeredPane10.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
 
         jLabel23.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setText("Name :");
 
         jLabel25.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
         jLabel25.setText("Phone : ");
 
         dataEntryButton45.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -1551,7 +1614,12 @@ public class Dashboard extends javax.swing.JFrame {
         });
 
         updateButton46.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        updateButton46.setText("Update by Barcode");
+        updateButton46.setText("Search by Barcode");
+        updateButton46.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateButton46ActionPerformed(evt);
+            }
+        });
 
         deleteButton47.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         deleteButton47.setText("Delete");
@@ -1566,13 +1634,16 @@ public class Dashboard extends javax.swing.JFrame {
         adPhoneField16.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 
         jLabel26.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
         jLabel26.setText("Date :");
+
+        updateField15.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 
         searchButton48.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         searchButton48.setText("Search by Name");
 
-        searchField17.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        searchField17.setBorder(null);
+        jButton2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jButton2.setText("Update");
 
         jLayeredPane10.setLayer(jLabel23, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane10.setLayer(jLabel25, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -1584,8 +1655,8 @@ public class Dashboard extends javax.swing.JFrame {
         jLayeredPane10.setLayer(jLabel26, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane10.setLayer(updateField15, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane10.setLayer(searchButton48, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane10.setLayer(searchField17, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane10.setLayer(jDatePicker1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane10.setLayer(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane10Layout = new javax.swing.GroupLayout(jLayeredPane10);
         jLayeredPane10.setLayout(jLayeredPane10Layout);
@@ -1605,17 +1676,17 @@ public class Dashboard extends javax.swing.JFrame {
                             .addComponent(adNameField14, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jDatePicker1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jLayeredPane10Layout.createSequentialGroup()
-                        .addComponent(dataEntryButton45, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(deleteButton47, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(updateButton46, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE))
+                        .addComponent(updateField15))
                     .addGroup(jLayeredPane10Layout.createSequentialGroup()
                         .addComponent(searchButton48, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(searchField17))
+                        .addComponent(updateButton46, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jLayeredPane10Layout.createSequentialGroup()
-                        .addComponent(deleteButton47, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(dataEntryButton45, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(updateField15)))
+                        .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jLayeredPane10Layout.setVerticalGroup(
@@ -1636,10 +1707,10 @@ public class Dashboard extends javax.swing.JFrame {
                     .addGroup(jLayeredPane10Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jDatePicker1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jLayeredPane10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(searchField17)
-                    .addComponent(searchButton48, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 114, Short.MAX_VALUE)
+                .addGroup(jLayeredPane10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(searchButton48, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateButton46, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jLayeredPane10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(deleteButton47, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -1647,13 +1718,13 @@ public class Dashboard extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jLayeredPane10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(dataEntryButton45, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE)
-                    .addComponent(updateButton46, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(9, 9, 9))
         );
 
         jButton49.setBackground(new java.awt.Color(0, 0, 0));
         jButton49.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/shop/img/data_entry.png"))); // NOI18N
-        jButton49.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Entry", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(51, 51, 51))); // NOI18N
+        jButton49.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Entry", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("sansserif", 1, 12), new java.awt.Color(51, 51, 51))); // NOI18N
         jButton49.setContentAreaFilled(false);
 
         jLayeredPane8.setLayer(jLayeredPane9, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -1716,7 +1787,7 @@ public class Dashboard extends javax.swing.JFrame {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 685, Short.MAX_VALUE)
+            .addGap(0, 703, Short.MAX_VALUE)
         );
 
         tabPane.addTab("USERS", jPanel3);
@@ -1731,7 +1802,7 @@ public class Dashboard extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 685, Short.MAX_VALUE)
+            .addGap(0, 703, Short.MAX_VALUE)
         );
 
         tabPane.addTab("CUSTOMERS", jPanel1);
@@ -1746,7 +1817,7 @@ public class Dashboard extends javax.swing.JFrame {
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 685, Short.MAX_VALUE)
+            .addGap(0, 703, Short.MAX_VALUE)
         );
 
         tabPane.addTab("EMPLOYEE", jPanel6);
@@ -1761,7 +1832,7 @@ public class Dashboard extends javax.swing.JFrame {
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 685, Short.MAX_VALUE)
+            .addGap(0, 703, Short.MAX_VALUE)
         );
 
         tabPane.addTab("BILL", jPanel7);
@@ -1776,7 +1847,7 @@ public class Dashboard extends javax.swing.JFrame {
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 685, Short.MAX_VALUE)
+            .addGap(0, 703, Short.MAX_VALUE)
         );
 
         tabPane.addTab("EXPENSE", jPanel8);
@@ -1791,7 +1862,7 @@ public class Dashboard extends javax.swing.JFrame {
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 685, Short.MAX_VALUE)
+            .addGap(0, 703, Short.MAX_VALUE)
         );
 
         tabPane.addTab("REPORTS", jPanel9);
@@ -1806,7 +1877,7 @@ public class Dashboard extends javax.swing.JFrame {
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 685, Short.MAX_VALUE)
+            .addGap(0, 703, Short.MAX_VALUE)
         );
 
         tabPane.addTab("SETINGS", jPanel10);
@@ -1828,7 +1899,7 @@ public class Dashboard extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
             .addGroup(jLayeredPane6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane6Layout.createSequentialGroup()
-                    .addComponent(tabPane, javax.swing.GroupLayout.DEFAULT_SIZE, 719, Short.MAX_VALUE)
+                    .addComponent(tabPane, javax.swing.GroupLayout.PREFERRED_SIZE, 719, Short.MAX_VALUE)
                     .addContainerGap()))
         );
 
@@ -1874,6 +1945,7 @@ public class Dashboard extends javax.swing.JFrame {
     ResultSet rs = prst.executeQuery();
     productTable2.setModel(DbUtils.resultSetToTableModel(rs));
    
+    DisplayTable2();
     }catch(Exception e)
     {
     JOptionPane.showMessageDialog(null, e);
@@ -1912,25 +1984,26 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_purchaseButton8ActionPerformed
 
     private void stocksButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stocksButton1ActionPerformed
+       
+        
+        
+        
+        
         this.setVisible(false);
         new Stocks().setVisible(true);
     }//GEN-LAST:event_stocksButton1ActionPerformed
 
     private void logoutButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButton3ActionPerformed
-        frame = new JFrame("Log Out");
-        if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to Log Out","HOME PAGE",
-                JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION)
-        {
-            System.exit(0);
-        }
+//        frame = new JFrame("Log Out");
+//        if (JOptionPane.showConfirmDialog(frame, "Confirm if you want to Log Out","HOME PAGE",
+//                JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION)
+//        {
+//            System.exit(0);
+//        }
         
         this.setVisible(false);
-            new HomeLogin().setVisible(true);
+        new HomeLogin().setVisible(true);
     }//GEN-LAST:event_logoutButton3ActionPerformed
-
-    private void branchComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_branchComboBox1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_branchComboBox1ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
@@ -2093,56 +2166,23 @@ public class Dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_adNameField14ActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-         try{
+    private void barcodeSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_barcodeSearchActionPerformed
+
+ try{
    con = DBConnection.getConnection();
     prst = con.createStatement();
     String sql = "select * from product_entry where barcode = ?";
     
     PreparedStatement prst = con.prepareStatement(sql);
-    prst.setString(1, (barcodeField1.getText()));
+    prst.setString(1, barcodeField1.getText());
     
     ResultSet rs = prst.executeQuery();
     if(rs.next()){
-        
-        
-       productField2.setText(rs.getString("product_name")); //ok
-       branchComboBox1.setSelectedItem( rs.getString("branch"));
-       
-//       String spinner = "price";
-//       //spinner = (String ) unitPriceSpinner2.getValue();
-//       printField7.setText(spinner);
-       
-       //unitPriceSpinner2.Spinner.getValue ( rs.getDouble("unit_price"));
-       
-       
-      // branchComboBox1.setValue(rs.getString("branch"));
-       //salaryField.setText(String.valueOf(rs.getDouble("salary")));
-       
-//        prst.setInt(1, Integer.parseInt(barcodeField11.getText())); 
-//    prst.setString(2, productField12.getText());
-//    
-//    
-//    
-//    prst.setInt(4, Integer.parseInt((String) quantitySpinner4.getValue())); 
-//    prst.setDouble(5, Double.parseDouble((String)unitSpinner5.getValue()));
-//    prst.setDouble(6, Double.parseDouble((String)discountSpinner6.getValue())); 
-//    
-//    String catagorie;
-//        catagorie = catagorieComboBox5.getSelectedItem().toString();
-//        prst.setString(7, catagorie);
-//        
-//    prst.setString(8, adNameField14.getText()); 
-//    prst.setString(9, adPhoneField16.getText()); 
-//
-//    java.util.Date date = new java.util.Date();	
-//            java.sql.Date sqlDate = new java.sql.Date(date.getTime());
-//            prst.setDate(10, sqlDate);
-       
-       
-       
-       
-       
+       product.setText(rs.getString("product_name"));
+       branch.setText(rs.getString("branch"));
+       //quantity.setText(String.valueOf(rs.getInt("quantity")));
+       unitPrice.setText(String.valueOf(rs.getDouble("unit_price")));
+       discount.setText(String.valueOf(rs.getDouble("discount")));
        
     }
     else
@@ -2155,50 +2195,205 @@ public class Dashboard extends javax.swing.JFrame {
     {
     JOptionPane.showMessageDialog(null, e);
     }
-    }//GEN-LAST:event_jButton1ActionPerformed
+
+    }//GEN-LAST:event_barcodeSearchActionPerformed
 
     private void unitPrField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unitPrField3ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_unitPrField3ActionPerformed
 
+    
+    //================= Sale ====================// 
     private void sellButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sellButton2ActionPerformed
-            try{
-    con = DBConnection.getConnection();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//            try{
+//    con = DBConnection.getConnection();
+//    prst = con.createStatement();
+//    String sql = "select * from product_entry where barcode = ?";
+//    
+//    PreparedStatement prst = con.prepareStatement(sql);
+//    prst.setString(1, barcodeField1.getText());
+//    
+//    ResultSet rs = prst.executeQuery();
+//    if(rs.next()){
+//   
+//        
+//        String product_name = rs.getString(1);
+//        String branch = rs.getString(2);
+//        String quantity = rs.getString(3);
+//        double unit_price = rs.getDouble(4);
+//        double discount = rs.getDouble(5);
+//        String catagories = rs.getString(6);
+//        String inputer_name = rs.getString(7);
+//        String phone = rs.getString(8);
+//        
+//        
+//        //String payment = rs.getString(10);
+//
+//       // Date date = rs.getDate();
+//     
+//       
+//        printArea.setText("Product Name \t:  " + product_name 
+//                        + "\nBranch \t:  " + branch 
+//                        + "\nQuantity \t:  " + quantity 
+//                        + "\nUnit Price \t:  " + unit_price
+//                        + "\nDiscount \t:  " + discount 
+//                        + "\nCatagories \t:  " + catagories 
+//                        + "\nInputer Name\t:  " + inputer_name 
+//                        + "\nPhone \t:  " + phone);
+//                       
+//    
+//    }
+//    else
+//    {
+//     JOptionPane.showMessageDialog(null, "Record Not found");
+//    }
+//    con.close(); //after completing task close the popup window
+//    } 
+//    catch(Exception e)
+//    {
+//    JOptionPane.showMessageDialog(null, "Record Not found");
+//    }
+    }//GEN-LAST:event_sellButton2ActionPerformed
+
+    private void recieptButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recieptButton16ActionPerformed
+       
+       
+       String productName =  product.getText();
+       String branches =  branch.getText();
+      // int quantitY = Integer.parseInt(quntity.getText());
+       Double uPrice = Double.parseDouble(unitPrice.getText());
+       Double discounts = Double.parseDouble(discount.getText());
+       Double totalPrices = Double.parseDouble(totalPrice.getText());
+       String billersName =  billerName.getText();
+       //String cAddress =  customerAddressField9.getText();
+       String phone =  PhoneField10.getText();
+       String payments = paymentComboBox2.getSelectedItem().toString();
+       int invoice = Integer.parseInt(invoiceNo.getText());
+       String dateAndTime =  invoiceDate.getText();
+       
+       
+        
+
+       
+       
+       
+        
+     printArea.setText("   Rasulpur Agro Supershop. \nRasulpur, Araihazar, Narayangonj." +  
+                       "\nInvoice No : " + invoice + "\tBranch :" + branches 
+                       
+                        + "\n Date : " + dateAndTime 
+                       
+                       + "\n----------------------------------------"
+                       + "\n\n" 
+
+                       + " # " + productName + "\t" + uPrice
+             
+                       + "\n\n"
+                       + "\nTotal discounts \t : " + discounts        
+                       + "\nTotal price \t:" + totalPrices 
+                       + "\n-----------------------------------------"
+                       + "\nBiller Name : "+ billersName 
+                       + "\nPhone : " + phone 
+                       + "\nPayment By : " + payments
+                       + "\n ********* Thank You *********");
+     
+    }//GEN-LAST:event_recieptButton16ActionPerformed
+
+    private void calculateButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateButton17ActionPerformed
+        
+        
+        //String productName =  product.getText();
+      // String branches =  branch.getText();
+       int quantitY = Integer.parseInt(quntity.getText());
+       Double uPrice = Double.parseDouble(unitPrice.getText());
+       Double discounts = Double.parseDouble(discount.getText());
+      // Double totalPrices = Double.parseDouble(totalPrice.getText());
+      // String billersName =  billerName.getText();
+       //String cAddress =  customerAddressField9.getText();
+       //String phone =  PhoneField10.getText();
+      // String payments = paymentComboBox2.getSelectedItem().toString();
+       //int invoice = Integer.parseInt(invoiceNo.getText());
+      // String date =  invoiceDate.getText();
+      
+      
+    //============== Calculate Total Price ======================//
+    int subPrice = (int) (quantitY * uPrice) ;
+    int totalPrices = (int)(subPrice - discounts) ;
+    totalPrice.setText( Integer.toString(totalPrices));
+       
+    //========== Generate random int value from 200 to 400 for invoice ======// 
+    int min = 200;  
+    int max = 900;  
+    int rand = (int)(Math.random()*(max-min+1)+min);   
+    invoiceNo.setText( Integer.toString(rand));
+       
+    //========== Setting Time ======// 
+    String timeStamp = new SimpleDateFormat("dd/MM/yyyy/ HH:mm:ss").format(Calendar.getInstance().getTime());
+    invoiceDate.setText(timeStamp);
+    //yyyyMMdd_HHmmss 
+    }//GEN-LAST:event_calculateButton17ActionPerformed
+
+    
+    
+    private void printButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printButton19ActionPerformed
+       try {
+            boolean print = printArea.print();
+            if (!print) {
+                JOptionPane.showMessageDialog(null, "Unable To Print !!..");
+            }
+        } catch (PrinterException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+    }//GEN-LAST:event_printButton19ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void exitButton20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButton20ActionPerformed
+        this.setVisible(false);
+        new HomeLogin().setVisible(true);
+    }//GEN-LAST:event_exitButton20ActionPerformed
+
+    
+    
+    private void updateButton46ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButton46ActionPerformed
+       try{
+   con = DBConnection.getConnection();
     prst = con.createStatement();
     String sql = "select * from product_entry where barcode = ?";
     
     PreparedStatement prst = con.prepareStatement(sql);
-    prst.setString(1, barcodeField1.getText());
+    prst.setString(1, updateField15.getText());
     
     ResultSet rs = prst.executeQuery();
     if(rs.next()){
-   
-        
-        String product_name = rs.getString(1);
-        String branch = rs.getString(2);
-        String quantity = rs.getString(3);
-        double unit_price = rs.getDouble(4);
-        double discount = rs.getDouble(5);
-        String catagories = rs.getString(6);
-        String inputer_name = rs.getString(7);
-        String phone = rs.getString(8);
-        
-        
-        //String payment = rs.getString(10);
-
-       // Date date = rs.getDate();
-     
-       
-        printArea.setText("Product Name \t:  " + product_name 
-                        + "\nBranch \t:  " + branch 
-                        + "\nQuantity \t:  " + quantity 
-                        + "\nUnit Price \t:  " + unit_price
-                        + "\nDiscount \t:  " + discount 
-                        + "\nCatagories \t:  " + catagories 
-                        + "\nInputer Name\t:  " + inputer_name 
-                        + "\nPhone \t:  " + phone);
-                       
-    
+       barcodeField11.setText(String.valueOf(rs.getInt("barcode")));
+       product.setText(rs.getString("product_name"));
+       branch.setText(rs.getString("branch"));
+       quantityField2.setText(String.valueOf(rs.getInt("quantity")));
+       unitPrice.setText(String.valueOf(rs.getDouble("unit_price")));
+       discount.setText(String.valueOf(rs.getDouble("discount")));
+       adNameField14.setText(rs.getString("product_name"));
+       adPhoneField16.setText(rs.getString("product_name"));
+       //prodjDatePicker1uct.setText(rs.getString("product_name"));
     }
     else
     {
@@ -2208,10 +2403,17 @@ public class Dashboard extends javax.swing.JFrame {
     } 
     catch(Exception e)
     {
-    JOptionPane.showMessageDialog(null, "Record Not found");
+    JOptionPane.showMessageDialog(null, e);
     }
-    }//GEN-LAST:event_sellButton2ActionPerformed
+    }//GEN-LAST:event_updateButton46ActionPerformed
 
+    private void saveDetailesButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveDetailesButton18ActionPerformed
+      DisplayTable2();
+    }//GEN-LAST:event_saveDetailesButton18ActionPerformed
+
+    
+    
+    
     /**
      * @param args the command line arguments
      */
@@ -2261,26 +2463,27 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JButton backupButton11;
     private javax.swing.JTextField barcodeField1;
     private javax.swing.JTextField barcodeField11;
-    private javax.swing.JComboBox<String> branchComboBox1;
+    private javax.swing.JButton barcodeSearch;
+    private javax.swing.JTextField billerName;
+    private javax.swing.JLabel branch;
     private javax.swing.JComboBox<String> branchComboBox3;
     private javax.swing.JButton calculateButton17;
     private javax.swing.JButton cashRecieptButton12;
     private javax.swing.JComboBox<String> catagorieComboBox5;
-    private javax.swing.JTextField customerAddressField9;
     private javax.swing.JButton customerButton6;
-    private javax.swing.JTextField customerIdField6;
-    private javax.swing.JTextField customerNameField8;
     private javax.swing.JButton dashboardButton;
     private javax.swing.JButton dataEntryButton45;
     private javax.swing.JButton deleteButton47;
+    private javax.swing.JLabel discount;
     private javax.swing.JTextField discountField4;
     private javax.swing.JButton exitButton20;
     private javax.swing.JPanel homePanel;
-    private javax.swing.JTextField invoiceField4;
-    private javax.swing.JSpinner invoiceNoSpinner;
+    private javax.swing.JLabel invoiceDate;
+    private javax.swing.JLabel invoiceNo;
     private javax.swing.JButton itemButton9;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton15;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton21;
     private javax.swing.JButton jButton23;
     private javax.swing.JButton jButton24;
@@ -2311,7 +2514,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
@@ -2331,7 +2533,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JLayeredPane jLayeredPane10;
     private javax.swing.JLayeredPane jLayeredPane2;
@@ -2353,7 +2554,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JButton logoutButton3;
     private javax.swing.JButton newOrderButton5;
     private javax.swing.JPanel orderPanel;
@@ -2361,27 +2561,26 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> paymentComboBox2;
     private javax.swing.JTextArea printArea;
     private javax.swing.JButton printButton19;
+    private javax.swing.JLabel product;
     private javax.swing.JTextField productField12;
-    private javax.swing.JTextField productField2;
     private javax.swing.JTable productTable2;
     private javax.swing.JButton purchaseButton8;
-    private javax.swing.JTextField quantityField1;
     private javax.swing.JTextField quantityField2;
+    private javax.swing.JTextField quntity;
     private javax.swing.JButton recieptButton16;
     private javax.swing.JButton salesButton10;
     private javax.swing.JTable salesTable1;
     private javax.swing.JButton saveDetailesButton18;
     private javax.swing.JButton searchButton48;
-    private javax.swing.JTextField searchField17;
     private javax.swing.JButton sellButton2;
     private javax.swing.JButton settingsButton14;
     private javax.swing.JButton shopLogoButton22;
     private javax.swing.JButton stocksButton1;
     private javax.swing.JButton supplierButton7;
     private javax.swing.JTabbedPane tabPane;
-    private javax.swing.JTextField totalPriceTextField3;
+    private javax.swing.JLabel totalPrice;
     private javax.swing.JTextField unitPrField3;
-    private javax.swing.JTextField unitTextField2;
+    private javax.swing.JLabel unitPrice;
     private javax.swing.JButton updateButton46;
     private javax.swing.JTextField updateField15;
     // End of variables declaration//GEN-END:variables

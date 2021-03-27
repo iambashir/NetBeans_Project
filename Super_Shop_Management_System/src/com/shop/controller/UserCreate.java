@@ -49,17 +49,14 @@ public UserCreate() {
         homeButton1 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        salesBranchComboBox1 = new javax.swing.JComboBox<>();
         salesNameField3 = new javax.swing.JTextField();
-        salesCodeField4 = new javax.swing.JTextField();
-        jLabel8 = new javax.swing.JLabel();
-        dateField5 = new javax.swing.JTextField();
         backButton3 = new javax.swing.JButton();
         PasswordField1 = new javax.swing.JPasswordField();
+        branch = new javax.swing.JTextField();
         userCreateIconButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("SUPERSHOP MANAGMENT SYSTEM - Salesman Registration Window");
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
 
@@ -120,22 +117,7 @@ public UserCreate() {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Branch :");
 
-        jLabel7.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("Code :");
-
-        salesBranchComboBox1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        salesBranchComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dhaka", "Narayanganj", "Barisal" }));
-
         salesNameField3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-
-        salesCodeField4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-
-        jLabel8.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Date :");
-
-        dateField5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 
         backButton3.setBackground(new java.awt.Color(0, 102, 102));
         backButton3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -158,14 +140,10 @@ public UserCreate() {
         jLayeredPane3.setLayer(homeButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane3.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane3.setLayer(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane3.setLayer(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane3.setLayer(salesBranchComboBox1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane3.setLayer(salesNameField3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane3.setLayer(salesCodeField4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane3.setLayer(jLabel8, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane3.setLayer(dateField5, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane3.setLayer(backButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane3.setLayer(PasswordField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(branch, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane3Layout = new javax.swing.GroupLayout(jLayeredPane3);
         jLayeredPane3.setLayout(jLayeredPane3Layout);
@@ -176,45 +154,26 @@ public UserCreate() {
                 .addComponent(salesLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(57, 57, 57))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane3Layout.createSequentialGroup()
+                .addGap(51, 51, 51)
                 .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane3Layout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel7))
-                        .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jLayeredPane3Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(salesBranchComboBox1, javax.swing.GroupLayout.Alignment.TRAILING, 0, 173, Short.MAX_VALUE)
-                                    .addComponent(salesNameField3, javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(salesCodeField4)))
-                            .addGroup(jLayeredPane3Layout.createSequentialGroup()
-                                .addGap(53, 53, 53)
-                                .addComponent(dateField5, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane3Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(homeButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(registerButton2)
                         .addGap(18, 18, 18)
                         .addComponent(backButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane3Layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane3Layout.createSequentialGroup()
-                                .addComponent(jLabel4)
-                                .addGap(48, 48, 48))
-                            .addGroup(jLayeredPane3Layout.createSequentialGroup()
-                                .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel8)
-                                    .addComponent(jLabel3))
-                                .addGap(53, 53, 53)))
+                        .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel6)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 87, Short.MAX_VALUE)
                         .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(salesUserNameField1, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
-                            .addComponent(PasswordField1))))
+                            .addComponent(PasswordField1, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                            .addComponent(salesNameField3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 173, Short.MAX_VALUE)
+                            .addComponent(salesUserNameField1, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(branch))))
                 .addGap(49, 49, 49))
         );
         jLayeredPane3Layout.setVerticalGroup(
@@ -224,34 +183,26 @@ public UserCreate() {
                 .addComponent(salesLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(45, 45, 45)
                 .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(salesNameField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(salesNameField3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(24, 24, 24)
+                .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(branch, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(salesBranchComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(salesUserNameField1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(salesCodeField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dateField5, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(salesUserNameField1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(PasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(67, 67, 67)
+                    .addComponent(PasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(90, 90, 90)
                 .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(homeButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(registerButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(backButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGap(15, 15, 15))
         );
 
         userCreateIconButton4.setBackground(new java.awt.Color(51, 51, 51));
@@ -341,36 +292,30 @@ public UserCreate() {
     
        
     //========= ADD/INSERT/SAVE DATA ==============//
-    String sql = "insert into login (sa_name, sa_branch, sa_code, sa_date, sa_user, sa_password) values (?, ?, ?, ?, ?, ?)"; 
+    String sql = "insert into login (sa_name, sa_branch, sa_user, sa_password) values (?, ?, ?, ?)"; 
     PreparedStatement prst = con.prepareStatement(sql);
     
     prst.setString(1, salesNameField3.getText()); 
-    String branch;
-           branch = salesBranchComboBox1.getSelectedItem().toString();
-           prst.setString(2, branch);
-    prst.setString(3, salesCodeField4.getText()); 
-    prst.setString(4, dateField5.getText()); 
-    prst.setString(5, salesUserNameField1.getText()); 
-    prst.setString(6, PasswordField1.getText()); 
+    prst.setString(2, branch.getText()); 
+    prst.setString(3, salesUserNameField1.getText()); 
+    prst.setString(4, PasswordField1.getText()); 
 
 //============ CRAETING OBJECT TO VERYFY ==================//
         String saName = salesNameField3.getText();
-        String saCode = salesCodeField4.getText();
-        String saDate = dateField5.getText();
         String saUserName = salesUserNameField1.getText();
         String adPassword = new String (PasswordField1.getPassword());
         
         
 //================ DREATE VALIDATION REGEX ==================//        
-        Pattern validation = Pattern.compile("^[a-z]{4,}$");
+        Pattern validation = Pattern.compile("^[a-z]{3,}$");
         Matcher names = validation.matcher(saUserName); 
 //================= USERNAME VALIDATION ===================//
         
-        if (saName.equals("") || saCode.equals("") || saDate.equals("") || adPassword.equals("")) {
+        if (saName.equals("") || adPassword.equals("")) {
            JOptionPane.showMessageDialog(null, "Enter valid input" );  
         }
         else if (!names.matches())
-        {JOptionPane.showMessageDialog(null,"username will be small letter \n and more then 4 charecter with no space"  );
+        {JOptionPane.showMessageDialog(null,"username will be small letter \n and more then 3 charecter with no space"  );
 
         }else{
          JOptionPane.showMessageDialog(null, "Registered Successfully");   
@@ -444,22 +389,18 @@ public static void main(String args[]) {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField PasswordField1;
     private javax.swing.JButton backButton3;
-    private javax.swing.JTextField dateField5;
+    private javax.swing.JTextField branch;
     private javax.swing.JButton homeButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JLayeredPane jLayeredPane3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JButton registerButton2;
-    private javax.swing.JComboBox<String> salesBranchComboBox1;
-    private javax.swing.JTextField salesCodeField4;
     private javax.swing.JLabel salesLabel2;
     private javax.swing.JTextField salesNameField3;
     private javax.swing.JTextField salesUserNameField1;

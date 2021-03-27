@@ -5,12 +5,24 @@
  */
 package com.shop.controller;
 
+import com.shop.util.DBConnection;
+import java.awt.print.PrinterException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+import net.proteanit.sql.DbUtils;
+
 /**
  *
  * @author Bashir Hossain
  */
 public class Stocks extends javax.swing.JFrame {
 
+    Connection con;
+    Statement prst;
+    
     /**
      * Creates new form Stocks
      */
@@ -18,6 +30,8 @@ public class Stocks extends javax.swing.JFrame {
         initComponents();
         
         getContentPane().setBackground(new java.awt.Color(0, 102, 102));
+        
+        DisplayTable();
     }
 
     /**
@@ -38,6 +52,7 @@ public class Stocks extends javax.swing.JFrame {
         homeButton1 = new javax.swing.JButton();
         printButton2 = new javax.swing.JButton();
         exitButton3 = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jLayeredPane3 = new javax.swing.JLayeredPane();
         stocksField2 = new javax.swing.JTextField();
 
@@ -100,7 +115,7 @@ public class Stocks extends javax.swing.JFrame {
 
         searchByProductField1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
 
-        homeButton1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        homeButton1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         homeButton1.setText("Home");
         homeButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,17 +123,36 @@ public class Stocks extends javax.swing.JFrame {
             }
         });
 
-        printButton2.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        printButton2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         printButton2.setText("Print");
+        printButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printButton2ActionPerformed(evt);
+            }
+        });
 
-        exitButton3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        exitButton3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         exitButton3.setText("Exit");
+        exitButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jButton1.setText("Refresh");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jLayeredPane2.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(searchByProductField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(homeButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(printButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane2.setLayer(exitButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane2.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane2Layout = new javax.swing.GroupLayout(jLayeredPane2);
         jLayeredPane2.setLayout(jLayeredPane2Layout);
@@ -131,8 +165,10 @@ public class Stocks extends javax.swing.JFrame {
                         .addComponent(homeButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(31, 31, 31)
                         .addComponent(printButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(36, 36, 36)
-                        .addComponent(exitButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(37, 37, 37)
+                        .addComponent(exitButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jLayeredPane2Layout.createSequentialGroup()
                         .addGap(13, 13, 13)
                         .addComponent(jLabel1)
@@ -147,11 +183,15 @@ public class Stocks extends javax.swing.JFrame {
                 .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(searchByProductField1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(homeButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(printButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(exitButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jLayeredPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(exitButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                            .addComponent(printButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(homeButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
 
@@ -172,7 +212,7 @@ public class Stocks extends javax.swing.JFrame {
             jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(stocksField2, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
+                .addComponent(stocksField2, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -195,19 +235,61 @@ public class Stocks extends javax.swing.JFrame {
                 .addComponent(jLayeredPane3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLayeredPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(26, 26, 26))
+                .addGap(23, 23, 23))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
+    
+        //============= DATABASE TABLE SHOWING IN ADD PRODUCT FORM ========================//
+    private void DisplayTable(){
+    
+    try{
+    con = DBConnection.getConnection();
+    prst = con.createStatement();
+    String sql = "select * from product_entry";
+    
+    PreparedStatement prst = con.prepareStatement(sql);
+    ResultSet rs = prst.executeQuery();
+    stocksTable1.setModel(DbUtils.resultSetToTableModel(rs));
+   
+    }catch(Exception e)
+    {
+    JOptionPane.showMessageDialog(null, e);
+    }
+    }
+    
+    
     private void homeButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeButton1ActionPerformed
         this.setVisible(false);
         new Dashboard().setVisible(true);
         
         
     }//GEN-LAST:event_homeButton1ActionPerformed
+
+    private void exitButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitButton3ActionPerformed
+        this.setVisible(false);
+        new HomeLogin().setVisible(true);
+    }//GEN-LAST:event_exitButton3ActionPerformed
+
+    private void printButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printButton2ActionPerformed
+          try {
+            boolean print = stocksTable1.print();
+            if (!print) {
+                JOptionPane.showMessageDialog(null, "Unable To Print !!..");
+            }
+        } catch (PrinterException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+    }//GEN-LAST:event_printButton2ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+     DisplayTable();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,6 +329,7 @@ public class Stocks extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton exitButton3;
     private javax.swing.JButton homeButton1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLayeredPane jLayeredPane1;
     private javax.swing.JLayeredPane jLayeredPane2;

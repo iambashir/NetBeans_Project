@@ -54,6 +54,7 @@ public HomeLogin() {
         salesIconButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("SUPERSHOP  MANAGEMANT  SYSTEM - Login Window");
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
 
