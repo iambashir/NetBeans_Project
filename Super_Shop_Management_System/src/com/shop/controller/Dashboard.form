@@ -1640,7 +1640,7 @@
                                           <Component id="jLabel5" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Component id="jLabel7" alignment="0" pref="94" max="32767" attributes="0"/>
+                                  <Component id="jLabel7" alignment="0" pref="97" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -1908,11 +1908,11 @@
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                           <Component id="calculateButton17" alignment="0" pref="125" max="32767" attributes="0"/>
-                                          <Component id="sellButton2" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="reset" alignment="0" max="32767" attributes="0"/>
                                       </Group>
-                                      <EmptySpace pref="50" max="32767" attributes="0"/>
+                                      <EmptySpace pref="53" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="saveDetailesButton18" pref="122" max="32767" attributes="0"/>
+                                          <Component id="saveDetailesButton18" max="32767" attributes="0"/>
                                           <Component id="recieptButton16" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
@@ -1967,7 +1967,7 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="sellButton2" pref="44" max="32767" attributes="0"/>
+                                  <Component id="reset" pref="44" max="32767" attributes="0"/>
                                   <Component id="recieptButton16" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -1992,7 +1992,7 @@
                         <Property name="text" type="java.lang.String" value="Phone : "/>
                       </Properties>
                     </Component>
-                    <Component class="javax.swing.JButton" name="sellButton2">
+                    <Component class="javax.swing.JButton" name="reset">
                       <Properties>
                         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                           <Color blue="cc" green="cc" red="cc" type="rgb"/>
@@ -2000,10 +2000,10 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Arial" size="14" style="1"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Sell"/>
+                        <Property name="text" type="java.lang.String" value="Reset"/>
                       </Properties>
                       <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sellButton2ActionPerformed"/>
+                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resetActionPerformed"/>
                       </Events>
                     </Component>
                     <Component class="javax.swing.JButton" name="recieptButton16">
@@ -2014,7 +2014,7 @@
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Arial" size="14" style="1"/>
                         </Property>
-                        <Property name="text" type="java.lang.String" value="Riciept"/>
+                        <Property name="text" type="java.lang.String" value="Sale &amp; Riciept"/>
                       </Properties>
                       <Events>
                         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="recieptButton16ActionPerformed"/>
@@ -2072,9 +2072,6 @@
                     </Component>
                     <Component class="javax.swing.JComboBox" name="paymentComboBox2">
                       <Properties>
-                        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                          <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                        </Property>
                         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                           <Font name="Arial" size="13" style="1"/>
                         </Property>
@@ -2115,13 +2112,14 @@
                     <DimensionLayout dim="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <Component id="printButton19" min="-2" pref="79" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="printButton19" min="-2" pref="69" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
-                              <Component id="jButton1" max="32767" attributes="0"/>
+                              <Component id="jButton1" pref="100" max="32767" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="exitButton20" min="-2" pref="78" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="jScrollPane3" pref="297" max="32767" attributes="0"/>
+                          <Component id="jScrollPane3" pref="309" max="32767" attributes="0"/>
                       </Group>
                     </DimensionLayout>
                     <DimensionLayout dim="1">
@@ -2696,12 +2694,12 @@
                                       <Group type="102" alignment="0" attributes="0">
                                           <Component id="deleteButton47" min="-2" pref="143" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="updateField15" max="32767" attributes="0"/>
+                                          <Component id="searchField" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="searchButton48" min="-2" pref="143" max="-2" attributes="0"/>
+                                          <Component id="resetOrder" min="-2" pref="143" max="-2" attributes="0"/>
                                           <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="updateButton46" max="32767" attributes="0"/>
+                                          <Component id="searchByBarcode" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
                                           <Component id="dataEntryButton45" min="-2" pref="143" max="-2" attributes="0"/>
@@ -2738,13 +2736,13 @@
                                   </Group>
                                   <EmptySpace pref="114" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="searchButton48" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
-                                      <Component id="updateButton46" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                                      <Component id="resetOrder" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
+                                      <Component id="searchByBarcode" alignment="3" min="-2" pref="36" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                       <Component id="deleteButton47" max="32767" attributes="0"/>
-                                      <Component id="updateField15" min="-2" pref="35" max="-2" attributes="0"/>
+                                      <Component id="searchField" min="-2" pref="35" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -2790,7 +2788,7 @@
                             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="dataEntryButton45ActionPerformed"/>
                           </Events>
                         </Component>
-                        <Component class="javax.swing.JButton" name="updateButton46">
+                        <Component class="javax.swing.JButton" name="searchByBarcode">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Arial" size="14" style="1"/>
@@ -2798,7 +2796,7 @@
                             <Property name="text" type="java.lang.String" value="Search by Barcode"/>
                           </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateButton46ActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="searchByBarcodeActionPerformed"/>
                           </Events>
                         </Component>
                         <Component class="javax.swing.JButton" name="deleteButton47">
@@ -2837,22 +2835,28 @@
                             <Property name="text" type="java.lang.String" value="Date :"/>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JTextField" name="updateField15">
+                        <Component class="javax.swing.JTextField" name="searchField">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Arial" size="14" style="1"/>
                             </Property>
                           </Properties>
                         </Component>
-                        <Component class="javax.swing.JButton" name="searchButton48">
+                        <Component class="javax.swing.JButton" name="resetOrder">
                           <Properties>
                             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                               <Font name="Arial" size="14" style="1"/>
                             </Property>
-                            <Property name="text" type="java.lang.String" value="Search by Name"/>
+                            <Property name="text" type="java.lang.String" value="Reset"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resetOrderActionPerformed"/>
+                          </Events>
                         </Component>
                         <Component class="org.jdatepicker.JDatePicker" name="jDatePicker1">
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jDatePicker1ActionPerformed"/>
+                          </Events>
                         </Component>
                         <Component class="javax.swing.JButton" name="jButton2">
                           <Properties>
