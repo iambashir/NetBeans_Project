@@ -165,7 +165,7 @@ public class Dashboard extends javax.swing.JFrame {
         billerName = new javax.swing.JTextField();
         PhoneField10 = new javax.swing.JTextField();
         jLabel15 = new javax.swing.JLabel();
-        paymentComboBox2 = new javax.swing.JComboBox<String>();
+        paymentComboBox2 = new javax.swing.JComboBox<>();
         jLayeredPane5 = new javax.swing.JLayeredPane();
         printButton19 = new javax.swing.JButton();
         exitButton20 = new javax.swing.JButton();
@@ -187,8 +187,8 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
-        branchComboBox3 = new javax.swing.JComboBox<String>();
-        catagorieComboBox5 = new javax.swing.JComboBox<String>();
+        branchComboBox3 = new javax.swing.JComboBox<>();
+        catagorieComboBox5 = new javax.swing.JComboBox<>();
         quantityField2 = new javax.swing.JTextField();
         unitPrField3 = new javax.swing.JTextField();
         discountField4 = new javax.swing.JTextField();
@@ -278,7 +278,7 @@ public class Dashboard extends javax.swing.JFrame {
         customerButton6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         customerButton6.setForeground(new java.awt.Color(255, 255, 255));
         customerButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/shop/img/customer.png"))); // NOI18N
-        customerButton6.setText("Customer");
+        customerButton6.setText("Attendence");
         customerButton6.setBorderPainted(false);
         customerButton6.setContentAreaFilled(false);
         customerButton6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
@@ -969,6 +969,12 @@ public class Dashboard extends javax.swing.JFrame {
         invoiceDate.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         invoiceDate.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
 
+        jLayeredPane1.setLayer(jLabel10, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jLabel11, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(jLabel12, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(invoiceNo, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(invoiceDate, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jLayeredPane1Layout = new javax.swing.GroupLayout(jLayeredPane1);
         jLayeredPane1.setLayout(jLayeredPane1Layout);
         jLayeredPane1Layout.setHorizontalGroup(
@@ -1007,11 +1013,6 @@ public class Dashboard extends javax.swing.JFrame {
                             .addComponent(invoiceDate, javax.swing.GroupLayout.DEFAULT_SIZE, 38, Short.MAX_VALUE))))
                 .addContainerGap())
         );
-        jLayeredPane1.setLayer(jLabel10, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jLabel11, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jLabel12, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(invoiceNo, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(invoiceDate, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLayeredPane2.setBackground(new java.awt.Color(0, 102, 102));
         jLayeredPane2.setBorder(javax.swing.BorderFactory.createTitledBorder("Product Details"));
@@ -1035,6 +1036,8 @@ public class Dashboard extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(salesTable1);
 
+        jLayeredPane2.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jLayeredPane2Layout = new javax.swing.GroupLayout(jLayeredPane2);
         jLayeredPane2.setLayout(jLayeredPane2Layout);
         jLayeredPane2Layout.setHorizontalGroup(
@@ -1051,7 +1054,6 @@ public class Dashboard extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 124, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        jLayeredPane2.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLayeredPane3.setBackground(new java.awt.Color(0, 102, 102));
         jLayeredPane3.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Sales Amount", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
@@ -1108,6 +1110,22 @@ public class Dashboard extends javax.swing.JFrame {
         branch.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         quntity.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+
+        jLayeredPane3.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(barcodeField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(barcodeSearch, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(product, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(unitPrice, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(discount, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(totalPrice, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(branch, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(quntity, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane3Layout = new javax.swing.GroupLayout(jLayeredPane3);
         jLayeredPane3.setLayout(jLayeredPane3Layout);
@@ -1186,21 +1204,6 @@ public class Dashboard extends javax.swing.JFrame {
                         .addGap(12, 12, 12)))
                 .addGap(15, 15, 15))
         );
-        jLayeredPane3.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane3.setLayer(barcodeField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane3.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane3.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane3.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane3.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane3.setLayer(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane3.setLayer(jLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane3.setLayer(barcodeSearch, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane3.setLayer(product, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane3.setLayer(unitPrice, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane3.setLayer(discount, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane3.setLayer(totalPrice, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane3.setLayer(branch, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane3.setLayer(quntity, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLayeredPane4.setBackground(new java.awt.Color(0, 102, 102));
         jLayeredPane4.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Customer Details", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
@@ -1256,7 +1259,18 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel15.setText("Payment By : ");
 
         paymentComboBox2.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        paymentComboBox2.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cash", "Card", "Bikash", "Rocket", "Nagad" }));
+        paymentComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cash", "Card", "Bikash", "Rocket", "Nagad" }));
+
+        jLayeredPane4.setLayer(jLabel8, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(jLabel14, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(reset, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(recieptButton16, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(calculateButton17, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(saveDetailesButton18, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(billerName, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(PhoneField10, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(jLabel15, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(paymentComboBox2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane4Layout = new javax.swing.GroupLayout(jLayeredPane4);
         jLayeredPane4.setLayout(jLayeredPane4Layout);
@@ -1316,16 +1330,6 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(recieptButton16, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        jLayeredPane4.setLayer(jLabel8, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane4.setLayer(jLabel14, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane4.setLayer(reset, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane4.setLayer(recieptButton16, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane4.setLayer(calculateButton17, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane4.setLayer(saveDetailesButton18, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane4.setLayer(billerName, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane4.setLayer(PhoneField10, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane4.setLayer(jLabel15, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane4.setLayer(paymentComboBox2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLayeredPane5.setBackground(new java.awt.Color(0, 102, 102));
         jLayeredPane5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Order and Print details", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
@@ -1362,6 +1366,11 @@ public class Dashboard extends javax.swing.JFrame {
             }
         });
 
+        jLayeredPane5.setLayer(printButton19, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane5.setLayer(exitButton20, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane5.setLayer(jScrollPane3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane5.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jLayeredPane5Layout = new javax.swing.GroupLayout(jLayeredPane5);
         jLayeredPane5.setLayout(jLayeredPane5Layout);
         jLayeredPane5Layout.setHorizontalGroup(
@@ -1386,10 +1395,6 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        jLayeredPane5.setLayer(printButton19, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane5.setLayer(exitButton20, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane5.setLayer(jScrollPane3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane5.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout orderPanelLayout = new javax.swing.GroupLayout(orderPanel);
         orderPanel.setLayout(orderPanelLayout);
@@ -1458,6 +1463,8 @@ public class Dashboard extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(productTable2);
 
+        jLayeredPane7.setLayer(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jLayeredPane7Layout = new javax.swing.GroupLayout(jLayeredPane7);
         jLayeredPane7.setLayout(jLayeredPane7Layout);
         jLayeredPane7Layout.setHorizontalGroup(
@@ -1470,7 +1477,6 @@ public class Dashboard extends javax.swing.JFrame {
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        jLayeredPane7.setLayer(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLayeredPane8.setBackground(new java.awt.Color(0, 102, 102));
         jLayeredPane8.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
@@ -1512,7 +1518,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel22.setText("Catagorie :");
 
         branchComboBox3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        branchComboBox3.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Dhaka", "Narayanganj", "Barishal" }));
+        branchComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dhaka", "Narayanganj", "Barishal" }));
         branchComboBox3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 branchComboBox3ActionPerformed(evt);
@@ -1520,7 +1526,7 @@ public class Dashboard extends javax.swing.JFrame {
         });
 
         catagorieComboBox5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        catagorieComboBox5.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Grocery", "Medicine", "Tools", "Machinary", "Health", "Beauty", " " }));
+        catagorieComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Grocery", "Medicine", "Tools", "Machinary", "Health", "Beauty", " " }));
 
         quantityField2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 
@@ -1532,6 +1538,21 @@ public class Dashboard extends javax.swing.JFrame {
         });
 
         discountField4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+
+        jLayeredPane9.setLayer(jLabel16, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane9.setLayer(barcodeField11, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane9.setLayer(jLabel17, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane9.setLayer(productField12, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane9.setLayer(jLabel18, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane9.setLayer(jLabel19, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane9.setLayer(jLabel20, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane9.setLayer(jLabel21, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane9.setLayer(jLabel22, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane9.setLayer(branchComboBox3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane9.setLayer(catagorieComboBox5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane9.setLayer(quantityField2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane9.setLayer(unitPrField3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane9.setLayer(discountField4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane9Layout = new javax.swing.GroupLayout(jLayeredPane9);
         jLayeredPane9.setLayout(jLayeredPane9Layout);
@@ -1596,20 +1617,6 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(jLabel22))
                 .addContainerGap(66, Short.MAX_VALUE))
         );
-        jLayeredPane9.setLayer(jLabel16, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane9.setLayer(barcodeField11, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane9.setLayer(jLabel17, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane9.setLayer(productField12, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane9.setLayer(jLabel18, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane9.setLayer(jLabel19, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane9.setLayer(jLabel20, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane9.setLayer(jLabel21, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane9.setLayer(jLabel22, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane9.setLayer(branchComboBox3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane9.setLayer(catagorieComboBox5, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane9.setLayer(quantityField2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane9.setLayer(unitPrField3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane9.setLayer(discountField4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jLayeredPane10.setBackground(new java.awt.Color(153, 153, 153));
         jLayeredPane10.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Administrator Details", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Arial", 1, 12))); // NOI18N
@@ -1675,6 +1682,19 @@ public class Dashboard extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jButton2.setText("Update");
 
+        jLayeredPane10.setLayer(jLabel23, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane10.setLayer(jLabel25, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane10.setLayer(dataEntryButton45, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane10.setLayer(searchByBarcode, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane10.setLayer(deleteButton47, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane10.setLayer(adNameField14, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane10.setLayer(adPhoneField16, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane10.setLayer(jLabel26, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane10.setLayer(searchField, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane10.setLayer(resetOrder, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane10.setLayer(jDatePicker1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane10.setLayer(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jLayeredPane10Layout = new javax.swing.GroupLayout(jLayeredPane10);
         jLayeredPane10.setLayout(jLayeredPane10Layout);
         jLayeredPane10Layout.setHorizontalGroup(
@@ -1738,23 +1758,15 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(9, 9, 9))
         );
-        jLayeredPane10.setLayer(jLabel23, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane10.setLayer(jLabel25, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane10.setLayer(dataEntryButton45, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane10.setLayer(searchByBarcode, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane10.setLayer(deleteButton47, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane10.setLayer(adNameField14, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane10.setLayer(adPhoneField16, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane10.setLayer(jLabel26, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane10.setLayer(searchField, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane10.setLayer(resetOrder, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane10.setLayer(jDatePicker1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane10.setLayer(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         jButton49.setBackground(new java.awt.Color(0, 0, 0));
         jButton49.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/shop/img/data_entry.png"))); // NOI18N
-        jButton49.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Entry", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(51, 51, 51))); // NOI18N
+        jButton49.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Entry", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("sansserif", 1, 12), new java.awt.Color(51, 51, 51))); // NOI18N
         jButton49.setContentAreaFilled(false);
+
+        jLayeredPane8.setLayer(jLayeredPane9, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane8.setLayer(jLayeredPane10, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane8.setLayer(jButton49, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane8Layout = new javax.swing.GroupLayout(jLayeredPane8);
         jLayeredPane8.setLayout(jLayeredPane8Layout);
@@ -1778,9 +1790,6 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(jButton49, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
-        jLayeredPane8.setLayer(jLayeredPane9, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane8.setLayer(jLayeredPane10, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane8.setLayer(jButton49, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout addProductPanelLayout = new javax.swing.GroupLayout(addProductPanel);
         addProductPanel.setLayout(addProductPanelLayout);
@@ -1910,6 +1919,8 @@ public class Dashboard extends javax.swing.JFrame {
 
         tabPane.addTab("SETINGS", jPanel10);
 
+        jLayeredPane6.setLayer(tabPane, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
         javax.swing.GroupLayout jLayeredPane6Layout = new javax.swing.GroupLayout(jLayeredPane6);
         jLayeredPane6.setLayout(jLayeredPane6Layout);
         jLayeredPane6Layout.setHorizontalGroup(
@@ -1925,10 +1936,9 @@ public class Dashboard extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
             .addGroup(jLayeredPane6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane6Layout.createSequentialGroup()
-                    .addComponent(tabPane, javax.swing.GroupLayout.DEFAULT_SIZE, 719, Short.MAX_VALUE)
+                    .addComponent(tabPane, javax.swing.GroupLayout.PREFERRED_SIZE, 719, Short.MAX_VALUE)
                     .addContainerGap()))
         );
-        jLayeredPane6.setLayer(tabPane, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
