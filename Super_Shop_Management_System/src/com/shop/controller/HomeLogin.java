@@ -41,6 +41,7 @@ public HomeLogin() {
         adminField1 = new javax.swing.JTextField();
         adminLoginButton2 = new javax.swing.JButton();
         passwordField2 = new javax.swing.JPasswordField();
+        jPanel4 = new javax.swing.JPanel();
         adminIconButton4 = new javax.swing.JButton();
         jLayeredPane2 = new javax.swing.JLayeredPane();
         jPanel3 = new javax.swing.JPanel();
@@ -51,6 +52,7 @@ public HomeLogin() {
         salesField4 = new javax.swing.JTextField();
         salesLoginButton3 = new javax.swing.JButton();
         PasswordField1 = new javax.swing.JPasswordField();
+        jPanel5 = new javax.swing.JPanel();
         salesIconButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -91,12 +93,24 @@ public HomeLogin() {
             }
         });
 
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 301, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1, Short.MAX_VALUE)
+        );
+
         jLayeredPane3.setLayer(adminLoginLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane3.setLayer(adminUserLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane3.setLayer(adminPasswordLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane3.setLayer(adminField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane3.setLayer(adminLoginButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane3.setLayer(passwordField2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane3.setLayer(jPanel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane3Layout = new javax.swing.GroupLayout(jLayeredPane3);
         jLayeredPane3.setLayout(jLayeredPane3Layout);
@@ -122,15 +136,20 @@ public HomeLogin() {
                             .addComponent(passwordField2)))
                     .addGroup(jLayeredPane3Layout.createSequentialGroup()
                         .addGap(143, 143, 143)
-                        .addComponent(adminLoginButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(adminLoginButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jLayeredPane3Layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
         jLayeredPane3Layout.setVerticalGroup(
             jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane3Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+                .addGap(26, 26, 26)
                 .addComponent(adminLoginLabel2)
-                .addGap(48, 48, 48)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58)
                 .addGroup(jLayeredPane3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(adminUserLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(adminField1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -162,7 +181,7 @@ public HomeLogin() {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLayeredPane3)
-            .addComponent(adminIconButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 284, Short.MAX_VALUE)
+            .addComponent(adminIconButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
         );
 
         jLayeredPane1.setLayer(jPanel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -209,12 +228,24 @@ public HomeLogin() {
             }
         });
 
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 301, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1, Short.MAX_VALUE)
+        );
+
         jLayeredPane4.setLayer(salesUserLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane4.setLayer(salesPasswordLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane4.setLayer(salesLoginLabel7, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane4.setLayer(salesField4, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane4.setLayer(salesLoginButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane4.setLayer(PasswordField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(jPanel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane4Layout = new javax.swing.GroupLayout(jLayeredPane4);
         jLayeredPane4.setLayout(jLayeredPane4Layout);
@@ -238,13 +269,19 @@ public HomeLogin() {
                         .addGap(136, 136, 136)
                         .addComponent(salesLoginLabel7)))
                 .addContainerGap(18, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane4Layout.createSequentialGroup()
+                .addGap(0, 59, Short.MAX_VALUE)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47))
         );
         jLayeredPane4Layout.setVerticalGroup(
             jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane4Layout.createSequentialGroup()
                 .addGap(25, 25, 25)
                 .addComponent(salesLoginLabel7)
-                .addGap(35, 35, 35)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(28, 28, 28)
                 .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(salesUserLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(salesField4, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -470,6 +507,8 @@ public static void main(String args[]) {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
     private javax.swing.JLabel loginPaneLabel1;
     private javax.swing.JPasswordField passwordField2;
     private javax.swing.JTextField salesField4;
