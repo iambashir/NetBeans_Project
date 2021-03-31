@@ -1951,9 +1951,9 @@
                           <Component id="jLayeredPane2" max="32767" attributes="0"/>
                           <EmptySpace min="-2" pref="2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLayeredPane4" min="-2" pref="327" max="-2" attributes="0"/>
+                              <Component id="jLayeredPane4" min="-2" max="-2" attributes="0"/>
                               <Component id="jLayeredPane3" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLayeredPane5" min="-2" pref="328" max="-2" attributes="0"/>
+                              <Component id="jLayeredPane5" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                       </Group>
@@ -2483,7 +2483,7 @@
                                   <Component id="PhoneField10" min="-2" pref="33" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="5" pref="5" max="-2" attributes="0"/>
-                                      <Component id="jLabel14" max="32767" attributes="0"/>
+                                      <Component id="jLabel14" pref="39" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -2663,7 +2663,7 @@
                                   <Component id="printButton19" alignment="1" max="32767" attributes="0"/>
                                   <Component id="jButton1" alignment="1" min="-2" pref="41" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="23" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                     </DimensionLayout>

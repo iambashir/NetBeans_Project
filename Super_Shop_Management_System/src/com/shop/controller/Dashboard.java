@@ -2200,26 +2200,27 @@ public class Dashboard extends javax.swing.JFrame {
        int invoice = Integer.parseInt(invoiceNo.getText());
        String dateAndTime =  invoiceDate.getText();
          
-        
-     printArea.setText("RSULPUR ORGANIC SUPERSHOP. \nRasulpur, Araihazar, Narayangonj." +  
-                       "\nInvoice No : " + invoice+". " + " Branch :" + branches 
-                       
-                        + "\nDate & Time : " + dateAndTime 
-                       
-                       + "\n----------------------------------------------------"
-                       + "\n\n" 
-
-                       + " # " + productName + "\tQt. "+ quantitY + " x " + uPrice + " = " +(quantitY*uPrice) +" Tk."
-             
-                       + "\n\n"
-                       + "\nTotal discounts :\t  " + discounts + " Tk."       
-                       + "\nTotal price :\t\t" + totalPrices + " Tk."
-                       + "\n----------------------------------------------------"
-                       + "\nBiller Name : "+ billersName 
-                       + "\nPhone : " + phone 
-                       + "\nPayment By : " + payments
-                       + "\n ************** Thank You **************");
-     
+    printArea.append(" # " + productName + "\tQt. "+ quantitY + " x " + uPrice + " = " +(quantitY*uPrice) +" Tk.\n");
+    
+//     printArea.setText("RSULPUR ORGANIC SUPERSHOP. \nRasulpur, Araihazar, Narayangonj." +  
+//                       "\nInvoice No : " + invoice+". " + " Branch :" + branches 
+//                       
+//                        + "\nDate & Time : " + dateAndTime 
+//                       
+//                       + "\n----------------------------------------------------"
+//                       + "\n\n" 
+//
+//                       + " # " + productName + "\tQt. "+ quantitY + " x " + uPrice + " = " +(quantitY*uPrice) +" Tk."
+//             
+//                       + "\n\n"
+//                       + "\nTotal discounts :\t  " + discounts + " Tk."       
+//                       + "\nTotal price :\t\t" + totalPrices + " Tk."
+//                       + "\n----------------------------------------------------"
+//                       + "\nBiller Name : "+ billersName 
+//                       + "\nPhone : " + phone 
+//                       + "\nPayment By : " + payments
+//                       + "\n ************** Thank You **************");
+//     
     }//GEN-LAST:event_recieptButton16ActionPerformed
 
     private void calculateButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calculateButton17ActionPerformed
