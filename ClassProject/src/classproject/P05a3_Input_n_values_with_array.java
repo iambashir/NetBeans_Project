@@ -10,6 +10,7 @@ Scanner sc = new Scanner(System.in);
 System.out.print("Enter the number of elements you want to store: ");  
 //reading the number of elements from the that we want to enter  
 n = sc.nextInt();  
+
 //creates an array in the memory of length 10  
 int[] array = new int[10];  
 System.out.println("Enter the elements of the array: ");  
