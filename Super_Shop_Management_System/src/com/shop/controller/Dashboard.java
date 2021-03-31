@@ -870,12 +870,16 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel16.setText("Barcode :");
 
         barcodeField11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        barcodeField11.setFocusCycleRoot(true);
+        barcodeField11.setFocusTraversalPolicyProvider(true);
 
         jLabel17.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(255, 255, 255));
         jLabel17.setText("Product :");
 
         productField12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        productField12.setFocusCycleRoot(true);
+        productField12.setFocusTraversalPolicyProvider(true);
 
         jLabel18.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
@@ -899,6 +903,8 @@ public class Dashboard extends javax.swing.JFrame {
 
         branchComboBox3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         branchComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Dhaka", "Narayanganj", "Barishal" }));
+        branchComboBox3.setFocusCycleRoot(true);
+        branchComboBox3.setFocusTraversalPolicyProvider(true);
         branchComboBox3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 branchComboBox3ActionPerformed(evt);
@@ -907,8 +913,12 @@ public class Dashboard extends javax.swing.JFrame {
 
         catagorieComboBox5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         catagorieComboBox5.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Grocery", "Medicine", "Tools", "Machinary", "Health", "Beauty", " " }));
+        catagorieComboBox5.setFocusCycleRoot(true);
+        catagorieComboBox5.setFocusTraversalPolicyProvider(true);
 
         quantityField2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        quantityField2.setFocusCycleRoot(true);
+        quantityField2.setFocusTraversalPolicyProvider(true);
         quantityField2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 quantityField2ActionPerformed(evt);
@@ -916,6 +926,8 @@ public class Dashboard extends javax.swing.JFrame {
         });
 
         unitPrField3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        unitPrField3.setFocusCycleRoot(true);
+        unitPrField3.setFocusTraversalPolicyProvider(true);
         unitPrField3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 unitPrField3ActionPerformed(evt);
@@ -923,6 +935,8 @@ public class Dashboard extends javax.swing.JFrame {
         });
 
         discountField4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        discountField4.setFocusCycleRoot(true);
+        discountField4.setFocusTraversalPolicyProvider(true);
 
         Search2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/shop/img/search.png"))); // NOI18N
         Search2.addActionListener(new java.awt.event.ActionListener() {
