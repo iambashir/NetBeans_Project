@@ -1,4 +1,3 @@
-
 package posinvoice;
 
 import java.awt.Font;

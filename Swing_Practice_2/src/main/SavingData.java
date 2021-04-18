@@ -5,7 +5,7 @@ import java.sql.*;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
-import dao.DatabaseConnection;
+import dao.DBConnection;
 import java.awt.print.PrinterException;
 
 /**
@@ -44,7 +44,7 @@ public class SavingData extends javax.swing.JFrame {
     private void DisplayTable(){
     
     try{
-    con = DatabaseConnection.getConnection();
+    con = DBConnection.getConnection();
     prst = con.createStatement();
     String sql = "select * from saving_data";
     
@@ -439,13 +439,14 @@ public class SavingData extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE, false)
-                            .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(updateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -471,7 +472,7 @@ public class SavingData extends javax.swing.JFrame {
     
     try{
     //==========Same code for every connection==========//
-    con = DatabaseConnection.getConnection();
+    con = DBConnection.getConnection();
     prst = con.createStatement();
     
        
@@ -545,7 +546,7 @@ public class SavingData extends javax.swing.JFrame {
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
     
     try{
-   con = DatabaseConnection.getConnection();
+   con = DBConnection.getConnection();
     prst = con.createStatement();
     String sql = "select * from saving_data where roll_no = ?";
     
@@ -576,7 +577,7 @@ public class SavingData extends javax.swing.JFrame {
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
                                                 
     try{
-    con = DatabaseConnection.getConnection();
+    con = DBConnection.getConnection();
     prst = con.createStatement();
     String sql = "update saving_data set name = ?, address = ?, salary = ? where roll_no = ?";
     
@@ -606,7 +607,7 @@ public class SavingData extends javax.swing.JFrame {
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
      
     try{
-    con = DatabaseConnection.getConnection();
+    con = DBConnection.getConnection();
     prst = con.createStatement();
     String sql = "delete from saving_data where roll_no = ?";
     
@@ -638,7 +639,7 @@ public class SavingData extends javax.swing.JFrame {
     //===================== SHOW DATA ============================//
     private void showDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showDataButtonActionPerformed
     try{
-    con = DatabaseConnection.getConnection();
+    con = DBConnection.getConnection();
     prst = con.createStatement();
     String sql = "select * from saving_data where roll_no = ?";
     
@@ -694,7 +695,7 @@ public class SavingData extends javax.swing.JFrame {
     //===================== EDIT TEXT ============================//
     private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
      try{
-    con = DatabaseConnection.getConnection();
+    con = DBConnection.getConnection();
     prst = con.createStatement();
     String sql = "select * from saving_data where roll_no = ?";
     

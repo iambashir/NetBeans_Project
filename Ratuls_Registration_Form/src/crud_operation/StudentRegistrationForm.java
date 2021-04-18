@@ -245,7 +245,7 @@ public class StudentRegistrationForm extends javax.swing.JFrame {
         try {
             Class.forName("com.mysql.jdbc.Driver");
             con1 = (Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/bashir_swings", "root", "1234");
-            insert = con1.prepareStatement("SELECT * FROM studentregistration s;");
+            insert = con1.prepareStatement("SELECT * FROM studentregistration;");
             ResultSet rs = insert.executeQuery();
             ResultSetMetaData Rss = rs.getMetaData();
             c = Rss.getColumnCount();

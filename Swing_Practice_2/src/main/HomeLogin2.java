@@ -1,7 +1,7 @@
 
-package com.shop.controller;
+package main;
 
-import com.shop.util.DBConnection;
+import dao.DBConnection;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -16,12 +16,12 @@ import java.util.regex.*;
  *
  * @author Bashir Hossain
  */
-public class HomeLogin extends javax.swing.JFrame {
+public class HomeLogin2 extends javax.swing.JFrame {
 
     Connection con;
     Statement prst;
 
-public HomeLogin() {
+public HomeLogin2() {
     initComponents();
 }
 
@@ -392,8 +392,8 @@ public HomeLogin() {
             {
             JOptionPane.showMessageDialog(null, "Welcome " + salesField4.getText(), "Login Successfull ", JOptionPane.PLAIN_MESSAGE );
 
-            this.setVisible(false);
-            new Dashboard().setVisible(true);
+//            this.setVisible(false);
+//            new Dashboard().setVisible(true);
             
             } 
             else
@@ -469,14 +469,18 @@ public static void main(String args[]) {
             }
         }
     } catch (ClassNotFoundException ex) {
-        java.util.logging.Logger.getLogger(HomeLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        java.util.logging.Logger.getLogger(HomeLogin2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     } catch (InstantiationException ex) {
-        java.util.logging.Logger.getLogger(HomeLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        java.util.logging.Logger.getLogger(HomeLogin2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     } catch (IllegalAccessException ex) {
-        java.util.logging.Logger.getLogger(HomeLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        java.util.logging.Logger.getLogger(HomeLogin2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-        java.util.logging.Logger.getLogger(HomeLogin.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        java.util.logging.Logger.getLogger(HomeLogin2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -485,7 +489,7 @@ public static void main(String args[]) {
     /* Create and display the form */
     java.awt.EventQueue.invokeLater(new Runnable() {
     public void run() {
-        new HomeLogin().setVisible(true);
+        new HomeLogin2().setVisible(true);
     }
     });
 }
