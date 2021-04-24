@@ -33,6 +33,7 @@ public class LoginForm extends javax.swing.JFrame {
         LoginButton = new javax.swing.JButton();
         resetButton = new javax.swing.JButton();
         passwordField = new javax.swing.JPasswordField();
+        resetButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Login Form");
@@ -75,27 +76,42 @@ public class LoginForm extends javax.swing.JFrame {
             }
         });
 
+        resetButton1.setBackground(new java.awt.Color(0, 51, 51));
+        resetButton1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        resetButton1.setForeground(new java.awt.Color(255, 255, 255));
+        resetButton1.setText("Registration");
+        resetButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                resetButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout LabelFieldsetLayout = new javax.swing.GroupLayout(LabelFieldset);
         LabelFieldset.setLayout(LabelFieldsetLayout);
         LabelFieldsetLayout.setHorizontalGroup(
             LabelFieldsetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(LabelFieldsetLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(LabelFieldsetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(LabelFieldsetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(LabelFieldsetLayout.createSequentialGroup()
-                        .addGroup(LabelFieldsetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(LabelUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(32, 32, 32)
-                        .addGroup(LabelFieldsetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGap(113, 113, 113)
+                        .addComponent(LoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(resetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(resetButton1))
+                    .addGroup(LabelFieldsetLayout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addGroup(LabelFieldsetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(LabelFieldsetLayout.createSequentialGroup()
-                                .addComponent(LoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(resetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(userNameField, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
-                            .addComponent(passwordField))))
-                .addContainerGap(97, Short.MAX_VALUE))
+                                .addGroup(LabelFieldsetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(password, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(LabelUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(32, 32, 32)
+                                .addGroup(LabelFieldsetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(userNameField, javax.swing.GroupLayout.DEFAULT_SIZE, 294, Short.MAX_VALUE)
+                                    .addComponent(passwordField))))))
+                .addContainerGap(92, Short.MAX_VALUE))
         );
         LabelFieldsetLayout.setVerticalGroup(
             LabelFieldsetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -113,8 +129,9 @@ public class LoginForm extends javax.swing.JFrame {
                 .addGap(63, 63, 63)
                 .addGroup(LabelFieldsetLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(resetButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(LoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(85, 85, 85))
+                    .addComponent(LoginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(resetButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(194, 194, 194))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -176,6 +193,11 @@ public class LoginForm extends javax.swing.JFrame {
         
     }//GEN-LAST:event_resetButtonActionPerformed
 
+    private void resetButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetButton1ActionPerformed
+         this.setVisible(false);
+        new RegistrationForm().setVisible(true);
+    }//GEN-LAST:event_resetButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -220,6 +242,7 @@ public class LoginForm extends javax.swing.JFrame {
     private javax.swing.JLabel password;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JButton resetButton;
+    private javax.swing.JButton resetButton1;
     private javax.swing.JTextField userNameField;
     // End of variables declaration//GEN-END:variables
 }

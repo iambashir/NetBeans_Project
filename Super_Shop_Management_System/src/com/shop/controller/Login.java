@@ -54,7 +54,7 @@ public class Login extends javax.swing.JFrame {
         userName = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
         passwordField1 = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        signIn = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
 
@@ -100,13 +100,13 @@ public class Login extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel3.setText("Password :");
 
-        jButton1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/shop/img/user.png"))); // NOI18N
-        jButton1.setText("Sign In");
-        jButton1.setIconTextGap(6);
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        signIn.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        signIn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/shop/img/user.png"))); // NOI18N
+        signIn.setText("Sign In");
+        signIn.setIconTextGap(6);
+        signIn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                signInActionPerformed(evt);
             }
         });
 
@@ -141,7 +141,7 @@ public class Login extends javax.swing.JFrame {
         jLayeredPane1.setLayer(userName, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(passwordField1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane1.setLayer(jButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane1.setLayer(signIn, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jPanel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane1.setLayer(jButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
@@ -169,7 +169,7 @@ public class Login extends javax.swing.JFrame {
                             .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
                         .addGap(160, 160, 160)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(signIn, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jLayeredPane1Layout.createSequentialGroup()
                         .addGap(68, 68, 68)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -195,7 +195,7 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(passwordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(signIn)
                 .addGap(29, 29, 29)
                 .addComponent(jButton2)
                 .addGap(26, 26, 26))
@@ -245,7 +245,7 @@ public class Login extends javax.swing.JFrame {
 
     }//GEN-LAST:event_titleComboBoxActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void signInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signInActionPerformed
         String sql = " select * from login_and_registration where  title = ? and  user_name = ? and password = ?";
         try {
             con = DBConnection.getConnection();
@@ -285,7 +285,7 @@ public class Login extends javax.swing.JFrame {
         }catch (Exception e) {
         //JOptionPane.showMessageDialog(null, e);
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_signInActionPerformed
 
     /**
      * @param args the command line arguments
@@ -323,7 +323,6 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -334,6 +333,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPasswordField passwordField1;
+    private javax.swing.JButton signIn;
     private javax.swing.JComboBox<String> titleComboBox;
     private javax.swing.JTextField userName;
     // End of variables declaration//GEN-END:variables

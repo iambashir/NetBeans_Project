@@ -180,18 +180,18 @@ public void searchReset() {
         fName = new javax.swing.JTextField();
         fDesignation = new javax.swing.JTextField();
         fInTime = new javax.swing.JTextField();
-        deleteAllReccord = new javax.swing.JButton();
+        deleteAllExitRecord = new javax.swing.JButton();
         jScrollPane4 = new javax.swing.JScrollPane();
         entryTimeTable2 = new javax.swing.JTable();
-        jButton4 = new javax.swing.JButton();
+        DeleteExit = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         exittime = new javax.swing.JTextField();
         jScrollPane5 = new javax.swing.JScrollPane();
         exitTimeTable2 = new javax.swing.JTable();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        deleteAllEntryRecord = new javax.swing.JButton();
+        deleteEntry = new javax.swing.JButton();
         jLayeredPane5 = new javax.swing.JLayeredPane();
         jLayeredPane6 = new javax.swing.JLayeredPane();
         jLabel1 = new javax.swing.JLabel();
@@ -441,11 +441,11 @@ public void searchReset() {
 
         fInTime.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
 
-        deleteAllReccord.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        deleteAllReccord.setText("Delete All Exit Record");
-        deleteAllReccord.addActionListener(new java.awt.event.ActionListener() {
+        deleteAllExitRecord.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        deleteAllExitRecord.setText("Delete All Exit Record");
+        deleteAllExitRecord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteAllReccordActionPerformed(evt);
+                deleteAllExitRecordActionPerformed(evt);
             }
         });
 
@@ -467,8 +467,13 @@ public void searchReset() {
         });
         jScrollPane4.setViewportView(entryTimeTable2);
 
-        jButton4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton4.setText("Delete Exit by Finger ID");
+        DeleteExit.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        DeleteExit.setText("Delete Exit by Finger ID");
+        DeleteExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DeleteExitActionPerformed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(255, 255, 255));
@@ -502,11 +507,21 @@ public void searchReset() {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Exit Time");
 
-        jButton3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton3.setText("Delete All Entry Record");
+        deleteAllEntryRecord.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        deleteAllEntryRecord.setText("Delete All Entry Record");
+        deleteAllEntryRecord.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteAllEntryRecordActionPerformed(evt);
+            }
+        });
 
-        jButton5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jButton5.setText("Delete Entry by Finger ID");
+        deleteEntry.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        deleteEntry.setText("Delete Entry by Finger ID");
+        deleteEntry.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteEntryActionPerformed(evt);
+            }
+        });
 
         jLayeredPane4.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane4.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -516,16 +531,16 @@ public void searchReset() {
         jLayeredPane4.setLayer(fName, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane4.setLayer(fDesignation, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane4.setLayer(fInTime, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane4.setLayer(deleteAllReccord, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(deleteAllExitRecord, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane4.setLayer(jScrollPane4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane4.setLayer(jButton4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(DeleteExit, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane4.setLayer(jLabel9, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane4.setLayer(exittime, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane4.setLayer(jScrollPane5, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane4.setLayer(jLabel10, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane4.setLayer(jLabel11, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane4.setLayer(jButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane4.setLayer(jButton5, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(deleteAllEntryRecord, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane4.setLayer(deleteEntry, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane4Layout = new javax.swing.GroupLayout(jLayeredPane4);
         jLayeredPane4.setLayout(jLayeredPane4Layout);
@@ -555,12 +570,12 @@ public void searchReset() {
                     .addGroup(jLayeredPane4Layout.createSequentialGroup()
                         .addGap(15, 15, 15)
                         .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(deleteAllReccord, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(deleteAllEntryRecord, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(deleteAllExitRecord, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                            .addComponent(deleteEntry, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(DeleteExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jLayeredPane4Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -616,12 +631,12 @@ public void searchReset() {
                             .addComponent(jLabel9))
                         .addGap(126, 126, 126)
                         .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(deleteAllEntryRecord, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(deleteEntry, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jLayeredPane4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(deleteAllReccord, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(deleteAllExitRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(DeleteExit, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18))))
         );
 
@@ -811,9 +826,8 @@ public void searchReset() {
                 }).start();
         
         EntryTable();
-        //ExitTable();
-       // AssignnedFingerTable();
-        //searchReset();
+        ExitTimeTable2();
+        EntryTimeTable2();
         prst.close();
         con.close(); 
     } catch (Exception e) {
@@ -834,11 +848,11 @@ public void searchReset() {
     }
     }//GEN-LAST:event_entrySearchKeyReleased
 
-    private void deleteAllReccordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteAllReccordActionPerformed
+    private void deleteAllExitRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteAllExitRecordActionPerformed
      try {
             con = DBConnection.getConnection();
             prst = con.createStatement();
-            String sql = "delete from in_time ";
+            String sql = "delete from exit_time ";
 
             PreparedStatement prst = con.prepareStatement(sql);
             //prst.setString(1, barcodeField11.getText());
@@ -847,14 +861,13 @@ public void searchReset() {
             JOptionPane.showConfirmDialog(null, "Do you want to delete");
             JOptionPane.showMessageDialog(null, "Deleted Successfully");
 
-           // reset();
-           // DisplayTable();//Refresh Table
-           EntryTable();
+            ExitTable();
+            ExitTimeTable2();
             con.close();
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Invalid Deletion");
         }
-    }//GEN-LAST:event_deleteAllReccordActionPerformed
+    }//GEN-LAST:event_deleteAllExitRecordActionPerformed
 
     
     
@@ -919,10 +932,9 @@ public void searchReset() {
                     }
                 }).start();
         
-        //EntryTable();
         ExitTable();
-       // AssignnedFingerTable();
-        //searchReset();
+        ExitTimeTable2();
+        EntryTimeTable2();  
         prst.close();
         con.close(); 
     } catch (Exception e) {
@@ -965,6 +977,73 @@ public void searchReset() {
     fInTime.setText((String) dr.getValueAt(sindex, 4));
     }//GEN-LAST:event_entryTimeTable2MouseClicked
 
+    private void DeleteExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DeleteExitActionPerformed
+     try {
+            con = DBConnection.getConnection();
+            prst = con.createStatement();
+            String sql = "delete from exit_time where finger_id = ?";
+
+            PreparedStatement prst = con.prepareStatement(sql);
+            prst.setString(1, fId.getText());
+
+            prst.executeUpdate();
+            JOptionPane.showConfirmDialog(null, "Do you want to delete");
+            JOptionPane.showConfirmDialog(null, "Deleted Successfully");
+            
+            ExitTimeTable2();
+            ExitTable();
+            con.close();
+            prst.close();
+            
+        } catch (Exception e) {
+           // JOptionPane.showMessageDialog(null, "Invalid Deletion");
+        }
+    }//GEN-LAST:event_DeleteExitActionPerformed
+
+    private void deleteEntryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteEntryActionPerformed
+         try {
+            con = DBConnection.getConnection();
+            prst = con.createStatement();
+            String sql = "delete from in_time where finger_id = ?";
+
+            PreparedStatement prst = con.prepareStatement(sql);
+            prst.setString(1, fId.getText());
+
+            prst.executeUpdate();
+            JOptionPane.showConfirmDialog(null, "Do you want to delete");
+            JOptionPane.showConfirmDialog(null, "Deleted Successfully");
+            
+            EntryTable();
+            EntryTimeTable2();
+            con.close();
+            prst.close();
+            
+        } catch (Exception e) {
+           // JOptionPane.showMessageDialog(null, "Invalid Deletion");
+        }
+    }//GEN-LAST:event_deleteEntryActionPerformed
+
+    private void deleteAllEntryRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteAllEntryRecordActionPerformed
+     try {
+            con = DBConnection.getConnection();
+            prst = con.createStatement();
+            String sql = "delete from in_time ";
+
+            PreparedStatement prst = con.prepareStatement(sql);
+            //prst.setString(1, barcodeField11.getText());
+
+            prst.executeUpdate();
+            JOptionPane.showConfirmDialog(null, "Do you want to delete");
+            JOptionPane.showMessageDialog(null, "Deleted Successfully");
+
+            EntryTable();
+            EntryTimeTable2();
+            con.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Invalid Deletion");
+        }
+    }//GEN-LAST:event_deleteAllEntryRecordActionPerformed
+
 /**
  * @param args the command line arguments
  */
@@ -1004,8 +1083,11 @@ public static void main(String args[]) {
 }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton DeleteExit;
     private javax.swing.JTable assignedFinger;
-    private javax.swing.JButton deleteAllReccord;
+    private javax.swing.JButton deleteAllEntryRecord;
+    private javax.swing.JButton deleteAllExitRecord;
+    private javax.swing.JButton deleteEntry;
     private javax.swing.JTable entry;
     private javax.swing.JTextField entrySearch;
     private javax.swing.JTabbedPane entryTime;
@@ -1020,9 +1102,6 @@ public static void main(String args[]) {
     private javax.swing.JTextField fName;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -1048,7 +1127,11 @@ public static void main(String args[]) {
     private javax.swing.JScrollPane jScrollPane5;
     // End of variables declaration//GEN-END:variables
 
-    void setfId(String fingerId) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+//    void setfId(String fingerId) {
+//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+//    }
+    
+//    public void setMiniFinger(){
+//        
+//    }
 }

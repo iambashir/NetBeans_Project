@@ -1629,7 +1629,8 @@ public void AllAdminFieldReset() {
             prst.executeUpdate();
             JOptionPane.showMessageDialog(null, "Created Successfully");
            
-            //DisplayTable();
+            table_update();
+            userCreateReset();
             
             con.close();
             prst.close();
@@ -1679,7 +1680,7 @@ public void AllAdminFieldReset() {
             prst.executeUpdate();
             JOptionPane.showConfirmDialog(null, "Do you want to delete");
             
-           // DisplayTable();
+            table_update();
             userCreateReset();
             con.close();
             prst.close();
@@ -1707,7 +1708,8 @@ public void AllAdminFieldReset() {
             JOptionPane.showMessageDialog(null, "Record Updated successfully");
 
          
-
+            table_update();
+            userCreateReset();
             con.close();
             prst.close();
         } catch (Exception e) {

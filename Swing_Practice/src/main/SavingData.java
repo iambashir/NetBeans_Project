@@ -5,23 +5,36 @@ import java.sql.*;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import net.proteanit.sql.DbUtils;
+import dao.DBConnection;
+import java.awt.print.PrinterException;
 
 /**
 *
 * @author Bashir Hossain
 */
 public class SavingData extends javax.swing.JFrame {
+    
+    //This is for database connection from dao file
+    Connection con;
+    Statement prst;
 
+    
     //========= RESET METHOD CRATED TO CALL FROM ANYWHERE ==========//
     public void reset(){
     rollField.setText("");
     nameField.setText("");
+    addressField.setText("");
+    salaryField.setText("");
     }
 
+    
     public SavingData() {
     initComponents();
     //======================== JFRAME COLOUR CHANGE =========================================//
-    getContentPane().setBackground(java.awt.Color.gray);
+    //getContentPane().setBackground(java.awt.Color.gray);
+    //or
+    getContentPane().setBackground(new java.awt.Color(22, 92, 115));
+    
     //============= CALLING DATABASE TABLE TO ADJUSTING FORM TABLE ========================//
     DisplayTable();//Calling The table
     }
@@ -31,8 +44,8 @@ public class SavingData extends javax.swing.JFrame {
     private void DisplayTable(){
     
     try{
-    Class.forName("com.mysql.jdbc.Driver");  
-    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bashir_swing_practice", "root", "1234");
+    con = DBConnection.getConnection();
+    prst = con.createStatement();
     String sql = "select * from saving_data";
     
     PreparedStatement prst = con.prepareStatement(sql);
@@ -70,16 +83,29 @@ public class SavingData extends javax.swing.JFrame {
         textArea = new javax.swing.JTextArea();
         databaseTableLabel = new javax.swing.JLabel();
         textAreaLabel = new javax.swing.JLabel();
-        profileLabel = new javax.swing.JLabel();
+        addressLabel = new javax.swing.JLabel();
+        salaryLabel = new javax.swing.JLabel();
+        addressField = new javax.swing.JTextField();
+        salaryField = new javax.swing.JTextField();
         printButton = new javax.swing.JButton();
-        profilePhoto = new javax.swing.JLabel();
+        editButton = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        showTextButton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Login Window");
+        setTitle("Bashir Hossain");
         setBackground(new java.awt.Color(0, 153, 153));
 
         nameLB.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        nameLB.setForeground(new java.awt.Color(0, 51, 51));
+        nameLB.setForeground(new java.awt.Color(0, 153, 102));
         nameLB.setText("Name :");
 
         rollField.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -91,7 +117,7 @@ public class SavingData extends javax.swing.JFrame {
         });
 
         rollLB.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        rollLB.setForeground(new java.awt.Color(0, 51, 51));
+        rollLB.setForeground(new java.awt.Color(0, 153, 102));
         rollLB.setText("Roll No: ");
 
         nameField.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
@@ -189,7 +215,7 @@ public class SavingData extends javax.swing.JFrame {
 
         showDataButton.setFont(new java.awt.Font("Arial", 1, 15)); // NOI18N
         showDataButton.setForeground(new java.awt.Color(0, 102, 102));
-        showDataButton.setText("Show Data");
+        showDataButton.setText("ShowData");
         showDataButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 showDataButtonActionPerformed(evt);
@@ -197,24 +223,95 @@ public class SavingData extends javax.swing.JFrame {
         });
 
         textArea.setColumns(20);
-        textArea.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        textArea.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         textArea.setRows(5);
         jScrollPane2.setViewportView(textArea);
 
         databaseTableLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        databaseTableLabel.setForeground(new java.awt.Color(0, 51, 51));
+        databaseTableLabel.setForeground(new java.awt.Color(0, 153, 102));
         databaseTableLabel.setText("Database Table");
 
         textAreaLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        textAreaLabel.setForeground(new java.awt.Color(0, 51, 51));
+        textAreaLabel.setForeground(new java.awt.Color(0, 153, 102));
         textAreaLabel.setText("Student Details Information");
 
-        profileLabel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        profileLabel.setText("Profile Picture: ");
+        addressLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        addressLabel.setForeground(new java.awt.Color(0, 153, 102));
+        addressLabel.setText("Address :");
 
+        salaryLabel.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        salaryLabel.setForeground(new java.awt.Color(0, 153, 102));
+        salaryLabel.setText("Salary :");
+
+        addressField.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        addressField.setForeground(new java.awt.Color(0, 51, 51));
+
+        salaryField.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        salaryField.setForeground(new java.awt.Color(0, 51, 51));
+        salaryField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salaryFieldActionPerformed(evt);
+            }
+        });
+
+        printButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        printButton.setForeground(new java.awt.Color(0, 102, 102));
         printButton.setText("Print");
+        printButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                printButtonActionPerformed(evt);
+            }
+        });
 
-        profilePhoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Bashir_Passport_size.jpg"))); // NOI18N
+        editButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        editButton.setForeground(new java.awt.Color(0, 102, 102));
+        editButton.setText("Edit");
+        editButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editButtonActionPerformed(evt);
+            }
+        });
+
+        jButton3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(0, 102, 102));
+        jButton3.setText("GetAll");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        showTextButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        showTextButton.setText("Show Text");
+        showTextButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                showTextButtonActionPerformed(evt);
+            }
+        });
+
+        jButton1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jButton1.setText("Add Salary");
+
+        jButton2.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jButton2.setText("Substract Sal.");
+
+        jButton4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jButton4.setText("Myltiply Salary");
+
+        jButton5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jButton5.setText("jButton5");
+
+        jButton6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jButton6.setText("jButton6");
+
+        jButton7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jButton7.setText("jButton7");
+
+        jButton9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jButton9.setText("jButton7");
+
+        jButton10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        jButton10.setText("jButton10");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -222,97 +319,146 @@ public class SavingData extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(68, 68, 68)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(rollLB, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
+                            .addGap(55, 55, 55)
+                            .addComponent(rollField, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                            .addGap(0, 0, Short.MAX_VALUE)
+                                            .addComponent(addressLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(nameLB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGap(38, 38, 38))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(salaryLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(nameField, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
+                                .addComponent(addressField)
+                                .addComponent(salaryField)))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(18, 18, 18)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(searchButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(refreshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(resetField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(19, 19, 19)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(showDataButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(1, 1, 1)
+                                            .addComponent(updateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addGap(18, 18, 18)
+                                    .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(editButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(0, 0, Short.MAX_VALUE)
+                                    .addComponent(printButton, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(rollLB, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
-                        .addGap(55, 55, 55)
-                        .addComponent(rollField, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(nameLB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(38, 38, 38)
-                        .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(resetField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(searchButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(refreshButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(60, 60, 60)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(updateButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(exitButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(showDataButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(textAreaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(printButton, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(66, 66, 66)
+                        .addComponent(textAreaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 330, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 441, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(49, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(profileLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(profilePhoto)
-                                .addGap(55, 55, 55))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(164, 164, 164)
-                        .addComponent(databaseTableLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(showTextButton, javax.swing.GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE)
+                            .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(33, 33, 33)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 433, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(46, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(databaseTableLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(186, 186, 186))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(databaseTableLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(rollLB)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(rollField, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(profileLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(rollField, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(nameLB, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(29, 29, 29)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(addressField, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(addressLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(printButton, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(textAreaLabel, javax.swing.GroupLayout.Alignment.TRAILING))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(profilePhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(databaseTableLabel)))
-                .addGap(18, 18, 18)
+                            .addComponent(salaryLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(salaryField, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(35, 35, 35)
+                        .addComponent(textAreaLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButton10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton7, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(printButton, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(exitButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                    .addComponent(resetField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(saveButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(updateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(exitButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(resetField, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(searchButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(updateButton, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(refreshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(showDataButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(77, 77, 77))
+                                .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(deleteButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(refreshButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(showDataButton, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(showTextButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23))
         );
 
         pack();
@@ -326,14 +472,18 @@ public class SavingData extends javax.swing.JFrame {
     
     try{
     //==========Same code for every connection==========//
-    Class.forName("com.mysql.jdbc.Driver");  
-    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bashir_swing_practice", "root", "1234");
-    String sql = "insert into saving_data values (?, ?)"; // "?" is for table row number and saving_data is database table name
+    con = DBConnection.getConnection();
+    prst = con.createStatement();
     
+       
     //========= ADD/INSERT/SAVE DATA ==============//
+    String sql = "insert into saving_data values (?, ?, ?, ?)"; // "?" is for table row number and saving_data is database table name
     PreparedStatement prst = con.prepareStatement(sql);
-    prst.setInt(1, Integer.parseInt(rollField.getText())); // this is for number 1 field
-    prst.setString(2, nameField.getText()); // this is for number 2 field
+    
+    prst.setInt(1, Integer.parseInt(rollField.getText())); 
+    prst.setString(2, nameField.getText()); 
+    prst.setString(3, addressField.getText()); 
+    prst.setDouble(4, Double.parseDouble(salaryField.getText())); 
 
     prst.executeUpdate();
     JOptionPane.showMessageDialog(null, "Saved successfully"); //after submission popup massage window
@@ -364,9 +514,7 @@ public class SavingData extends javax.swing.JFrame {
     
    //========================= RESET YOUR FIELD ============================//
     private void resetFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetFieldActionPerformed
-    rollField.setText("");
-    nameField.setText("");
-    textArea.setText("");
+    reset();
     
     // OR WRITE reset();
     }//GEN-LAST:event_resetFieldActionPerformed
@@ -398,8 +546,8 @@ public class SavingData extends javax.swing.JFrame {
     private void searchButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchButtonActionPerformed
     
     try{
-    Class.forName("com.mysql.jdbc.Driver");  
-    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bashir_swing_practice", "root", "1234");
+   con = DBConnection.getConnection();
+    prst = con.createStatement();
     String sql = "select * from saving_data where roll_no = ?";
     
     PreparedStatement prst = con.prepareStatement(sql);
@@ -408,6 +556,9 @@ public class SavingData extends javax.swing.JFrame {
     ResultSet rs = prst.executeQuery();
     if(rs.next()){
        nameField.setText(rs.getString("name"));
+       addressField.setText(rs.getString("address"));
+       salaryField.setText(String.valueOf(rs.getDouble("salary")));
+       
     }
     else
     {
@@ -426,13 +577,17 @@ public class SavingData extends javax.swing.JFrame {
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
                                                 
     try{
-    Class.forName("com.mysql.jdbc.Driver");  
-    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bashir_swing_practice", "root", "1234");
-    String sql = "update saving_data set name = ?  where roll_no = ?";
+    con = DBConnection.getConnection();
+    prst = con.createStatement();
+    String sql = "update saving_data set name = ?, address = ?, salary = ? where roll_no = ?";
     
     PreparedStatement prst = con.prepareStatement(sql);
     prst.setString(1, nameField.getText());
-    prst.setInt(2, Integer.parseInt(rollField.getText()));
+    prst.setString(2, addressField.getText());
+    prst.setDouble(3, Double.parseDouble(salaryField.getText()));
+    
+    prst.setInt(4, Integer.parseInt(rollField.getText()));
+    
     
     prst.executeUpdate();
     JOptionPane.showMessageDialog(null, "Record Updated successfully");
@@ -452,25 +607,24 @@ public class SavingData extends javax.swing.JFrame {
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
      
     try{
-    Class.forName("com.mysql.jdbc.Driver");  
-    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bashir_swing_practice", "root", "1234");
+    con = DBConnection.getConnection();
+    prst = con.createStatement();
     String sql = "delete from saving_data where roll_no = ?";
     
     PreparedStatement prst = con.prepareStatement(sql);
     prst.setInt(1, Integer.parseInt(rollField.getText()));
     
     prst.executeUpdate();
-    JOptionPane.showMessageDialog(null, "Record Deleted successfully");
-   
-    rollField.setText("");
-    nameField.setText("");
+    JOptionPane.showConfirmDialog(null, "Do you want to delete");
+    JOptionPane.showMessageDialog(null, "Deleted Successfully");
     
+    reset();
     DisplayTable();//Refresh Table
     
     con.close(); 
     }catch(Exception e)
     {
-    JOptionPane.showMessageDialog(null, e);
+    JOptionPane.showMessageDialog(null, "Invalid Deletion");
     }
     }//GEN-LAST:event_deleteButtonActionPerformed
     
@@ -482,12 +636,11 @@ public class SavingData extends javax.swing.JFrame {
 
     
     
-    //===================== SHOW TEXT ============================//
+    //===================== SHOW DATA ============================//
     private void showDataButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showDataButtonActionPerformed
-    
     try{
-    Class.forName("com.mysql.jdbc.Driver");  
-    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/bashir_swing_practice", "root", "1234");
+    con = DBConnection.getConnection();
+    prst = con.createStatement();
     String sql = "select * from saving_data where roll_no = ?";
     
     PreparedStatement prst = con.prepareStatement(sql);
@@ -498,8 +651,13 @@ public class SavingData extends javax.swing.JFrame {
    
         int roll = rs.getInt(1);
         String name = rs.getString(2);
+        String address = rs.getString(3);
+        double salary = rs.getDouble(4);
        
-        textArea.setText("Roll No \t:  " + roll + "\nName \t:  " + name );
+        textArea.setText("Roll No \t:  " + roll 
+                        + "\nName \t:  " + name 
+                        + "\nAddress \t:  " + address 
+                        + "\nSalary \t:  " + salary );
     
     }
     else
@@ -513,6 +671,83 @@ public class SavingData extends javax.swing.JFrame {
     JOptionPane.showMessageDialog(null, "Record Not found");
     }
     }//GEN-LAST:event_showDataButtonActionPerformed
+
+    
+    private void salaryFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salaryFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_salaryFieldActionPerformed
+
+    
+    //===================== PRINT TEXT OR TABLE ============================//
+    private void printButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printButtonActionPerformed
+        try {
+            boolean print = textArea.print();
+            if (!print) {
+                JOptionPane.showMessageDialog(null, "Unable To Print !!..");
+            }
+        } catch (PrinterException ex) {
+            JOptionPane.showMessageDialog(null, ex.getMessage());
+        }
+
+    }//GEN-LAST:event_printButtonActionPerformed
+
+    
+    //===================== EDIT TEXT ============================//
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
+     try{
+    con = DBConnection.getConnection();
+    prst = con.createStatement();
+    String sql = "select * from saving_data where roll_no = ?";
+    
+    PreparedStatement prst = con.prepareStatement(sql);
+    prst.setInt(1, Integer.parseInt(rollField.getText()));
+    
+    ResultSet rs = prst.executeQuery();
+    if(rs.next()){
+       nameField.setText(rs.getString("name"));
+       addressField.setText(rs.getString("address"));
+       salaryField.setText(String.valueOf(rs.getDouble("salary")));
+       
+    }
+    else
+    {
+     JOptionPane.showMessageDialog(null, "Record Not found");
+    }
+    con.close(); //after completing task close the popup window
+    } 
+    catch(Exception e)
+    {
+    JOptionPane.showMessageDialog(null, e);
+    }
+    }//GEN-LAST:event_editButtonActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+      
+        
+       
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void showTextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_showTextButtonActionPerformed
+       
+        
+       int roll = Integer.parseInt(rollField.getText());
+       String name =  nameField.getText();
+       String address =  addressField.getText();
+       Double salary = Double.parseDouble(salaryField.getText());
+        
+        
+        
+        textArea.setText("Student Information Details \n  Rasulpur School" 
+                        +"\n--------------------------------"
+                        + "\nRoll No \t:  " + roll 
+                        + "\nName \t:  " + name 
+                        + "\nAddress \t:  " + address 
+                        + "\nSalary \t:  " + salary 
+                        +"\n--------------------------------"
+                        +"\n ********* Thank You *********");
+                      
+    }//GEN-LAST:event_showTextButtonActionPerformed
 
     
     
@@ -551,27 +786,43 @@ public class SavingData extends javax.swing.JFrame {
             }
         });
     }
+    //===================Swing default code end ===========================//
+    
+    
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField addressField;
+    private javax.swing.JLabel addressLabel;
     private javax.swing.JLabel databaseTableLabel;
     private javax.swing.JTable dbTable;
     private javax.swing.JButton deleteButton;
+    private javax.swing.JButton editButton;
     private javax.swing.JButton exitButton;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton loginButton;
     private javax.swing.JTextField nameField;
     private javax.swing.JLabel nameLB;
     private javax.swing.JButton printButton;
-    private javax.swing.JLabel profileLabel;
-    private javax.swing.JLabel profilePhoto;
     private javax.swing.JButton refreshButton;
     private javax.swing.JButton resetField;
     private javax.swing.JTextField rollField;
     private javax.swing.JLabel rollLB;
+    private javax.swing.JTextField salaryField;
+    private javax.swing.JLabel salaryLabel;
     private javax.swing.JButton saveButton;
     private javax.swing.JButton searchButton;
     private javax.swing.JButton showDataButton;
+    private javax.swing.JButton showTextButton;
     private javax.swing.JTextArea textArea;
     private javax.swing.JLabel textAreaLabel;
     private javax.swing.JButton updateButton;

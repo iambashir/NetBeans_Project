@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:room" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:roomfile" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f6333020-4997-4001-8f35-d6e9b00031b0" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Super_Shop_Management_System/src/com/shop/controller/ExitMIniFinger.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Super_Shop_Management_System/src/com/shop/controller/ExitMIniFinger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Super_Shop_Management_System/src/com/shop/img/home50.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Super_Shop_Management_System/src/com/shop/controller/AdminPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Super_Shop_Management_System/src/com/shop/controller/AdminPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Super_Shop_Management_System/src/com/shop/controller/Dashboard.form" beforeDir="false" afterPath="$PROJECT_DIR$/../Super_Shop_Management_System/src/com/shop/controller/Dashboard.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Super_Shop_Management_System/src/com/shop/controller/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Super_Shop_Management_System/src/com/shop/controller/Dashboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Super_Shop_Management_System/src/com/shop/controller/FingerPrint.form" beforeDir="false" afterPath="$PROJECT_DIR$/../Super_Shop_Management_System/src/com/shop/controller/EntryMIniFinger.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Super_Shop_Management_System/src/com/shop/controller/FingerPrint.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Super_Shop_Management_System/src/com/shop/controller/EntryMIniFinger.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Super_Shop_Management_System/src/com/shop/controller/FingerPrintDetails.form" beforeDir="false" afterPath="$PROJECT_DIR$/../Super_Shop_Management_System/src/com/shop/controller/FingerPrintDetails.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Super_Shop_Management_System/src/com/shop/controller/FingerPrintDetails.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Super_Shop_Management_System/src/com/shop/controller/FingerPrintDetails.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectId" id="1rNbe8Lxff5GaHgP0DYZ0FH3Idu" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f6333020-4997-4001-8f35-d6e9b00031b0" name="Default Changelist" comment="" />
+      <created>1618819587127</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1618819587127</updated>
+      <workItem from="1618819588252" duration="155000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="410" y="169" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1618819737901">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="410" y="169" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/-1366.113.1366.728@0.0.1920.1040" timestamp="1618819737901" />
+  </component>
+</project>

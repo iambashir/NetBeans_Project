@@ -194,11 +194,11 @@ public class RegistrationForm extends javax.swing.JFrame {
     catch(Exception e)
     {
     JOptionPane.showMessageDialog(null, e);
-    } 
-
-        
+    }        
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    
+    
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
 
         this.setVisible(false);
