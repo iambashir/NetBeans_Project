@@ -17,7 +17,7 @@ public class P25_RemoveDuplicate {
     }  
        
     public static void main (String[] args) {  
-        int arr[] = {10,20,20,30,30,40,50,50};  
+        int arr[] = {10,20,20,30,30,60,50,50};  
         int length = arr.length;  
         length = removeDuplicateElements(arr, length);  
         //printing array elements  

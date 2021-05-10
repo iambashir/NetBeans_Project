@@ -3,14 +3,16 @@ package classproject;
 import java.util.Arrays;
 import java.util.Scanner;
 
-
 public class P01_Fibonacci {
 
 public static void main(String[] args) {
+    
+//Create a Scanner to get value from user.
     Scanner scan = new Scanner(System.in);
-    System.out.println("Enter your n value to check fibonacchi: ");
+    System.out.println("Enter a number : ");
     int n = scan.nextInt();
     System.out.println(Arrays.toString(fib(n)));
+    
 }
 
 public static int[] fib(int n) {
@@ -22,5 +24,4 @@ public static int[] fib(int n) {
     }
     return arr;
 }
-
 }

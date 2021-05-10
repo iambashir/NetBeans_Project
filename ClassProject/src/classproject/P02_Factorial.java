@@ -6,9 +6,11 @@ public class P02_Factorial {
 
 public static void main(String[] args) {
     Scanner scan = new Scanner(System.in);
-    System.out.println("Enter your n value for finding factorial: ");
+    System.out.print("Enter a number : ");
     int n = scan.nextInt();
-    System.out.println(fact(n));
+    System.out.print("Factorial number is :" + fact(n));
+    System.out.println("");
+   
 }
 
 public static long fact(int n) {

@@ -1039,36 +1039,16 @@ public class swing_form_field extends javax.swing.JFrame {
     nameField.setText((String) dr.getValueAt(sindex, 3));
     cDateTime.setText((String) dr.getValueAt(sindex, 4));
     countryComboBox.setSelectedItem((String) dr.getValueAt(sindex, 5));
-    
-//     String sex = null;
-//            if (maleRadioButton.isSelected()) {
-//                sex = maleRadioButton.getText();
-//            }
-//            if (femaleRadioButton.isSelected()) {
-//                sex = femaleRadioButton.getText();
-//            }
-//            if (otherRadioButton.isSelected()) {
-//                sex = otherRadioButton.getText();
-//            }
-//            sex.setSelected((String) dr.getValueAt(sindex, 7));
+
             
         //=========== Set Radio Button value (For Searching)==========//6
             String sexes = (String) dr.getValueAt(sindex, 6);
             if ( sexes.matches("Male")) {maleRadioButton.setSelected(true);}
             if ( sexes.matches("Female")) {femaleRadioButton.setSelected(true);}
             if ( sexes.matches("Other")) {otherRadioButton.setSelected(true);}         
-    
-   // buttonGroup1.setText((String) dr.getValueAt(sindex, 6));
-    
-//    banglaCheckBox.setText((String) dr.getValueAt(sindex, 7));
-//    englishCheckBox.setText((String) dr.getValueAt(sindex, 8));
-//    arabicCheckBox.setText((String) dr.getValueAt(sindex, 9));
-    
-    
 
 
-
-                //============ Set Checkbox value (For Searching) ============//7
+        //============ Set Checkbox value (For Searching) ============//7
                 
         banglaCheckBox.setSelected(false);
         englishCheckBox.setSelected(false);
@@ -1094,11 +1074,8 @@ public class swing_form_field extends javax.swing.JFrame {
             if ( languages.matches("English ")) {englishCheckBox.setSelected(true);} 
             
       
-           // String s = (String) dr.getValueAt(sindex, 8);
+
     salaryField.setText (String.valueOf (dr.getValueAt(sindex, 8)));  
-    
-      // prst.setDouble(8, Double.parseDouble(salaryField.getText()));
-      //salaryField.setText(String.valueOf(rs.getDouble("salary")));//8
     
     dateChooser1.setDate(null);  
     dateChooser1.setDate((Date) dr.getValueAt(sindex, 9));

@@ -14,7 +14,7 @@ public static void main(String[] args) {
     int input = scan.nextInt();
     sum += input;
     while (input >= 0) {
-        //System.out.print(" ");
+      
         input = scan.nextInt();
         if(input<0){
             continue;
