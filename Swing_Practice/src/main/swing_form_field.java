@@ -224,6 +224,11 @@ public class swing_form_field extends javax.swing.JFrame {
         development.setText("8. Sarary :");
 
         salaryField.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        salaryField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salaryFieldActionPerformed(evt);
+            }
+        });
 
         jLabel1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -246,6 +251,11 @@ public class swing_form_field extends javax.swing.JFrame {
 
         rollField.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         rollField.setForeground(new java.awt.Color(51, 51, 51));
+        rollField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rollFieldActionPerformed(evt);
+            }
+        });
 
         insert.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         insert.setForeground(new java.awt.Color(0, 102, 102));
@@ -1086,6 +1096,14 @@ public class swing_form_field extends javax.swing.JFrame {
     quantitySpinner.setValue(Integer.parseInt(String.valueOf (dr.getValueAt(sindex, 11))));
 
     }//GEN-LAST:event_allFormTableMouseClicked
+
+    private void rollFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rollFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_rollFieldActionPerformed
+
+    private void salaryFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salaryFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_salaryFieldActionPerformed
 
 
     /**
