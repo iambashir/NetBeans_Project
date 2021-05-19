@@ -4551,8 +4551,8 @@
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
-                  <JTabbedPaneConstraints tabName="NEED TO BUY">
-                    <Property name="tabTitle" type="java.lang.String" value="NEED TO BUY"/>
+                  <JTabbedPaneConstraints tabName="PRODUCT ALERT">
+                    <Property name="tabTitle" type="java.lang.String" value="PRODUCT ALERT"/>
                   </JTabbedPaneConstraints>
                 </Constraint>
               </Constraints>

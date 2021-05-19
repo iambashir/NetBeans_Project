@@ -2962,7 +2962,7 @@ public class Dashboard extends javax.swing.JFrame {
                 .addComponent(jScrollPane8, javax.swing.GroupLayout.DEFAULT_SIZE, 541, Short.MAX_VALUE))
         );
 
-        tabPane.addTab("NEED TO BUY", jLayeredPane1);
+        tabPane.addTab("PRODUCT ALERT", jLayeredPane1);
 
         jLayeredPane6.setLayer(tabPane, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
