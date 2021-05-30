@@ -26,6 +26,7 @@ import java.util.logging.Logger;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
@@ -53,6 +54,7 @@ public AdminPanel() {
    UserTable();
    AssignFingerTable();
    SellsHistory();
+   setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//close one jframe without closing other
 }
 
 

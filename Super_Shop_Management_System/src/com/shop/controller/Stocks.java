@@ -13,6 +13,7 @@ import java.sql.Statement;
 import java.util.Vector;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
@@ -36,6 +37,7 @@ public class Stocks extends javax.swing.JFrame {
         
         //DisplayTable();
         table_update();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//close one jframe without closing other
     }
 
     
@@ -598,7 +600,7 @@ public class Stocks extends javax.swing.JFrame {
 
     
     
-    //============= Show data by clicking database table (By mouse click event) ==================//
+    //===== Show data by clicking database table (By mouse click event) ======//
     private void stocksTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_stocksTable1MouseClicked
 
     DefaultTableModel dr = (DefaultTableModel) stocksTable1.getModel();

@@ -1,5 +1,6 @@
 package com.shop.controller;
 
+//=============================== Import Start =================================//
 import com.shop.util.DBConnection;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -26,11 +27,17 @@ import javax.swing.Timer;
 import javax.swing.table.DefaultTableModel;
 import java.math.RoundingMode;
 import java.text.DecimalFormat;
+//=============================== Import End =================================//
+
+
 
 /**
  *
  * @author Bashir Hossain
- */
+ * 
+ **/
+
+
 public class Dashboard extends javax.swing.JFrame {
 
     //=========== Fixed time for showing massage Dialog box ==================//
@@ -69,6 +76,10 @@ public class Dashboard extends javax.swing.JFrame {
         //========================== JFRAME COLOUR CHANGE ========================//
         //getContentPane().setBackground(java.awt.Color.orange); or
         getContentPane().setBackground(new java.awt.Color(122, 72, 48));
+
+        // setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//close one jframe without closing other
+        CategorieTable();
     }
 
     //======================== Clear All Deshboard Field =====================//
@@ -314,7 +325,7 @@ public class Dashboard extends javax.swing.JFrame {
         catagoriesComboBox3 = new javax.swing.JComboBox<>();
         paymentComboBox4 = new javax.swing.JComboBox<>();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        CategorieTable = new javax.swing.JTable();
         catagoriewiseStock = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel28 = new javax.swing.JLabel();
@@ -2303,7 +2314,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         paymentComboBox4.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        CategorieTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -2314,7 +2325,7 @@ public class Dashboard extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane6.setViewportView(jTable2);
+        jScrollPane6.setViewportView(CategorieTable);
 
         catagoriewiseStock.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         catagoriewiseStock.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/shop/img/stock.png"))); // NOI18N
@@ -3010,163 +3021,179 @@ public class Dashboard extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-        //============= DATABASE TABLE SHOWING IN ADD PRODUCT FORM ========================//
-        private void EmployeeTable2() {
+    private void CategorieTable() {
 
-            try {
-                con = DBConnection.getConnection();
-                prst = con.createStatement();
-                String sql = "SELECT id_no, designation, name, cantact, address FROM assign_employee";
+        try {
+            con = DBConnection.getConnection();
+            prst = con.createStatement();
+            String sql = "select * from combo_field";
 
-                PreparedStatement prst = con.prepareStatement(sql);
-                ResultSet rs = prst.executeQuery();
-                employeeTable2.setModel(DbUtils.resultSetToTableModel(rs));
+            PreparedStatement prst = con.prepareStatement(sql);
+            ResultSet rs = prst.executeQuery();
+            CategorieTable.setModel(DbUtils.resultSetToTableModel(rs));
 
-                // DisplayTable2();
-                con.close();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
         }
+    }
 
-        //============= DATABASE TABLE SHOWING IN ADD PRODUCT FORM ========================//
-        private void BillDetailsTable() {
+    //============= DATABASE TABLE SHOWING IN ADD PRODUCT FORM ========================//
+    private void EmployeeTable2() {
 
-            try {
-                con = DBConnection.getConnection();
-                prst = con.createStatement();
-                String sql = "SELECT * FROM supershop_management_system.bill";
+        try {
+            con = DBConnection.getConnection();
+            prst = con.createStatement();
+            String sql = "SELECT id_no, designation, name, cantact, address FROM assign_employee";
 
-                PreparedStatement prst = con.prepareStatement(sql);
-                ResultSet rs = prst.executeQuery();
-                billDetailsTable.setModel(DbUtils.resultSetToTableModel(rs));
+            PreparedStatement prst = con.prepareStatement(sql);
+            ResultSet rs = prst.executeQuery();
+            employeeTable2.setModel(DbUtils.resultSetToTableModel(rs));
 
-                // DisplayTable2();
-                con.close();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
+            // DisplayTable2();
+            con.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
         }
+    }
 
-        //============= DATABASE TABLE SHOWING IN ADD PRODUCT FORM ========================//
-        private void NeedToBuy() {
+    //============= DATABASE TABLE SHOWING IN ADD PRODUCT FORM ========================//
+    private void BillDetailsTable() {
 
-            try {
-                con = DBConnection.getConnection();
-                prst = con.createStatement();
-                String sql = "SELECT * FROM supershop_management_system.product_entry where quantity <50 ";
+        try {
+            con = DBConnection.getConnection();
+            prst = con.createStatement();
+            String sql = "SELECT * FROM supershop_management_system.bill";
 
-                PreparedStatement prst = con.prepareStatement(sql);
-                ResultSet rs = prst.executeQuery();
-                needToBuy.setModel(DbUtils.resultSetToTableModel(rs));
+            PreparedStatement prst = con.prepareStatement(sql);
+            ResultSet rs = prst.executeQuery();
+            billDetailsTable.setModel(DbUtils.resultSetToTableModel(rs));
 
-                // DisplayTable2();
-                con.close();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
+            // DisplayTable2();
+            con.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
         }
+    }
 
-        //============= DATABASE TABLE SHOWING IN ADD PRODUCT FORM ========================//
-        private void DisplayTable() {
+    //============= DATABASE TABLE SHOWING IN ADD PRODUCT FORM ========================//
+    private void NeedToBuy() {
 
-            try {
-                con = DBConnection.getConnection();
-                prst = con.createStatement();
-                String sql = "select * from product_entry";
+        try {
+            con = DBConnection.getConnection();
+            prst = con.createStatement();
+            String sql = "SELECT * FROM supershop_management_system.product_entry where quantity <50 ";
 
-                PreparedStatement prst = con.prepareStatement(sql);
-                ResultSet rs = prst.executeQuery();
-                productTable2.setModel(DbUtils.resultSetToTableModel(rs));
+            PreparedStatement prst = con.prepareStatement(sql);
+            ResultSet rs = prst.executeQuery();
+            needToBuy.setModel(DbUtils.resultSetToTableModel(rs));
 
-                DisplayTable2();
-                con.close();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
+            // DisplayTable2();
+            con.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
         }
+    }
 
-        //============= DATABASE TABLE SHOWING IN ORDER FORM ========================//
-        private void DisplayTable2() {
+    //============= DATABASE TABLE SHOWING IN ADD PRODUCT FORM ========================//
+    private void DisplayTable() {
 
-            try {
-                con = DBConnection.getConnection();
-                prst = con.createStatement();
-                String sql = "select * from product_entry";
+        try {
+            con = DBConnection.getConnection();
+            prst = con.createStatement();
+            String sql = "select * from product_entry";
 
-                PreparedStatement prst = con.prepareStatement(sql);
-                ResultSet rs = prst.executeQuery();
-                salesTable1.setModel(DbUtils.resultSetToTableModel(rs));
-                //historyTable.setModel(DbUtils.resultSetToTableModel(rs));
+            PreparedStatement prst = con.prepareStatement(sql);
+            ResultSet rs = prst.executeQuery();
+            productTable2.setModel(DbUtils.resultSetToTableModel(rs));
 
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
+            DisplayTable2();
+            con.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
         }
+    }
 
-        private void DisplayTable3() {
+    //============= DATABASE TABLE SHOWING IN ORDER FORM ========================//
+    private void DisplayTable2() {
 
-            try {
-                con = DBConnection.getConnection();
-                prst = con.createStatement();
-                String sql = "select * from sells_history";
+        try {
+            con = DBConnection.getConnection();
+            prst = con.createStatement();
+            String sql = "select * from product_entry";
 
-                PreparedStatement prst = con.prepareStatement(sql);
-                ResultSet rs = prst.executeQuery();
-                historyTable.setModel(DbUtils.resultSetToTableModel(rs));
-                //historyTable.setModel(DbUtils.resultSetToTableModel(rs));
+            PreparedStatement prst = con.prepareStatement(sql);
+            ResultSet rs = prst.executeQuery();
+            salesTable1.setModel(DbUtils.resultSetToTableModel(rs));
+            //historyTable.setModel(DbUtils.resultSetToTableModel(rs));
 
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
-            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
         }
+    }
+
+    private void DisplayTable3() {
+
+        try {
+            con = DBConnection.getConnection();
+            prst = con.createStatement();
+            String sql = "select * from sells_history";
+
+            PreparedStatement prst = con.prepareStatement(sql);
+            ResultSet rs = prst.executeQuery();
+            historyTable.setModel(DbUtils.resultSetToTableModel(rs));
+            //historyTable.setModel(DbUtils.resultSetToTableModel(rs));
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, e);
+        }
+    }
 
 
     private void stocksButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stocksButton1ActionPerformed
 
-        this.setVisible(false);
+        this.setVisible(true);
         new Stocks().setVisible(true);
     }//GEN-LAST:event_stocksButton1ActionPerformed
 
-        //========================= LOGOUT ========================================//
+    //========================= LOGOUT ========================================//
     private void logoutButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButton3ActionPerformed
         this.setVisible(false);
         new Login().setVisible(true);
     }//GEN-LAST:event_logoutButton3ActionPerformed
 
-        private void initComboBox() {
-            try {
-                con = DBConnection.getConnection();
-                prst = con.createStatement();
-                String sql = "select distinct branch from combo_field where branch != \"\""; // if want unique distinct value
-                //"select * from user"; //if I want All value
+    private void initComboBox() {
+        try {
+            con = DBConnection.getConnection();
+            prst = con.createStatement();
+            String sql = "select distinct branch from combo_field where branch != \"\""; // if want unique distinct value
+            //"select * from user"; //if I want All value
 
-                PreparedStatement prst = con.prepareStatement(sql);
-                // prst.setInt(1, Integer.parseInt(rollField.getText()));
+            PreparedStatement prst = con.prepareStatement(sql);
+            // prst.setInt(1, Integer.parseInt(rollField.getText()));
 
-                ResultSet rs = prst.executeQuery();
-                while (rs.next()) {
-                    branchComboBox3.addItem(rs.getString("branch"));
-                }
-                con.close();
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Record Not found");
+            ResultSet rs = prst.executeQuery();
+            while (rs.next()) {
+                branchComboBox3.addItem(rs.getString("branch"));
             }
+            con.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Record Not found");
         }
+    }
 
 
-        
     private void jButton21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton21ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton21ActionPerformed
 
     private void attendenceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_attendenceActionPerformed
+        dispose();
         this.setVisible(true);
-        new FingerPrintDetails().setVisible(true);
+        new Attendence().setVisible(true);
     }//GEN-LAST:event_attendenceActionPerformed
 
     private void cashRecieptButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cashRecieptButton12ActionPerformed
-        this.setVisible(false);
+        this.setVisible(true);
         new GoToAdminPanel().setVisible(true);
     }//GEN-LAST:event_cashRecieptButton12ActionPerformed
 
@@ -3179,7 +3206,6 @@ public class Dashboard extends javax.swing.JFrame {
         new Login().setVisible(true);
     }//GEN-LAST:event_exitButton20ActionPerformed
 
-    
     //========================= PRINT SELLS ===================================// 
     private void printButton19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printButton19ActionPerformed
         try {
@@ -3193,29 +3219,29 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_printButton19ActionPerformed
 
     private void paymentComboBox2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_paymentComboBox2ActionPerformed
-    // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_paymentComboBox2ActionPerformed
 
-        //============ Stordata in Array then Calculate by loop ==============//
-        Double totalvalue = 0.0;
-        Double cash = 0.0;
-        Double balance = 0.0;
-        Double bHeight = 0.0;
-        double subDiss = 0.0;
-        double totalDisscounts = 0.0;
-        double subVatV = 0.0;
-        double totalVatV = 0.0;
+    //============ Stordata in Array then Calculate by loop ==============//
+    Double totalvalue = 0.0;
+    Double cash = 0.0;
+    Double balance = 0.0;
+    Double bHeight = 0.0;
+    double subDiss = 0.0;
+    double totalDisscounts = 0.0;
+    double subVatV = 0.0;
+    double totalVatV = 0.0;
 
-        ArrayList<String> productsName = new ArrayList<>();
-        ArrayList<String> quantitys = new ArrayList<>();
-        ArrayList<String> unitsPrice = new ArrayList<>();
-        ArrayList<String> discountS = new ArrayList<>();
-        ArrayList<String> subtotals = new ArrayList<>();
-        ArrayList<String> subDiscounts = new ArrayList<>();
-        ArrayList<String> totalDiscounts = new ArrayList<>();
-        ArrayList<String> subVateList = new ArrayList<>();
+    ArrayList<String> productsName = new ArrayList<>();
+    ArrayList<String> quantitys = new ArrayList<>();
+    ArrayList<String> unitsPrice = new ArrayList<>();
+    ArrayList<String> discountS = new ArrayList<>();
+    ArrayList<String> subtotals = new ArrayList<>();
+    ArrayList<String> subDiscounts = new ArrayList<>();
+    ArrayList<String> totalDiscounts = new ArrayList<>();
+    ArrayList<String> subVateList = new ArrayList<>();
 
-        //============================ Sell Product ==============================//
+    //============================ Sell Product ==============================//
     private void sellButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sellButtonActionPerformed
 
         String productName = product.getText();
@@ -3346,7 +3372,7 @@ public class Dashboard extends javax.swing.JFrame {
         DisplayTable2();
     }//GEN-LAST:event_sellButtonActionPerformed
 
-        //============================== Reciept =================================//
+    //============================== Reciept =================================//
     private void recieptButton16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_recieptButton16ActionPerformed
 
         //======= Generate random int number from 200 to 400 for invoice =====//
@@ -3470,7 +3496,6 @@ public class Dashboard extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_barcodeSearchActionPerformed
 
-    
     //=============== Bercode Field ======================================//
     private void barcodeField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_barcodeField1KeyReleased
 
@@ -3496,7 +3521,7 @@ public class Dashboard extends javax.swing.JFrame {
                     discount.setText(String.valueOf(rs.getDouble("discount")));
 
                 } else {
-                //JOptionPane.showMessageDialog(null, "Record Not found");
+                    //JOptionPane.showMessageDialog(null, "Record Not found");
                 }
                 con.close();
             } catch (Exception e) {
@@ -3522,19 +3547,18 @@ public class Dashboard extends javax.swing.JFrame {
                 } else {
                     //JOptionPane.showMessageDialog(null, "Record Not found");
                 }
-                con.close(); 
+                con.close();
             } catch (Exception e) {
                 //JOptionPane.showMessageDialog(null, e);
             }
-            
 
         }
-        
+
     }//GEN-LAST:event_barcodeField1KeyReleased
 
-    
+
     private void barcodeField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_barcodeField1ActionPerformed
-    // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_barcodeField1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -3547,7 +3571,7 @@ public class Dashboard extends javax.swing.JFrame {
 
             prst.setInt(1, Integer.parseInt(quantityField2.getText()));
             prst.setString(2, barcodeField11.getText());
-            
+
             prst.executeUpdate();
             DisplayTable();//Refresh Table
             DisplayTable2();//Refresh Table
@@ -3588,10 +3612,10 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_ClearOrderFieldActionPerformed
 
     private void adNameField14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_adNameField14ActionPerformed
-    // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_adNameField14ActionPerformed
 
-        //=================== Delete from ADD ORDER ===========================//
+    //=================== Delete from ADD ORDER ===========================//
     private void deleteButton47ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButton47ActionPerformed
         try {
             con = DBConnection.getConnection();
@@ -3654,7 +3678,7 @@ public class Dashboard extends javax.swing.JFrame {
             String branch;
             branch = branchComboBox3.getSelectedItem().toString();
             prst.setString(3, branch);
-            
+
             prst.setInt(4, Integer.parseInt(quantityField2.getText()));
             prst.setDouble(5, Double.parseDouble(unitPrField3.getText()));
             prst.setDouble(6, Double.parseDouble(discountField4.getText()));
@@ -3768,77 +3792,77 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_barcodeField11KeyReleased
 
     private void meatAndFishActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_meatAndFishActionPerformed
-        this.setVisible(false);
+        this.setVisible(true);
         new MeatAndFish().setVisible(true);
     }//GEN-LAST:event_meatAndFishActionPerformed
 
     private void drinksActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_drinksActionPerformed
-        this.setVisible(false);
+        this.setVisible(true);
         new Drinks().setVisible(true);
     }//GEN-LAST:event_drinksActionPerformed
 
     private void bagsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bagsActionPerformed
-        this.setVisible(false);
+        this.setVisible(true);
         new Bags().setVisible(true);
     }//GEN-LAST:event_bagsActionPerformed
 
     private void fruitsAndVegitablesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fruitsAndVegitablesActionPerformed
-        this.setVisible(false);
+        this.setVisible(true);
         new FruitsAndVegitables().setVisible(true);
     }//GEN-LAST:event_fruitsAndVegitablesActionPerformed
 
     private void dairyProductsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dairyProductsActionPerformed
-        this.setVisible(false);
+        this.setVisible(true);
         new DairyProducts().setVisible(true);
     }//GEN-LAST:event_dairyProductsActionPerformed
 
     private void sportsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sportsActionPerformed
-        this.setVisible(false);
+        this.setVisible(true);
         new Sports().setVisible(true);
     }//GEN-LAST:event_sportsActionPerformed
 
     private void stationeryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_stationeryActionPerformed
-        this.setVisible(false);
+        this.setVisible(true);
         new Stationery().setVisible(true);
     }//GEN-LAST:event_stationeryActionPerformed
 
     private void personalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_personalActionPerformed
-        this.setVisible(false);
+        this.setVisible(true);
         new PersonalCare().setVisible(true);
     }//GEN-LAST:event_personalActionPerformed
 
     private void groceryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groceryActionPerformed
-        this.setVisible(false);
+        this.setVisible(true);
         new Grocery().setVisible(true);
     }//GEN-LAST:event_groceryActionPerformed
 
     private void giftAndToysActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_giftAndToysActionPerformed
-        this.setVisible(false);
+        this.setVisible(true);
         new GiftAndToys().setVisible(true);
     }//GEN-LAST:event_giftAndToysActionPerformed
 
     private void homeApplienceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_homeApplienceActionPerformed
-        this.setVisible(false);
+        this.setVisible(true);
         new HomeApplience().setVisible(true);
     }//GEN-LAST:event_homeApplienceActionPerformed
 
     private void cookingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cookingActionPerformed
-        this.setVisible(false);
+        this.setVisible(true);
         new Coocking().setVisible(true);
     }//GEN-LAST:event_cookingActionPerformed
 
     private void medicalinstrumentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_medicalinstrumentActionPerformed
-        this.setVisible(false);
+        this.setVisible(true);
         new Medicalinstrument().setVisible(true);
     }//GEN-LAST:event_medicalinstrumentActionPerformed
 
     private void fashonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fashonActionPerformed
-        this.setVisible(false);
+        this.setVisible(true);
         new Fashion().setVisible(true);
     }//GEN-LAST:event_fashonActionPerformed
 
     private void electronicsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_electronicsActionPerformed
-        this.setVisible(false);
+        this.setVisible(true);
         new Electronics().setVisible(true);
     }//GEN-LAST:event_electronicsActionPerformed
 
@@ -3862,7 +3886,6 @@ public class Dashboard extends javax.swing.JFrame {
             prst.setDouble(1, Double.parseDouble(billPayment.getText()));
             prst.setString(2, billType.getSelectedItem().toString());
 
-
             prst.executeUpdate();
             JOptionPane.showMessageDialog(null, "Payment Successfull");
             BillDetailsTable();
@@ -3879,7 +3902,7 @@ public class Dashboard extends javax.swing.JFrame {
     }//GEN-LAST:event_itemButton9ActionPerformed
 
     private void supplierButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supplierButton7ActionPerformed
-        this.setVisible(false);
+        this.setVisible(true);
         new Supplier().setVisible(true);
     }//GEN-LAST:event_supplierButton7ActionPerformed
 
@@ -3908,7 +3931,7 @@ public class Dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_branchComboBox2ActionPerformed
 
-        //================== Bill ComboBox Start after initialize =================//
+    //================== Bill ComboBox Start after initialize =================//
     private void billTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_billTypeActionPerformed
 
         try {
@@ -3938,27 +3961,27 @@ public class Dashboard extends javax.swing.JFrame {
 
     }//GEN-LAST:event_billTypeActionPerformed
 
-        //================== Bill ComboBox initialize By methode =================//
-        private void initBillTypeCombobox3() {
-            try {
-                con = DBConnection.getConnection();
-                prst = con.createStatement();
-                String sql = "select distinct bill_type from bill WHERE bill_type != \"\""; // if want unique distinct value and not null value
+    //================== Bill ComboBox initialize By methode =================//
+    private void initBillTypeCombobox3() {
+        try {
+            con = DBConnection.getConnection();
+            prst = con.createStatement();
+            String sql = "select distinct bill_type from bill WHERE bill_type != \"\""; // if want unique distinct value and not null value
 
-                PreparedStatement prst = con.prepareStatement(sql);
-                // prst.setInt(1, Integer.parseInt(rollField.getText()));
+            PreparedStatement prst = con.prepareStatement(sql);
+            // prst.setInt(1, Integer.parseInt(rollField.getText()));
 
-                ResultSet rs = prst.executeQuery();
-                while (rs.next()) {
-                    billType.addItem(rs.getString("bill_type"));
-                }
-                con.close();
-            } catch (Exception e) {
-                //JOptionPane.showMessageDialog(null, "Record Not found");
+            ResultSet rs = prst.executeQuery();
+            while (rs.next()) {
+                billType.addItem(rs.getString("bill_type"));
             }
+            con.close();
+        } catch (Exception e) {
+            //JOptionPane.showMessageDialog(null, "Record Not found");
         }
+    }
 
-        //============================ Add Bill =================================//
+    //============================ Add Bill =================================//
     private void addBillActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addBillActionPerformed
         try {
             con = DBConnection.getConnection();
@@ -4207,9 +4230,9 @@ public class Dashboard extends javax.swing.JFrame {
 
     }//GEN-LAST:event_salesTable1MouseClicked
 
-        private static DecimalFormat shortenNumber = new DecimalFormat("#.#");
+    private static DecimalFormat shortenNumber = new DecimalFormat("#.#");
 
-        //======================== Quantity condition set ========================//
+    //======================== Quantity condition set ========================//
     private void quntityKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quntityKeyReleased
 
         double total = 0;
@@ -4299,7 +4322,6 @@ public class Dashboard extends javax.swing.JFrame {
             // {Qty x U.Pr   +   Qty x (U.pr x tax)}   -  (Qty x Dis)            = Result
             //  2   x 500 tk +    2  x ( 500 x 10/100) -  { 2  x (500 x 5/100)} = 1090
             //     1000      +    2  x      50         -       10     = 1090
-            
             shortenNumber.setRoundingMode(RoundingMode.DOWN);
             //================ Discount Calculation =========================//
             subDiss = quantitY * ((Double.valueOf(unitPrice.getText())) * (Double.valueOf(discount.getText())) / 100);
@@ -4307,7 +4329,7 @@ public class Dashboard extends javax.swing.JFrame {
 
             //=================== Vat Calculation ============================//
             subVatV = quantitY * ((Double.valueOf(unitPrice.getText())) * (Double.valueOf(vat.getText())) / 100);
-            subVat.setText(shortenNumber.format(subVatV) + ""); 
+            subVat.setText(shortenNumber.format(subVatV) + "");
         }
 
     }//GEN-LAST:event_quntityKeyReleased
@@ -4330,7 +4352,6 @@ public class Dashboard extends javax.swing.JFrame {
         // {Qty x U.Pr   +   Qty x (U.pr x tax)}   -  (Qty x Dis)            = Result
         //  2   x 500 tk +    2  x ( 500 x 10/100) -  { 2  x (500 x 5/100)} = 1090
         //     1000      +    2  x      50         -       10     = 1090
-        
         //=============== Find out the quantity based unit price =============//
         if (quntity.getText().trim().length() > 0) {
             try {
@@ -4394,8 +4415,6 @@ public class Dashboard extends javax.swing.JFrame {
 
         subTotal.setText("" + shortenNumber.format(sub - dis));
 
-        
-        
         //==== Alternative/Cpied calculation from  quantity keyrealeased =====// 
         String vatV = vat.getText().trim();  //For auto search
         if (vatV.equals("")) {
@@ -4403,18 +4422,17 @@ public class Dashboard extends javax.swing.JFrame {
         } else {
             //================= Calculate All =======================//
             int quantitY = Integer.parseInt(quntity.getText());
-    
+
             //==================== Main Theory =============================//
             // {Qty x U.Pr   +   Qty x (U.pr x tax)}   -  (Qty x Dis)            = Result
             //  2   x 500 tk +    2  x ( 500 x 10/100) -  { 2  x (500 x 5/100)} = 1090
             //     1000      +    2  x      50         -       10     = 1090
-            
             shortenNumber.setRoundingMode(RoundingMode.DOWN);
-      
+
             //================ Discount Calculation =========================//
             subDiss = quantitY * ((Double.valueOf(unitPrice.getText())) * (Double.valueOf(discount.getText())) / 100);
             subDiscount.setText((subDiss) + "");
-            
+
             //=================== Vat Calculation ============================//
             subVatV = quantitY * ((Double.valueOf(unitPrice.getText())) * (Double.valueOf(vat.getText())) / 100);
             subVat.setText(shortenNumber.format(subVatV) + ""); //System.out.println("double : " + shortenNumber.format(input));
@@ -4426,182 +4444,181 @@ public class Dashboard extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_subTotalComponentResized
 
-        //================== Bill ComboBox initialize By methode =================//
-        private void TotalBillAmount() {
-            try {
-                con = DBConnection.getConnection();
-                prst = con.createStatement();
-                String sql = "SELECT SUM(bill_amount) FROM bill ";
-                PreparedStatement prst = con.prepareStatement(sql);
-                ResultSet rs = prst.executeQuery();
-                while (rs.next()) {
-                    totalBill.setText(String.valueOf(rs.getDouble("sum(bill_amount)")));
-                }
-                con.close();
-            } catch (Exception e) {
-                //JOptionPane.showMessageDialog(null, "Record Not found");
+    //================== Bill ComboBox initialize By methode =================//
+    private void TotalBillAmount() {
+        try {
+            con = DBConnection.getConnection();
+            prst = con.createStatement();
+            String sql = "SELECT SUM(bill_amount) FROM bill ";
+            PreparedStatement prst = con.prepareStatement(sql);
+            ResultSet rs = prst.executeQuery();
+            while (rs.next()) {
+                totalBill.setText(String.valueOf(rs.getDouble("sum(bill_amount)")));
             }
+            con.close();
+        } catch (Exception e) {
+            //JOptionPane.showMessageDialog(null, "Record Not found");
         }
+    }
 
-        private void initComboBox3() {
-            try {
-                con = DBConnection.getConnection();
-                prst = con.createStatement();
-                String sql = "select distinct catagorie from combo_field WHERE catagorie != \"\"";
+    private void initComboBox3() {
+        try {
+            con = DBConnection.getConnection();
+            prst = con.createStatement();
+            String sql = "select distinct catagorie from combo_field WHERE catagorie != \"\"";
 
-                PreparedStatement prst = con.prepareStatement(sql);
-                // prst.setInt(1, Integer.parseInt(rollField.getText()));
+            PreparedStatement prst = con.prepareStatement(sql);
+            // prst.setInt(1, Integer.parseInt(rollField.getText()));
 
-                ResultSet rs = prst.executeQuery();
-                while (rs.next()) {
-                    categorieComboBox.addItem(rs.getString("catagorie"));
-                }
-                con.close();
-            } catch (Exception e) {
-                //JOptionPane.showMessageDialog(null, "Record Not found");
+            ResultSet rs = prst.executeQuery();
+            while (rs.next()) {
+                categorieComboBox.addItem(rs.getString("catagorie"));
             }
+            con.close();
+        } catch (Exception e) {
+            //JOptionPane.showMessageDialog(null, "Record Not found");
         }
+    }
 
-        private void initComboBox2() {
-            try {
-                con = DBConnection.getConnection();
-                prst = con.createStatement();
-                String sql = "select distinct payment_by from combo_field WHERE payment_by != \"\""; // if want unique distinct value
-                //"select * from user"; //if I want All value
+    private void initComboBox2() {
+        try {
+            con = DBConnection.getConnection();
+            prst = con.createStatement();
+            String sql = "select distinct payment_by from combo_field WHERE payment_by != \"\""; // if want unique distinct value
+            //"select * from user"; //if I want All value
 
-                PreparedStatement prst = con.prepareStatement(sql);
-                // prst.setInt(1, Integer.parseInt(rollField.getText()));
+            PreparedStatement prst = con.prepareStatement(sql);
+            // prst.setInt(1, Integer.parseInt(rollField.getText()));
 
-                ResultSet rs = prst.executeQuery();
-                while (rs.next()) {
-                    paymentComboBox2.addItem(rs.getString("payment_by"));
-                }
-                con.close();
-            } catch (Exception e) {
-                //JOptionPane.showMessageDialog(null, "Record Not found");
+            ResultSet rs = prst.executeQuery();
+            while (rs.next()) {
+                paymentComboBox2.addItem(rs.getString("payment_by"));
             }
+            con.close();
+        } catch (Exception e) {
+            //JOptionPane.showMessageDialog(null, "Record Not found");
         }
+    }
 
-        //=========================== employee Combo box ===========================// 
-        private void employeeComboBox3() {
-            try {
-                con = DBConnection.getConnection();
-                prst = con.createStatement();
-                String sql = "select distinct name from assigned_finger WHERE name != \"\"";
+    //=========================== employee Combo box ===========================// 
+    private void employeeComboBox3() {
+        try {
+            con = DBConnection.getConnection();
+            prst = con.createStatement();
+            String sql = "select distinct name from assigned_finger WHERE name != \"\"";
 
-                PreparedStatement prst = con.prepareStatement(sql);
-                // prst.setInt(1, Integer.parseInt(rollField.getText()));
+            PreparedStatement prst = con.prepareStatement(sql);
+            // prst.setInt(1, Integer.parseInt(rollField.getText()));
 
-                ResultSet rs = prst.executeQuery();
-                while (rs.next()) {
-                    employeeComboBox1.addItem(rs.getString("name"));
-                }
-                con.close();
-            } catch (Exception e) {
-                //JOptionPane.showMessageDialog(null, "Record Not found");
+            ResultSet rs = prst.executeQuery();
+            while (rs.next()) {
+                employeeComboBox1.addItem(rs.getString("name"));
             }
+            con.close();
+        } catch (Exception e) {
+            //JOptionPane.showMessageDialog(null, "Record Not found");
         }
+    }
 
-        //=========================== branch Combo box ===========================// 
-        private void branchComboBox3() {
-            try {
-                con = DBConnection.getConnection();
-                prst = con.createStatement();
-                String sql = "select distinct branch from combo_field WHERE branch != \"\"";
+    //=========================== branch Combo box ===========================// 
+    private void branchComboBox3() {
+        try {
+            con = DBConnection.getConnection();
+            prst = con.createStatement();
+            String sql = "select distinct branch from combo_field WHERE branch != \"\"";
 
-                PreparedStatement prst = con.prepareStatement(sql);
-                // prst.setInt(1, Integer.parseInt(rollField.getText()));
+            PreparedStatement prst = con.prepareStatement(sql);
+            // prst.setInt(1, Integer.parseInt(rollField.getText()));
 
-                ResultSet rs = prst.executeQuery();
-                while (rs.next()) {
-                    branchComboBox2.addItem(rs.getString("branch"));
-                }
-                con.close();
-            } catch (Exception e) {
-                //JOptionPane.showMessageDialog(null, "Record Not found");
+            ResultSet rs = prst.executeQuery();
+            while (rs.next()) {
+                branchComboBox2.addItem(rs.getString("branch"));
             }
+            con.close();
+        } catch (Exception e) {
+            //JOptionPane.showMessageDialog(null, "Record Not found");
         }
+    }
 
-        //=========================== catagories Combo box ========================// 
-        private void catagoriesComboBox3() {
-            try {
-                con = DBConnection.getConnection();
-                prst = con.createStatement();
-                String sql = "select distinct catagorie from combo_field WHERE catagorie != \"\"";
+    //=========================== catagories Combo box ========================// 
+    private void catagoriesComboBox3() {
+        try {
+            con = DBConnection.getConnection();
+            prst = con.createStatement();
+            String sql = "select distinct catagorie from combo_field WHERE catagorie != \"\"";
 
-                PreparedStatement prst = con.prepareStatement(sql);
-                // prst.setInt(1, Integer.parseInt(rollField.getText()));
+            PreparedStatement prst = con.prepareStatement(sql);
+            // prst.setInt(1, Integer.parseInt(rollField.getText()));
 
-                ResultSet rs = prst.executeQuery();
-                while (rs.next()) {
-                    catagoriesComboBox3.addItem(rs.getString("catagorie"));
-                }
-                con.close();
-            } catch (Exception e) {
-                //JOptionPane.showMessageDialog(null, "Record Not found");
+            ResultSet rs = prst.executeQuery();
+            while (rs.next()) {
+                catagoriesComboBox3.addItem(rs.getString("catagorie"));
             }
+            con.close();
+        } catch (Exception e) {
+            //JOptionPane.showMessageDialog(null, "Record Not found");
         }
+    }
 
-        //=========================== paymentType Combo box ========================// 
-        private void paymentTypeComboBox3() {
-            try {
-                con = DBConnection.getConnection();
-                prst = con.createStatement();
-                String sql = "select distinct payment_by from combo_field WHERE payment_by != \"\"";
+    //=========================== paymentType Combo box ========================// 
+    private void paymentTypeComboBox3() {
+        try {
+            con = DBConnection.getConnection();
+            prst = con.createStatement();
+            String sql = "select distinct payment_by from combo_field WHERE payment_by != \"\"";
 
-                PreparedStatement prst = con.prepareStatement(sql);
-                // prst.setInt(1, Integer.parseInt(rollField.getText()));
+            PreparedStatement prst = con.prepareStatement(sql);
+            // prst.setInt(1, Integer.parseInt(rollField.getText()));
 
-                ResultSet rs = prst.executeQuery();
-                while (rs.next()) {
-                    paymentComboBox4.addItem(rs.getString("payment_by"));
-                }
-                con.close();
-            } catch (Exception e) {
-                //JOptionPane.showMessageDialog(null, "Record Not found");
+            ResultSet rs = prst.executeQuery();
+            while (rs.next()) {
+                paymentComboBox4.addItem(rs.getString("payment_by"));
             }
+            con.close();
+        } catch (Exception e) {
+            //JOptionPane.showMessageDialog(null, "Record Not found");
         }
+    }
 
-        /**
-         * @param args the command line arguments
-         */
-        public static void main(String args[]) {
-            /* Set the Nimbus look and feel */
-            //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-            /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+    
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-             */
-            try {
-                for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                    if ("Nimbus".equals(info.getName())) {
-                        javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                        break;
-                    }
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
                 }
-            } catch (ClassNotFoundException ex) {
-                java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            } catch (InstantiationException ex) {
-                java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            } catch (IllegalAccessException ex) {
-                java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-            } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-                java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             }
-            //</editor-fold>
-            //</editor-fold>
-            //</editor-fold>
-            //</editor-fold>
-
-            /* Create and display the form */
-            java.awt.EventQueue.invokeLater(new Runnable() {
-                public void run() {
-                    new Dashboard().setVisible(true);
-                }
-            });
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Dashboard.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
 
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Dashboard().setVisible(true);
+            }
+        });
+    }
 
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable CategorieTable;
     private javax.swing.JButton ClearOrderField;
     private javax.swing.JLabel EmployeeAddress;
     private javax.swing.JLabel EmployeeContact;
@@ -4763,7 +4780,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JScrollPane jScrollPane7;
     private javax.swing.JScrollPane jScrollPane8;
-    private javax.swing.JTable jTable2;
     private javax.swing.JButton logoutButton3;
     private javax.swing.JButton meatAndFish;
     private javax.swing.JButton medicalinstrument;

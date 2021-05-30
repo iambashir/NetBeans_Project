@@ -16,7 +16,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
-
+import javax.swing.JFrame;
 /**
  *
  * @author Bashir Hossain
@@ -36,6 +36,7 @@ public class Stationery extends javax.swing.JFrame {
         
         //DisplayTable();
         table_update();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//close one jframe without closing other
     }
 
     

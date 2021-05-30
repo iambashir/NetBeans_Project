@@ -14,6 +14,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Date;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 import javax.swing.table.DefaultTableModel;
@@ -23,7 +24,7 @@ import net.proteanit.sql.DbUtils;
  *
  * @author Bashir Hossain
  */
-public class FingerPrintDetails extends javax.swing.JFrame {
+public class Attendence extends javax.swing.JFrame {
     
 
     //=========== Fixed time for showing massage Dialog box ==================//
@@ -33,7 +34,7 @@ public class FingerPrintDetails extends javax.swing.JFrame {
     Statement prst; 
     
 
-public FingerPrintDetails() {
+public Attendence() {
     initComponents();
     EntryTable();
     ExitTable();
@@ -41,6 +42,7 @@ public FingerPrintDetails() {
     ExitTimeTable2();
     EntryTimeTable2();
     getContentPane().setBackground(new java.awt.Color(158, 158, 158));
+    setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//close one jframe without closing other
 }
 
 public void searchReset() {
@@ -736,7 +738,7 @@ public void searchReset() {
                 .addContainerGap()
                 .addComponent(jLayeredPane6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(entryTime, javax.swing.GroupLayout.PREFERRED_SIZE, 564, Short.MAX_VALUE)
+                .addComponent(entryTime, javax.swing.GroupLayout.DEFAULT_SIZE, 564, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -761,6 +763,7 @@ public void searchReset() {
     }//GEN-LAST:event_exitSearchActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+      dispose();
       this.setVisible(false);
       new Dashboard().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -1061,14 +1064,18 @@ public static void main(String args[]) {
             }
         }
     } catch (ClassNotFoundException ex) {
-        java.util.logging.Logger.getLogger(FingerPrintDetails.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        java.util.logging.Logger.getLogger(Attendence.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     } catch (InstantiationException ex) {
-        java.util.logging.Logger.getLogger(FingerPrintDetails.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        java.util.logging.Logger.getLogger(Attendence.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     } catch (IllegalAccessException ex) {
-        java.util.logging.Logger.getLogger(FingerPrintDetails.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        java.util.logging.Logger.getLogger(Attendence.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-        java.util.logging.Logger.getLogger(FingerPrintDetails.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        java.util.logging.Logger.getLogger(Attendence.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -1077,7 +1084,10 @@ public static void main(String args[]) {
     /* Create and display the form */
     java.awt.EventQueue.invokeLater(new Runnable() {
     public void run() {
-        new FingerPrintDetails().setVisible(true);
+        new Attendence().setVisible(true);
+        //frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+       // dispose();
     }
     });
 }

@@ -6,11 +6,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import com.shop.controller.FingerPrintDetails;
+import com.shop.controller.Attendence;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.Timer;
 
@@ -29,6 +30,9 @@ public class EntryMIniFinger extends javax.swing.JFrame {
     
     public EntryMIniFinger() {
         initComponents();
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//close one jframe without closing other
+        //import javax.swing.JFrame;
+        
     }
 
   
@@ -136,7 +140,7 @@ public class EntryMIniFinger extends javax.swing.JFrame {
     }else{
        
         String miniEntryFinger = miniFingerPrintEntry.getText();
-        FingerPrintDetails entryFinger = new FingerPrintDetails();
+        Attendence entryFinger = new Attendence();
         
        // entryFinger.setMiniFinger(miniEntryFinger);
         

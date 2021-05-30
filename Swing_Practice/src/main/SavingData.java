@@ -59,7 +59,7 @@ public class SavingData extends javax.swing.JFrame {
     }
 
     
-    //============================ SWING DEFAULT SYSTEM CODE START ========================//
+    //======================= SWING DEFAULT SYSTEM CODE START ================//
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -467,7 +467,7 @@ public class SavingData extends javax.swing.JFrame {
 
     
     
-    //=============================== INSERTING/SAVING/ADDING DATA =====================================//                    
+    //=========================== INSERTING/SAVING/ADDING DATA =============//                    
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
     
     try{

@@ -5,6 +5,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /**
@@ -19,6 +20,7 @@ public class Login extends javax.swing.JFrame {
     public Login() {
     initComponents();
     initComboBox();
+    setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//close one jframe without closing other
     }
 
 

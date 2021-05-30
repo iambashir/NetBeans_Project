@@ -1,35 +1,50 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.shop.controller;
 
 import com.shop.util.DBConnection;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Date;
+import java.util.Vector;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
+import javax.swing.table.DefaultTableModel;
 import net.proteanit.sql.DbUtils;
 
 /**
  *
  * @author Bashir Hossain
- */
+ * 
+ **/
+
 public class Supplier extends javax.swing.JFrame {
     
-
-
     Connection con;
     Statement prst; 
     
-
 public Supplier() {
     initComponents();
     getContentPane().setBackground(new java.awt.Color(158, 158, 158));
+    setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);//close one jframe without closing other
+    supplierDetails();
 }
+
+    //========= RESET METHOD CRATED TO CALL FROM ANYWHERE ==========//
+    public void resetSuplierField() {
+        sCode.setText("");
+        sName.setText("");
+        sBrand.setText("");
+        sContact.setText("");
+        sAddress.setText("");
+    }
 
 
 
@@ -48,17 +63,17 @@ public Supplier() {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField6 = new javax.swing.JTextField();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        supplierAdd = new javax.swing.JButton();
+        supplierReset = new javax.swing.JButton();
+        sName = new javax.swing.JTextField();
+        sBrand = new javax.swing.JTextField();
+        sContact = new javax.swing.JTextField();
+        sAddress = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        suplierTable = new javax.swing.JTable();
+        sCode = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -156,47 +171,50 @@ public Supplier() {
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel5.setText("Cantact :");
+        jLabel5.setText("Contact :");
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Address :");
 
-        jButton3.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jButton3.setForeground(new java.awt.Color(0, 102, 102));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/shop/img/add.png"))); // NOI18N
-        jButton3.setText("Add");
-        jButton3.setIconTextGap(5);
-
-        jButton4.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jButton4.setForeground(new java.awt.Color(0, 102, 102));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/shop/img/clear.png"))); // NOI18N
-        jButton4.setText("Reset ");
-
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        supplierAdd.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        supplierAdd.setForeground(new java.awt.Color(0, 102, 102));
+        supplierAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/shop/img/add.png"))); // NOI18N
+        supplierAdd.setText("Add");
+        supplierAdd.setIconTextGap(5);
+        supplierAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                supplierAddActionPerformed(evt);
             }
         });
 
-        jTextField4.addActionListener(new java.awt.event.ActionListener() {
+        supplierReset.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        supplierReset.setForeground(new java.awt.Color(0, 102, 102));
+        supplierReset.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/shop/img/clear.png"))); // NOI18N
+        supplierReset.setText("Reset ");
+        supplierReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField4ActionPerformed(evt);
+                supplierResetActionPerformed(evt);
             }
         });
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+        sName.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        sName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sNameActionPerformed(evt);
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        });
+
+        sBrand.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        sBrand.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sBrandActionPerformed(evt);
+            }
+        });
+
+        sContact.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+
+        sAddress.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
 
         jButton7.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jButton7.setForeground(new java.awt.Color(0, 102, 102));
@@ -208,21 +226,41 @@ public Supplier() {
         jButton8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/shop/img/delete.png"))); // NOI18N
         jButton8.setText("Delete");
 
+        suplierTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Supplier_code", "Supplier_Name", "Brand", "Contact", "Address"
+            }
+        ));
+        suplierTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                suplierTableMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(suplierTable);
+
+        sCode.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+
         jLayeredPane9.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane9.setLayer(jLabel3, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane9.setLayer(jLabel4, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane9.setLayer(jLabel5, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane9.setLayer(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane9.setLayer(jButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane9.setLayer(jButton4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane9.setLayer(jTextField2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane9.setLayer(jTextField3, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane9.setLayer(jTextField4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane9.setLayer(jTextField5, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane9.setLayer(jTextField6, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jLayeredPane9.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane9.setLayer(supplierAdd, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane9.setLayer(supplierReset, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane9.setLayer(sName, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane9.setLayer(sBrand, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane9.setLayer(sContact, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane9.setLayer(sAddress, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane9.setLayer(jButton7, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jLayeredPane9.setLayer(jButton8, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane9.setLayer(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jLayeredPane9.setLayer(sCode, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jLayeredPane9Layout = new javax.swing.GroupLayout(jLayeredPane9);
         jLayeredPane9.setLayout(jLayeredPane9Layout);
@@ -232,9 +270,9 @@ public Supplier() {
                 .addGap(18, 18, 18)
                 .addGroup(jLayeredPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jLayeredPane9Layout.createSequentialGroup()
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(supplierAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton4)
+                        .addComponent(supplierReset)
                         .addGap(8, 8, 8)
                         .addComponent(jButton7)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -248,53 +286,53 @@ public Supplier() {
                             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(80, 80, 80)
                         .addGroup(jLayeredPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField4)
-                            .addComponent(jTextField5)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 521, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(sName)
+                            .addComponent(sBrand)
+                            .addComponent(sContact)
+                            .addComponent(sAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+                            .addComponent(sCode))))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jLayeredPane9Layout.setVerticalGroup(
             jLayeredPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jLayeredPane9Layout.createSequentialGroup()
-                .addGap(40, 40, 40)
+                .addGap(44, 44, 44)
                 .addGroup(jLayeredPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14)
+                    .addComponent(sCode, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
                 .addGroup(jLayeredPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(sName, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
                 .addGroup(jLayeredPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(sBrand, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14)
                 .addGroup(jLayeredPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(sContact, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGroup(jLayeredPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jLayeredPane9Layout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addComponent(jLabel6))
                     .addGroup(jLayeredPane9Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(sAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jLayeredPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton3)
-                        .addComponent(jButton4))
+                        .addComponent(supplierAdd)
+                        .addComponent(supplierReset))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jLayeredPane9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jButton7)))
                 .addGap(16, 16, 16))
             .addGroup(jLayeredPane9Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -330,13 +368,90 @@ public Supplier() {
       new Dashboard().setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void sNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sNameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
+    }//GEN-LAST:event_sNameActionPerformed
 
-    private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
+    private void sBrandActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sBrandActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField4ActionPerformed
+    }//GEN-LAST:event_sBrandActionPerformed
+  
+    
+    //======================== Showing Data to table =========================//
+     private void supplierDetails() {
+        int c;
+        try {
+            con = DBConnection.getConnection();
+             prst = con.createStatement();
+            String sql = "select * from supplier";
+            
+            PreparedStatement prst = con.prepareStatement(sql);
+            ResultSet rs = prst.executeQuery();
+            ResultSetMetaData Rss = rs.getMetaData();
+            c = Rss.getColumnCount();
+            DefaultTableModel dr = (DefaultTableModel) suplierTable.getModel();
+            dr.setRowCount(0);
+            while (rs.next()) {
+                Vector v2 = new Vector();
+                for (int a = 1; a <= c; a++) {
+                    v2.add(rs.getString("supplier_code"));
+                    v2.add(rs.getString("supplier_name"));
+                    v2.add(rs.getString("brand"));
+                    v2.add(rs.getString("contact"));
+                    v2.add(rs.getString("address"));
+                    
+                }
+                dr.addRow(v2);
+            }
+
+        } catch (SQLException ex) {
+           // Logger.getLogger(StudentRegistrationForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+     
+    //=================== Save Data to Supplier table ========================//
+    private void supplierAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supplierAddActionPerformed
+    try {
+            con = DBConnection.getConnection();
+            prst = con.createStatement();
+
+            //========= ADD/INSERT/SAVE DATA ==============//
+            String sql = "insert into supplier (supplier_code, supplier_name, brand, contact, address) values (?,?,?,?,?)";
+            PreparedStatement prst = con.prepareStatement(sql);
+
+            prst.setString(1, sCode.getText());
+            prst.setString(2, sName.getText());
+            prst.setString(3, sBrand.getText());
+            prst.setString(4, sContact.getText());
+            prst.setString(5, sAddress.getText());
+
+            prst.executeUpdate();
+            supplierDetails();
+            
+            JOptionPane.showMessageDialog(null, "Saved successfully");
+            con.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Invalid Input Value");
+        }
+    }//GEN-LAST:event_supplierAddActionPerformed
+
+    
+    private void supplierResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_supplierResetActionPerformed
+    resetSuplierField();
+    }//GEN-LAST:event_supplierResetActionPerformed
+
+    
+    private void suplierTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_suplierTableMouseClicked
+    DefaultTableModel dr = (DefaultTableModel) suplierTable.getModel();
+    int sindex = suplierTable.getSelectedRow();
+
+    sCode.setText((String) dr.getValueAt(sindex, 1));
+    sName.setText((String) dr.getValueAt(sindex, 2));
+    sBrand.setText((String) dr.getValueAt(sindex, 3));
+    sContact.setText((String) dr.getValueAt(sindex, 4));
+    sAddress.setText((String) dr.getValueAt(sindex, 5));
+    }//GEN-LAST:event_suplierTableMouseClicked
 
 /**
  * @param args the command line arguments
@@ -364,21 +479,6 @@ public static void main(String args[]) {
         java.util.logging.Logger.getLogger(Supplier.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
     }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
 
     /* Create and display the form */
     java.awt.EventQueue.invokeLater(new Runnable() {
@@ -391,8 +491,6 @@ public static void main(String args[]) {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
@@ -404,13 +502,15 @@ public static void main(String args[]) {
     private javax.swing.JLayeredPane jLayeredPane5;
     private javax.swing.JLayeredPane jLayeredPane6;
     private javax.swing.JLayeredPane jLayeredPane9;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextField sAddress;
+    private javax.swing.JTextField sBrand;
+    private javax.swing.JTextField sCode;
+    private javax.swing.JTextField sContact;
+    private javax.swing.JTextField sName;
+    private javax.swing.JTable suplierTable;
+    private javax.swing.JButton supplierAdd;
+    private javax.swing.JButton supplierReset;
     // End of variables declaration//GEN-END:variables
 
     void setfId(String fingerId) {
